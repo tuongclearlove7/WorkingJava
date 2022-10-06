@@ -3,3 +3,18 @@ public class hackfacebook {
         System.out.print("co cai nit nha' . Khong lam ma doi co an a` an db an c*t nha'");
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
