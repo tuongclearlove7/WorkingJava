@@ -12,13 +12,19 @@ class MyClass1{
     public int id;
     public boolean check = true;
     public char character;
-    void Me(String about) {
-        Myabout = about;
-        System.out.println(Myabout);
+    public String Myfuc;
+
+    void func(String function){
+        Myfuc = function;
+        System.out.println(Myfuc);
     }
 }
 
 class MyClass2 extends MyClass1 {
+    void Me(String about) {
+        Myabout = about;
+        System.out.println(Myabout);
+    }
     void Mycrush(String crush) {
         Mycrush = crush;
         System.out.println(Mycrush);
@@ -83,18 +89,19 @@ public class Structure_Inheritance extends MyClass1{
 
     public static void main(String[] args) {
         //Inheritance
-        MyClass1 class_stance = new MyClass1();
+        MyClass1 class_stance1 = new MyClass1();
         MyClass2 class_stance2 = new MyClass2();
         MyClass1 MyObj = new MyClass1();
 
-        class_stance.Me("I love Thao");//chi duoc truyen vao 1 tham so function("");
+        class_stance1.func("function is : " + MyObj.Myfuc);//su dung func trong MyClass1 class_stance1
+        class_stance2.Me("I love Thao");//chi duoc truyen vao 1 tham so function("");
         class_stance2.Me("function me ke thua tu MyClass2 ");
         class_stance2.Mycrush("My crush is Thao");
 
-        System.out.println("name String type "+MyObj.name);//data type in class
-        System.out.println("id int type "+MyObj.id);
-        System.out.println("check boolean type "+MyObj.check);
-        System.out.println("character char type "+MyObj.character);
+        System.out.println("name String type : "+MyObj.name);//data type in class
+        System.out.println("id int type : "+MyObj.id);
+        System.out.println("check boolean type : "+MyObj.check);
+        System.out.println("character char type : "+MyObj.character);
         //methods
         Structure_Inheritance account = new Structure_Inheritance("1","Tuong",0);
         System.out.println("Id is "+account.getId());
