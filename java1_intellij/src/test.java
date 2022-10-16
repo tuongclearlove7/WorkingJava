@@ -1,20 +1,12 @@
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.text.DecimalFormat;
-
+import java.io.File;
+import java.io.IOException;
+import java.io.File;
 public class test {
-    public static void main(String[] args) {
 
-        inheritance porsche =  new inheritance();
-        inheritance holden = new inheritance();
-
-        porsche.setmodel("tuong");
-        System.out.println("model is : " + porsche.getModel());
-
-        holden.setmodel("dat");
-        System.out.println("model is : " + holden.getModel());
-    }
 }
-
 
 
 

@@ -45,7 +45,7 @@ public class ranNum_Arr {
 
         int n = 1000;
         int[] list = new int[n];
-        
+
         HandleArray(list);
 
     }
