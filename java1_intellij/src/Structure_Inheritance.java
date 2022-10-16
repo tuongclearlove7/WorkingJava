@@ -5,23 +5,27 @@ import java.io.File;
 import java.io.IOException;
 import java.io.File;
 
-class MyClass1 {
+class MyClass1{
     public String name;
+    public String Myabout;
+    public String Mycrush;
     public int id;
     public boolean check = true;
     public char character;
     void Me(String about) {
-        System.out.println(about);
+        Myabout = about;
+        System.out.println(Myabout);
     }
 }
 
 class MyClass2 extends MyClass1 {
     void Mycrush(String crush) {
-        System.out.println(crush);
+        Mycrush = crush;
+        System.out.println(Mycrush);
     }
 }
 
-public class Structure_Inheritance {
+public class Structure_Inheritance extends MyClass1{
 
     private String id;
     private String name;
@@ -91,7 +95,6 @@ public class Structure_Inheritance {
         System.out.println("id int type "+MyObj.id);
         System.out.println("check boolean type "+MyObj.check);
         System.out.println("character char type "+MyObj.character);
-
         //methods
         Structure_Inheritance account = new Structure_Inheritance("1","Tuong",0);
         System.out.println("Id is "+account.getId());
