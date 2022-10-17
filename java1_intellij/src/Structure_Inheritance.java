@@ -93,7 +93,7 @@ public class Structure_Inheritance extends MyClass1{
         MyClass2 class_stance2 = new MyClass2();
         MyClass1 MyObj = new MyClass1();
 
-        class_stance1.func("function is : " + MyObj.Myfuc);//su dung func trong MyClass1 class_stance1
+        class_stance1.func("function is : " + MyObj.Myfuc);//su dung ham func trong MyClass1 class_stance1
         class_stance2.Me("I love Thao");//chi duoc truyen vao 1 tham so function("");
         class_stance2.Me("function me ke thua tu MyClass2 ");
         class_stance2.Mycrush("My crush is Thao");
