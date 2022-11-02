@@ -6,14 +6,13 @@ public class student {
     public static Scanner input = new Scanner(System.in);
     public static void HandleArray(char[][] character, int student, int RowKey) {
 
-        /*
-        for (int i = 0; i < student; i++) {
-            for (int j = 0; j < RowKey; j++) {
-                       System.out.print("nhap dap an cot [" + i + "][" + j + "]= ");
-                       character[i][j] = input.next().charAt(0);
-            }
-        }
-        */
+        //for (int i = 0; i < student; i++) {
+          //  for (int j = 0; j < RowKey; j++) {
+                       // System.out.print("nhap dap an cot [" + i + "][" + j + "]= ");
+                        //character[i][j] = input.next().charAt(0);
+
+         //   }
+       // }
         System.out.print("De : ");
         for (int i = 0; i < student; i++) {
             for (int j = 0; j < RowKey; j++) {

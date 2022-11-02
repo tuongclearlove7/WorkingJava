@@ -13,6 +13,7 @@ class MyClass1{
     public boolean check = true;
     public char character;
     public String Myfuc;
+    public float Ft;
 
     void func(String function){
         Myfuc = function;
@@ -100,6 +101,7 @@ public class Structure_Inheritance extends MyClass1{
 
         System.out.println("name String type : "+MyObj.name);//data type in class
         System.out.println("id int type : "+MyObj.id);
+        System.out.println("Ft Float type : "+MyObj.Ft);
         System.out.println("check boolean type : "+MyObj.check);
         System.out.println("character char type : "+MyObj.character);
         //methods

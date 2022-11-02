@@ -7,26 +7,33 @@ public class construct extends demo{
     demo b = new demo();
     String assign;
 
-        Scanner input = new Scanner(System.in);
-        void Input(){
-            System.out.print("Nhap diem A : ");
-            a.nhapToaDo(input);
-            System.out.print("Nhap diem B : ");
-            b.nhapToaDo(input);
+    Scanner input = new Scanner(System.in);
+    void Input(){
+        System.out.print("Nhap diem A : ");
+        a.nhapToaDo(input);
+        System.out.print("Nhap diem B : ");
+        b.nhapToaDo(input);
 
-        }
+    }
 
-        void Output(){
+    void Output(){
 
-            assign = a.toString();
-            System.out.println("Modul diem A = " + assign);
-            assign = b.toString();
-            System.out.println("Modul diem B = " + assign);
-        }
+        assign = a.toString();
+        System.out.println("Modul diem A = " + assign);
+        assign = b.toString();
+        System.out.println("Modul diem B = " + assign);
+    }
 
-        public static void main(String[] args) {
-            construct x = new construct();
-            x.Input();
-            x.Output();
-        }
+    public static void main(String[] args) {
+        construct x = new construct();
+        x.Input();
+        x.Output();
+    }
 }
+
+
+
+
+
+
+
