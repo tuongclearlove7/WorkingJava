@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class StudentOfScore {
+public class 2_StudentOfScore {
     public static Scanner input = new Scanner(System.in);
     public static void InputScore(int ThreeArray[][][], int student, int exam, int part) {
 

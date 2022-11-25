@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.text.DecimalFormat;
 import java.lang.Math;
-public class student {
+public class 1_student {
 
     public static Scanner input = new Scanner(System.in);
     public static void HandleArray(char[][] character, int student, int RowKey) {

@@ -22,19 +22,28 @@ public class ranNum_Arr {
 
         System.out.println("so ngau nhien nhap vao : ");
         for (int i = 1; i < n;i++ ) {
+
             arr[i] = InputRanNum(n);
+
             System.out.print(arr[i] + " ");
+
             total = total + arr[i];
+
             Outline++;
             count++;
             medium =  total / count;
+
             if (Outline == 10) {
+
                 System.out.print("\n");
                 Outline = 0;
+
             } else if (medium < arr[i]) {
+
                 great++;
             }
         }
+
         System.out.println("trung binh cong la : " + medium);
         System.out.println("Co " + great + " so ngau nhien lon hon so trung binh "+ medium);
 

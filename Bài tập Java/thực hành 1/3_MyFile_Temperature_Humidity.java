@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.File;
 
-public class MyFile_Temperature_Humidity {
+public class 3_MyFile_Temperature_Humidity {
         public static final int ZeroPlayer = 0;
         public static final int One_Hundred = 100;
         public static Scanner input = new Scanner(System.in);
@@ -61,7 +61,7 @@ public class MyFile_Temperature_Humidity {
         public static void main(String[] args) {
 
             try {
-                File file = new File("C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\java1_intellij\\src\\path\\test.txt");
+                File file = new File("C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\Bài tập Java\\thực hành 1\\path\\test.txt");
                 Scanner R_File = new Scanner(file);
                 float[] FloatArray = new float[One_Hundred];
                 float[] day = new float[One_Hundred];

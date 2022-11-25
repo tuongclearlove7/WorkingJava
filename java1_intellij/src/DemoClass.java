@@ -13,6 +13,8 @@ public class DemoClass {
         int n = Myclass.NFuction(5);
         int arr[] = new int[]{ 10, 2, 8, 4, 5 };
         //Myclass.InFuction(arr,n);
+
+        
         Myclass.OutFuction(arr,n);
         Myclass.SortFunction(arr,n);
     }

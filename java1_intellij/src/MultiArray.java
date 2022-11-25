@@ -4,7 +4,7 @@ import java.lang.Math;
 
 
 public class MultiArray {
-
+    public static Scanner input = new Scanner(System.in);
     public static void LengArray(){
         int[][] array1 = {
                 {1, 2, 3},
@@ -20,7 +20,6 @@ public class MultiArray {
 
     public static void InputMArray(int array2[][],int n) {
 
-        Scanner input = new Scanner(System.in);
         for (int i = 0; i < n; i++){
             for (int j = 0; j < n; j++){
                 System.out.print("nhap phan tu trong mang 2 chieu : ");

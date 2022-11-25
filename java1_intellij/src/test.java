@@ -7,12 +7,14 @@ import java.io.IOException;
 import java.io.File;
 import java.lang.Math;
 public class test {
-    public static Scanner input = new Scanner(System.in);
-    public static void main(String[] args) {
-        structure1 struct = new structure1(1111,2002,16,1);
-        BIRTHDATE date = struct.birthdate();
-        System.out.print(date);
+    public static int MyInputRanNum(int n){
 
+        int ranInt = (int) (Math.random() * n);
+
+        return ranInt;
+    }
+
+    public static void main(String[] args) {
     }
 }
 

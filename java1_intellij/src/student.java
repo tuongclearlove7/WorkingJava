@@ -14,26 +14,26 @@ public class student {
             }
         }
         */
-        System.out.print("De : ");
+        int c = 0;
         for (int i = 0; i < student; i++) {
+            c++;
+            System.out.print("\ndap an cua hoc sinh "+ c +" : ");
             for (int j = 0; j < RowKey; j++) {
                 System.out.print(character[i][j] + " ");
             }
         }
     }
-    public static void OputArray(char[][] array, int student, int RowKey) {
-        System.out.print("\ndap an cua hoc sinh : ");
-        for (int i = 0; i < student; i++) {
-            for (int j = 0; j < RowKey; j++) {
-                System.out.print(array[i][j] + " ");
-            }
-        }
-    }
+
     public static int CheckResult(char[][] character, int student, int RowKey) {
 
         char[] key = { 'D', 'B', 'D', 'C', 'C', 'D', 'A', 'E', 'A', 'D'};
         int n = key.length;
         int result = 0, score = 0;
+
+        System.out.print("\ndap an : ");
+        for(int i = 0; i< student; i++){
+            System.out.print(key[i]+" ");
+        }
 
         for (int i = 0; i < student; i++) {
             for (int j = 0; j < RowKey; j++) {
@@ -43,17 +43,25 @@ public class student {
             }
             score++;
         }
-        System.out.println("\nhoc sinh " + score + " dung " + result + " dap an " + result + " diem");
+        System.out.println("\n" + score+" hoc sinh " + "dung " + result + " dap an " + result + " diem");
         return  0;
     }
 
     public static void main(String[] args) {
 
-        char[][] array = {{ 'D', 'B', 'D', 'C', 'C', 'D', 'A', 'E', 'A', 'D'}};
-        int student = 1;
+        char[][] array = {
+                { 'A', 'B', 'A', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                { 'D', 'B', 'A', 'B', 'C', 'A', 'E', 'E', 'A', 'D'},
+                {'E', 'D', 'D', 'A', 'C', 'B', 'E', 'E', 'A', 'D'},
+                {'C', 'B', 'A', 'E', 'D', 'C', 'E', 'E', 'A', 'D'},
+                {'A', 'B', 'D', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                {'B', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                {'B', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                {'E', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'}
+        };
+        int student = 8;
         int RowKey = 10;
         HandleArray(array, student, RowKey);
-        OputArray(array, student, RowKey);
         CheckResult(array, student, RowKey);
     }
 }
