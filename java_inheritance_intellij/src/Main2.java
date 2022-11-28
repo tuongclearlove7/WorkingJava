@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 /**?
- array list
- co thể hoán đổi cac phần tử trong mảng
+ array list có thể hoán đổi các phần tử trong mảng
  * */
 
 class ARRAY_LIST{
@@ -51,6 +50,23 @@ class ARRAY_LIST2 extends ARRAY_LIST{
         System.out.print("\n"+xnum + " xuat hien "+ count);
 
     }
+
+    int Algorithm_CountCharacterNumbers(int arr[][],int xnum){
+
+        int count = 0;
+
+        System.out.print("\n" + xnum);
+
+        while (xnum != 0) {
+
+            xnum = xnum / 10;
+            count++;
+        }
+
+        System.out.print(" co " + count + " chu so");
+
+        return count;
+    }
 }
 
 public class Main2 {
@@ -58,6 +74,7 @@ public class Main2 {
     public static void main(String args[]){
 
         ARRAY_LIST arr0 = new ARRAY_LIST();
+        ARRAY_LIST2 arr1 = new ARRAY_LIST2();
         ARRAY_LIST arr2 = new ARRAY_LIST2();// array list 2 kế thừa array list 1
 
         ARRAY_LIST2 arr3 = new ARRAY_LIST2();
@@ -67,14 +84,15 @@ public class Main2 {
 
         int matrix[][] = {
 
-                {2, 2, 2, 2, 2},
-                {3, 1, 1, 1, 3},
-                {3, 1, 1, 1, 3},
-                {3, 1, 1, 1, 3},
-                {4, 4, 4, 4, 4},
+                {22222, 2222, 222, 22, 2},
+                {33333, 1, 1, 1, 3},
+                {33333, 1, 1, 1, 3},
+                {33333, 1, 1, 1, 3},
+                {44444, 4, 4, 4, 4},
         };
 
         arr3.Algorithm_CountAppearNumbers(matrix, 1);
+        arr3.Algorithm_CountCharacterNumbers(matrix, matrix[0][0]);
 
 
     }
