@@ -8,17 +8,25 @@ public class student {
 
         /*
         for (int i = 0; i < student; i++) {
+
             for (int j = 0; j < RowKey; j++) {
+
                        System.out.print("nhap dap an cot [" + i + "][" + j + "]= ");
+
                        character[i][j] = input.next().charAt(0);
             }
         }
         */
         int c = 0;
+
         for (int i = 0; i < student; i++) {
+
             c++;
+
             System.out.print("\ndap an cua hoc sinh "+ c +" : ");
+
             for (int j = 0; j < RowKey; j++) {
+
                 System.out.print(character[i][j] + " ");
             }
         }
@@ -31,18 +39,26 @@ public class student {
         int result = 0, score = 0;
 
         System.out.print("\ndap an : ");
+
         for(int i = 0; i< student; i++){
+
             System.out.print(key[i]+" ");
         }
 
+
         for (int i = 0; i < student; i++) {
+
             for (int j = 0; j < RowKey; j++) {
+
                 if (character[i][j] == key[j]) {
+
                     result++;
                 }
             }
+
             score++;
         }
+
         System.out.println("\n" + score+" hoc sinh " + "dung " + result + " dap an " + result + " diem");
         return  0;
     }
@@ -59,9 +75,12 @@ public class student {
                 {'B', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
                 {'E', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'}
         };
+
         int student = 8;
         int RowKey = 10;
+
         HandleArray(array, student, RowKey);
+
         CheckResult(array, student, RowKey);
     }
 }

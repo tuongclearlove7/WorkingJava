@@ -5,21 +5,30 @@ public class SuperPrimeNumber_7 {
 
     public static boolean CheckPrimeNumber(int n) {
         if (n < 2) {
+
             return false;
         }
+
         int squareRoot = (int) Math.sqrt(n);
+
         for (int i = 2; i <= squareRoot; i++) {
+
             if (n % i == 0) {
+
                 return false;
             }
         }
+
         return true;
     }
 
     public static void SuperPrimeNumber(int n){
         int count = 0;
+
         if (n > 0 || n < 10) {
+
             switch (n) {
+
                 case 1:
 
                     for (int i = 1; i < 10; i++) {

@@ -29,15 +29,15 @@ class ARRAY_LIST2 extends ARRAY_LIST{
 
             for (int j = 0; j < arr.length; j++){
 
-                System.out.print(arr[i][j]);
+               // System.out.print(arr[i][j]);
 
-                line++;
+                /*line++;
 
                 if( arr[i][j] == xnum){
 
                     System.out.print("\t");
                     line = 0;
-                }
+                }*/
 
                 if(arr[i][j] == xnum){
 
@@ -91,7 +91,16 @@ public class Main2 {
                 {44444, 4, 4, 4, 4},
         };
 
-        arr3.Algorithm_CountAppearNumbers(matrix, 1);
+        for (int i = 0; i < matrix.length; i++){
+
+            for (int j = 0; j < matrix.length; j++){
+
+                    arr3.Algorithm_CountAppearNumbers(matrix, matrix[i][j]);
+
+            }
+
+        }
+
         arr3.Algorithm_CountCharacterNumbers(matrix, matrix[0][0]);
 
 

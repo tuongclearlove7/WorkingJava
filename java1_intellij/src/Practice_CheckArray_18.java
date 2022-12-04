@@ -102,12 +102,9 @@ public class Practice_CheckArray_18 {
 
         Count_TwoElement(arr);
 
-        Count_AppearElement(arr,1);
-        Count_AppearElement(arr,2);
-        Count_AppearElement(arr,3);
-        Count_AppearElement(arr,4);
-        Count_AppearElement(arr,6);
-        Count_AppearElement(arr,5);
+        for (int  i = 0; i < args.length ; i++){
 
+            Count_AppearElement(arr,arr[i]);
+        }
     }
 }
