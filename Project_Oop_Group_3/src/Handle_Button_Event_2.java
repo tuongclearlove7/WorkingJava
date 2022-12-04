@@ -28,51 +28,37 @@ class Handle_Button_Event_2 implements ActionListener, METHOD2{
             humidity[d] = FloatArray[d];
         }
 
-        //System.out.println("Ngay\tGio\t\tNhietdo\t\tDoAm");
-
         for (int i = 1; i < n; i = i + 4) {
 
             int time = i + 1;
             int temp = time + 1;
             int h = temp + 1;
 
-           // System.out.println((int) day[i] + "\t\t" + (int) hour[time] + "\t\t" + temperature[temp] + "\t\t" + humidity[h]);
         }
 
-        return 0;
-    }
+        float sum1 = GUI.ZeroPlayer;
+        float medium1;
+        int count1 = 0;
+        int count2 = 0;
 
+        for (int idx1 = 3; idx1 < n; idx1 = idx1 + 4) {
 
-    public int medium_temperature(float[] temperature, int n, int count) {
+            sum1 = sum1 + temperature[idx1];
+            count1++;
+        }
+        float sum2 = GUI.ZeroPlayer;
+        float medium2;
 
-        float sum = GUI.ZeroPlayer;
-        float medium;
+        for (int idx2 = 4; idx2 < n; idx2 = idx2 + 4) {
 
-        for (int i = 3; i < n; i = i + 4) {
-
-            sum = sum + temperature[i];
-            count++;
+            sum2 = sum2 + humidity[idx2];
+            count2++;
         }
 
-        medium = sum / count;
-        GUI.RESULT.setText("Nhiet Do trung binh la : " + medium);
+        medium1 = sum1 / count1;
+        medium2 = sum2 / count2;
+        GUI.RESULT.setText("Nhiet Do trung binh la : " + medium1 + "\n" + "Do am trung binh la :"  + medium2);
 
-        return 0;
-    }
-
-    public  int medium_humidity(float[] humidity, int n, int count) {
-
-        float sum = GUI.ZeroPlayer;
-        float medium;
-
-        for (int i = 4; i < n; i = i + 4) {
-
-            sum = sum + humidity[i];
-            count++;
-        }
-
-        medium = sum / count;
-        GUI.RESULT.setText("\nDo am trung binh la : " + medium);
 
         return 0;
     }
@@ -102,8 +88,8 @@ class Handle_Button_Event_2 implements ActionListener, METHOD2{
             }
 
             F_Array(FloatArray, day, n, hour, temperature, humidity);
-            medium_temperature(temperature, n, count);
-            medium_humidity(humidity, n, count);
+            //medium_temperature(temperature, n, count);
+           // medium_humidity(humidity, n, count);
 
         }
         catch (FileNotFoundException e) {

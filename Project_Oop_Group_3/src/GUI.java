@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.io.*;
 import javax.swing.JTextField;
 
-public class GUI extends Handle_Button_Event_1 {
+public class GUI {
 
     static final int ZeroPlayer = 0;
 
@@ -18,7 +18,11 @@ public class GUI extends Handle_Button_Event_1 {
     public static JLabel LABEL_ROW = new JLabel();
     public static JLabel LABEL_STUDENT = new JLabel();
 
-    public static Label RESULT = new Label();
+    public static JLabel LABEL_OUTPUT = new JLabel();
+
+    public static JTextField RESULT = new JTextField();
+
+
 
     public static Scanner input = new Scanner(System.in);
 

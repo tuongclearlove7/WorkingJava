@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -41,13 +42,6 @@ class Handle_Button_Event_1 implements ActionListener, METHOD {
         int n = key.length;
         int result = 0, score = 0;
 
-        GUI.RESULT.setText("\ndap an : ");
-
-        for (int i = 0; i < student; i++) {
-
-            GUI.RESULT.setText(key[i] + " ");
-        }
-
 
         for (int i = 0; i < student; i++) {
 
@@ -62,7 +56,17 @@ class Handle_Button_Event_1 implements ActionListener, METHOD {
             score++;
         }
 
-        GUI.RESULT.setText("\n" + score + " hoc sinh " + "dung " + result + " dap an " + result + " diem");
+        for (int i = 0; i < student; i++) {
+
+            GUI.RESULT.setText("Dap an : " + Arrays.toString(key)
+            + "\n" + score + " hoc sinh " + "dung " + result + " dap an " + result + " diem");
+        }
+
+        if(student == 0 || RowKey == 0){
+
+            GUI.RESULT.setText("vui long nhap vao textfield student so nguyen > 0 !");
+            System.out.print("\nvui long nhap vao textfield student so nguyen > 0 !");
+        }
 
         return 0;
     }
@@ -71,6 +75,7 @@ class Handle_Button_Event_1 implements ActionListener, METHOD {
     public void actionPerformed(ActionEvent e) {
 
         char[][] array = {
+
                 {'A', 'B', 'A', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
                 {'D', 'B', 'A', 'B', 'C', 'A', 'E', 'E', 'A', 'D'},
                 {'E', 'D', 'D', 'A', 'C', 'B', 'E', 'E', 'A', 'D'},
@@ -85,9 +90,24 @@ class Handle_Button_Event_1 implements ActionListener, METHOD {
 
         int row = (int) GUI.USER_INPUT_ROW.getValue();
 
+        try {
 
-        HandleArray(array, student, row);
+            HandleArray(array, student, row);
+            CheckResult(array, student, row);
 
-        CheckResult(array, student, row);
+        }
+
+        catch (Exception ERROR){
+
+            if (student > 8){
+
+                GUI.RESULT.setText("sai roi ban phai nhap vao fieldtext student so nguyen be hon < 9");
+            }
+
+            else if(row > 10){
+
+                GUI.RESULT.setText("sai roi ban phai nhap vao fieldtext row so nguyen be hon < 11");
+            }
+        }
     }
 }
