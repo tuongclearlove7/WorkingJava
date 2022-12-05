@@ -3,20 +3,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.security.Security;
 import java.util.Arrays;
 import java.util.Scanner;
 
 
 interface METHOD{
 
-    int HandleArray(char[][] character, int student, int RowKey);
-    int CheckResult(char[][] character, int student, int RowKey);
-
 }
-class Handle_Button_Event_1 implements ActionListener, METHOD {
+class Handle_Button_Event_1  implements ActionListener, METHOD {
 
-    @Override
-    public int HandleArray(char[][] character, int student, int RowKey) {
+    private int HandleArray(char[][] character, int student, int RowKey) {
 
         int c = 0;
 
@@ -28,15 +25,14 @@ class Handle_Button_Event_1 implements ActionListener, METHOD {
 
             for (int j = 0; j < RowKey; j++) {
 
-                GUI.RESULT.setText(character[i][j] + " ");
+                GUI.RESULT.setText("Dap an cua hoc sinh\n"+Arrays.toString(character));
             }
         }
 
         return 0;
     }
 
-    @Override
-    public int CheckResult(char[][] character, int student, int RowKey) {
+    private int CheckResult(char[][] character, int student, int RowKey) {
 
         char[] key = {'D', 'B', 'D', 'C', 'C', 'D', 'A', 'E', 'A', 'D'};
         int n = key.length;
@@ -62,7 +58,7 @@ class Handle_Button_Event_1 implements ActionListener, METHOD {
             + "\n" + score + " hoc sinh " + "dung " + result + " dap an " + result + " diem");
         }
 
-        if(student == 0 || RowKey == 0){
+        if ( student == 0 || RowKey == 0){
 
             GUI.RESULT.setText("vui long nhap vao textfield student so nguyen > 0 !");
             System.out.print("\nvui long nhap vao textfield student so nguyen > 0 !");
@@ -109,5 +105,13 @@ class Handle_Button_Event_1 implements ActionListener, METHOD {
                 GUI.RESULT.setText("sai roi ban phai nhap vao fieldtext row so nguyen be hon < 11");
             }
         }
+    }
+
+    public static void main(String args []){
+
+        Handle_Button_EventClean security = new Handle_Button_EventClean();
+       // security.Security();
+        //security.NoSecurity();
+         security.CleanFunc();
     }
 }

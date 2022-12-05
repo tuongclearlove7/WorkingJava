@@ -12,8 +12,21 @@ public class Handle_Button_Event_4 implements ActionListener,METHOD4 {
     @Override
     public void actionPerformed(ActionEvent event) {
 
-        i++;
-        GUI.RESULT.setText(i + " Event 4\n");
+        int n = (int) GUI.USER_INPUT_PRIME.getValue();
+        SuperPrimeNumber(n);
+
+    }
+
+    private static boolean CheckPrimeNumber(int n) {
+
+        GUI.RESULT.setText(""+ n);
+
+        return true;
+    }
+
+    private static void SuperPrimeNumber(int n) {
+
+        CheckPrimeNumber(n);
 
     }
 }

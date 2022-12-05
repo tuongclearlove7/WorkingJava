@@ -9,7 +9,9 @@ interface METHOD2{
 }
 class Handle_Button_Event_2 implements ActionListener, METHOD2{
 
-    public int F_Array(float[] FloatArray, float[] day, int n, float[] hour, float[] temperature, float[] humidity) {
+    GUI CONST = new GUI();
+
+    private int Weather(float[] FloatArray, float[] day, int n, float[] hour, float[] temperature, float[] humidity) {
 
         for (int a = 1; a <= n; a = a + 4) {
 
@@ -36,8 +38,10 @@ class Handle_Button_Event_2 implements ActionListener, METHOD2{
 
         }
 
-        float sum1 = GUI.ZeroPlayer;
+        float sum1 = CONST.ZeroPlayer;
         float medium1;
+        float sum2 = CONST.ZeroPlayer;
+        float medium2;
         int count1 = 0;
         int count2 = 0;
 
@@ -46,8 +50,6 @@ class Handle_Button_Event_2 implements ActionListener, METHOD2{
             sum1 = sum1 + temperature[idx1];
             count1++;
         }
-        float sum2 = GUI.ZeroPlayer;
-        float medium2;
 
         for (int idx2 = 4; idx2 < n; idx2 = idx2 + 4) {
 
@@ -59,7 +61,6 @@ class Handle_Button_Event_2 implements ActionListener, METHOD2{
         medium2 = sum2 / count2;
         GUI.RESULT.setText("Nhiet Do trung binh la : " + medium1 + "\n" + "Do am trung binh la :"  + medium2);
 
-
         return 0;
     }
 
@@ -68,7 +69,7 @@ class Handle_Button_Event_2 implements ActionListener, METHOD2{
 
         try {
 
-            File file = new File("C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\java1_intellij\\src\\path\\test.txt");
+            File file = new File("C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\Project_Oop_Group_3\\src\\File_Text\\weather.txt");
             Scanner R_File = new Scanner(file);
 
             float[] FloatArray = new float[100];
@@ -87,9 +88,7 @@ class Handle_Button_Event_2 implements ActionListener, METHOD2{
                 n++;
             }
 
-            F_Array(FloatArray, day, n, hour, temperature, humidity);
-            //medium_temperature(temperature, n, count);
-           // medium_humidity(humidity, n, count);
+            Weather(FloatArray, day, n, hour, temperature, humidity);
 
         }
         catch (FileNotFoundException e) {
