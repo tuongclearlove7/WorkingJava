@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyVetoException;
 import java.util.Scanner;
 import java.text.DecimalFormat;
 import java.lang.Math;
@@ -8,12 +9,16 @@ import javax.swing.*;
 import java.io.*;
 import javax.swing.JTextField;
 
-public class GUI {
+public class GUI extends JFrame{
 
     static final int ZeroPlayer = 0;
 
     private static final int One_Hundred = 100;
+
+    public static String PATH = "C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\Project_Oop_Group_3\\src\\File_Text\\test.txt";
+
     public static JFormattedTextField USER_INPUT_ROW =  new JFormattedTextField();
+
     public static JFormattedTextField USER_INPUT_STUDENT =  new JFormattedTextField();
 
     public static JFormattedTextField USER_INPUT_PRIME =  new JFormattedTextField();
@@ -23,104 +28,62 @@ public class GUI {
     public static JTextField USER_INPUT_PRACTICE14 = new JTextField();
 
     public static JTextField USER_INPUT_PRACTICE15 = new JTextField();
-    public static JLabel LABEL_ROW = new JLabel();
+
+    public static JLabel LABEL_COLUMN = new JLabel();
+
     public static JLabel LABEL_STUDENT = new JLabel();
 
-    public static JLabel LABEL_OUTPUT = new JLabel();
+    public static JLabel LABEL_INPUT = new JLabel();
 
     public static JLabel LABEL_TEXT_GRUOP = new JLabel();
 
     public static JTextField RESULT = new JTextField();
 
+    public static JLabel LABEL_OUTPUT = new JLabel();
 
 
     public static Scanner input = new Scanner(System.in);
 
+    public static JFrame SCREEN = new JFrame("Algorithmn Team 3");
 
-    public static void GUI(){
+    public static JPanel panel = new JPanel();
 
-        Handle_Button_Event_1 Event1_Object = new Handle_Button_Event_1();
 
-        JFrame my_gui = new JFrame("Algorithmn Team 3");
-        JPanel panel = new JPanel();
-        Font font = new Font("Times New Roman", Font.BOLD, 13);
-        Font Output_font = new Font("Times New Roman", Font.BOLD, 20);
-        Font GR_FONT = new Font("Fantasy", Font.BOLD+Font.ITALIC, 50);
-        Image icon = Toolkit.getDefaultToolkit().getImage("C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\Project_Oop_Group_3\\src\\Model\\Flizer.png");
+    public static Font font = new Font("Times New Roman", Font.BOLD, 13);
 
-        my_gui.setIconImage(icon);
-        my_gui.setSize(700,800);
-        my_gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        my_gui.add(panel);
-        panel.setLayout(null);
+    public static Font Output_font = new Font("Times New Roman", Font.BOLD, 20);
 
-        // JLabel background = new JLabel(new ImageIcon("C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\java1_intellij\\src\\logo\\logo1.png"));
-        // background.setBounds(300,0,300,85);
-        // my_gui.add(background);
+    public static Font GR_FONT = new Font("Fantasy", Font.BOLD+Font.ITALIC, 50);
 
-        //background.setLayout(new FlowLayout());
 
-        GUI.LABEL_STUDENT = new JLabel("Input student : ");
-        GUI.LABEL_STUDENT.setBounds(120,90,100,30);
-        GUI.LABEL_STUDENT.setForeground(new Color(50, 50, 50));
-        panel.add(GUI.LABEL_STUDENT);
+    public  static  JTextArea LINE = new JTextArea(10, 10);
 
-        GUI.LABEL_ROW = new JLabel("Input row : ");
-        GUI.LABEL_ROW.setBounds(300,90,80,30);
-        GUI.LABEL_ROW.setForeground(new Color(50, 50, 50));
-        panel.add(GUI.LABEL_ROW);
+    public static String PATH_ICON = "C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\Project_Oop_Group_3\\src\\Model\\Logo\\logo1.png";
 
-        GUI.LABEL_OUTPUT = new JLabel("Output : ");
-        GUI.LABEL_OUTPUT.setBounds(450,280,100,30);
-        GUI.LABEL_OUTPUT.setFont(Output_font);
-        GUI.LABEL_OUTPUT.setForeground(new Color(21, 160, 153));
-        panel.add(GUI.LABEL_OUTPUT);
+
+    //static JInternalFrame in = new JInternalFrame("Frame1",true,true,true,true);
+
+
+    public void GUI() {
+
+
+        Image icon = Toolkit.getDefaultToolkit().getImage(GUI.PATH_ICON);
+
+        SCREEN.setIconImage(icon);
+        SCREEN.setSize(250,250);
+        SCREEN.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        SCREEN.add(panel);
+        //panel.setLayout(null);
 
         GUI.LABEL_TEXT_GRUOP = new JLabel("Team 3");
         GUI.LABEL_TEXT_GRUOP.setBounds(230,10,200,50);
-        GUI.LABEL_TEXT_GRUOP.setForeground(new Color(21,160,153));
+        GUI.LABEL_TEXT_GRUOP.setForeground(new Color(148, 27, 182));
         GUI.LABEL_TEXT_GRUOP.setFont(GR_FONT);
         panel.add(GUI.LABEL_TEXT_GRUOP);
 
-        GUI.USER_INPUT_STUDENT = new JFormattedTextField();
-        GUI.USER_INPUT_STUDENT.setValue(0);
-        GUI.USER_INPUT_STUDENT.setBounds(120, 120, 165, 25);
-        GUI.USER_INPUT_STUDENT.setFont(font);
-        panel.add(GUI.USER_INPUT_STUDENT);
-
-        GUI.USER_INPUT_ROW = new JFormattedTextField();
-        GUI.USER_INPUT_ROW.setValue(0);
-        GUI.USER_INPUT_ROW.setBounds(300,120,165, 25);
-        GUI.USER_INPUT_ROW.setFont(font);
-        panel.add(GUI.USER_INPUT_ROW);
-
-        GUI.USER_INPUT_STR = new JTextField("");
-        GUI.USER_INPUT_STR.setText("String : ");
-        GUI.USER_INPUT_STR.setBounds(120,320,165, 25);
-        GUI.USER_INPUT_STR.setFont(font);
-        panel.add(GUI.USER_INPUT_STR);
-
-        GUI.USER_INPUT_PRIME = new JFormattedTextField();
-        GUI.USER_INPUT_PRIME.setValue(0);
-        GUI.USER_INPUT_PRIME.setBounds(120,420,165, 25);
-        GUI.USER_INPUT_PRIME.setFont(font);
-        panel.add(GUI.USER_INPUT_PRIME);
-
-        GUI.USER_INPUT_PRACTICE14 = new JTextField("");
-        GUI.USER_INPUT_PRACTICE14.setText("Practice14 ");
-        GUI.USER_INPUT_PRACTICE14.setBounds(120,520,165, 25);
-        GUI.USER_INPUT_PRACTICE14.setFont(font);
-        panel.add(GUI.USER_INPUT_PRACTICE14);
-
-        GUI.USER_INPUT_PRACTICE15 = new JTextField("");
-        GUI.USER_INPUT_PRACTICE15.setText("Practice15 ");
-        GUI.USER_INPUT_PRACTICE15.setBounds(120,620,165, 25);
-        GUI.USER_INPUT_PRACTICE15.setFont(font);
-        panel.add(GUI.USER_INPUT_PRACTICE15);
-
-        GUI.RESULT = new JTextField("");
+        /*GUI.RESULT = new JTextField("");
         GUI.RESULT.setBounds(300, 320, 350, 425);
-        panel.add(GUI.RESULT);
+        panel.add(GUI.RESULT);*/
 
         JButton BUTTON = new JButton("Practice1");
         BUTTON.setBounds(0, 120, 100, 25);
@@ -178,7 +141,15 @@ public class GUI {
         CleanBUTTON.addActionListener(clean);
         panel.add(CleanBUTTON);
 
-        my_gui.setVisible(true);
+        JButton EXITBUTTON = new JButton("EXIT App");
+        EXITBUTTON.setBounds(0, 820, 120, 25);
+        EXITBUTTON.setForeground(Color.red);
+        EXITBUTTON.setBackground(Color.WHITE);
+        ActionListener EXIT = new Handle_Button_EventEXIT();
+        EXITBUTTON.addActionListener(EXIT);
+        panel.add(EXITBUTTON);
+
+        SCREEN.setVisible(true);
 
     }
 }

@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class SuperPrimeNumber_7 {
+    
     public static Scanner input = new Scanner(System.in);
 
     public static boolean CheckPrimeNumber(int n) {
@@ -111,8 +112,11 @@ public class SuperPrimeNumber_7 {
 
                     }
                     System.out.println("\nco " + count + " so nguyen to");
+
                     break;
+
                 case 6:
+
                     for (int i = 100000; i < 1000000; i++) {
 
                         int f = i;
@@ -121,6 +125,7 @@ public class SuperPrimeNumber_7 {
                             f = f / 10;
                         }
                         if (f == 0) {
+
                             System.out.print(i + " ");
                             count++;
                         }
@@ -128,7 +133,9 @@ public class SuperPrimeNumber_7 {
                     }
                     System.out.println("\nco " + count + " so nguyen to");
                     break;
+
                 case 7:
+
                     for (int i = 1000000; i < 10000000; i++) {
 
                         int f = i;
@@ -142,9 +149,13 @@ public class SuperPrimeNumber_7 {
                         }
 
                     }
+
                     System.out.println("\nco " + count + " so nguyen to");
+
                     break;
+
                 case 8:
+
                     for (int i = 10000000; i < 100000000; i++) {
 
                         int f = i;
@@ -153,14 +164,18 @@ public class SuperPrimeNumber_7 {
                             f = f / 10;
                         }
                         if (f == 0) {
+
                             System.out.print(i + " ");
                             count++;
                         }
 
                     }
+
                     System.out.println("\nco " + count + " so nguyen to");
                     break;
+
                 case 9:
+
                     for (int i = 100000000; i < 1000000000; i++) {
 
                         int f = i;
@@ -169,10 +184,12 @@ public class SuperPrimeNumber_7 {
                             f = f / 10;
                         }
                         if (f == 0) {
+                            
                             System.out.print(i + " ");
                             count++;
                         }
                     }
+
                     System.out.println("\nco " + count + " so nguyen to");
                     break;
 
@@ -182,10 +199,12 @@ public class SuperPrimeNumber_7 {
 
 
     public static void main(String[] args) {
-        System.out.print("ban muon bao nhieu chu so : ");
-        int n = input.nextInt();
-        System.out.print("Cac so sieu nguyen to la: ");
-        SuperPrimeNumber(n);
+
+       int n = 5;
+       System.out.print("ban muon bao nhieu chu so : " + n);
+       // int n = input.nextInt();
+       System.out.print("Cac so sieu nguyen to la: ");
+       SuperPrimeNumber(5);
     }
 }
 
