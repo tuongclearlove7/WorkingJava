@@ -8,14 +8,13 @@ interface METHOD5{
 }
 
 
-
 public class Handle_Button_Event_5 implements ActionListener,METHOD5 {
 
     private int i = 0;
 
     public int countWord(String str) {
 
-        String str1=str+" ";
+        String str1 = str + " ";
         int count = 0;
 
         for (int i = 0; i < str1.length(); i++) {
@@ -33,8 +32,6 @@ public class Handle_Button_Event_5 implements ActionListener,METHOD5 {
         return count;
     }
 
-
-
     @Override
     public void actionPerformed(ActionEvent event) {
 
@@ -44,22 +41,21 @@ public class Handle_Button_Event_5 implements ActionListener,METHOD5 {
 
                 JFrame SCREEN = new JFrame();
                 JPanel panel = new JPanel();
-                Image icon = Toolkit.getDefaultToolkit().getImage(GUI.PATH_ICON);
-
-                SCREEN.setIconImage(icon);
+                GUI.ICON = Toolkit.getDefaultToolkit().getImage(GUI.PATH_ICON);
+                SCREEN.setIconImage(GUI.ICON);
                 SCREEN.setTitle("Practice14");
                 SCREEN.setVisible(true);
                 SCREEN.setSize(500, 250);
                 SCREEN.add(panel);
                 panel.setLayout(null);
 
-                GUI.LABEL_INPUT = new JLabel("Input : ");
+                GUI.LABEL_INPUT = new JLabel("Input String : ");
                 GUI.LABEL_INPUT.setBounds(30, 50, 100, 25);
                 GUI.LABEL_INPUT.setForeground(new Color(21, 160, 153));
                 panel.add(GUI.LABEL_INPUT);
 
                 GUI.USER_INPUT_PRACTICE14 = new JTextField();
-                GUI.USER_INPUT_PRACTICE14.setText("Practice14");
+                GUI.USER_INPUT_PRACTICE14.setText("Khanh_Gioi_Tuong_Thanh Dai");
                 GUI.USER_INPUT_PRACTICE14.setBounds(120, 50, 345, 25);
                 panel.add(GUI.USER_INPUT_PRACTICE14);
 
@@ -76,9 +72,10 @@ public class Handle_Button_Event_5 implements ActionListener,METHOD5 {
                 BUTTON.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent event) {
 
+
                         String user =  GUI.USER_INPUT_PRACTICE14.getText();
 
-                        GUI.RESULT.setText("the number of word in String is:  "+countWord(user));
+                        GUI.RESULT.setText("the number of word in String is :  " + countWord(user));
 
                     }
                 });

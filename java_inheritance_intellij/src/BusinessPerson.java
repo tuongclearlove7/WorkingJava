@@ -90,15 +90,16 @@ public class BusinessPerson extends Person implements Tax{
 
     @Override
     public float payTax(float income, int start_time, int end_time) {
+
         if(income>50000000){
-            return(income*(3/100));
-        }else if(income>10000000){
-            return(income*(2/100));
+
+            return(income * (3 / 100));
+
+        }else if(income > 10000000){
+
+            return(income*(2 / 100));
         }
         return 0;
     }
-    
 
-    
-    
 }

@@ -14,32 +14,63 @@ interface METHOD{
 }
 class Handle_Button_Event_1  implements ActionListener, METHOD {
 
+    private static char[][] CHARACTER = {
 
-    public static void checkAnswer(char[][] array, char[] arrayCheck) {
+            {'A', 'B', 'A', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+            {'D', 'B', 'A', 'B', 'C', 'A', 'E', 'E', 'A', 'D'},
+            {'E', 'D', 'D', 'A', 'C', 'B', 'E', 'E', 'A', 'D'},
+            {'C', 'B', 'A', 'E', 'D', 'C', 'E', 'E', 'A', 'D'},
+            {'A', 'B', 'D', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+            {'B', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+            {'B', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+            {'E', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'}
+    };
+    
+    private static char[] KEY = {
 
-        int count = 0, student = 0;
+             'D', 'B', 'D', 'C', 'C', 'D', 'A', 'E', 'A', 'D'
+    };
+
+
+
+    public static int CheckResult(char[][] character, int student, int column) {
+
+        int n = KEY.length;
+        int result = 0;
         String str = "";
 
-        for (int i = 0; i < array.length; i++) {
+        System.out.print("\ndap an : ");
 
-            for (int j = 0; j < array[i].length; j++) {
+        for(int i = 0; i < n; i++){
 
-                if (array[i][j] == arrayCheck[j]) {
+            System.out.print(KEY[i]+" ");
 
-                    count++;
+        }
+
+        System.out.print("\n");
+
+        for (int i = 0; i < student; i++) {
+
+            for (int j = 0; j < column; j++) {
+
+                if (character[i][j] == KEY[j]) {
+
+                    result++;
+
                 }
             }
 
-            student++;
+            str = str + "hoc sinh " + (i+1) + " dung " + result + " dap an " + result + " diem \n";
 
-            str  = str + "student " + student + " correct " + count + " answer\n";
-            System.out.println(str);
-            count = 0;
+            GUI.LINE.setText(str);
+
+            System.out.println("hoc sinh " + (i+1) + " dung " + result + " dap an " + result + " diem");
+
+            result = 0;
+
         }
 
-        GUI.RESULT.setText(str);
-
-
+        return  0;
     }
 
     @Override
@@ -51,12 +82,11 @@ class Handle_Button_Event_1  implements ActionListener, METHOD {
 
                 JFrame SCREEN = new JFrame();
                 JPanel panel = new JPanel();
-                Image icon = Toolkit.getDefaultToolkit().getImage(GUI.PATH_ICON);
-
-                SCREEN.setIconImage(icon);
+                GUI.ICON = Toolkit.getDefaultToolkit().getImage(GUI.PATH_ICON);
+                SCREEN.setIconImage(GUI.ICON);
                 SCREEN.setTitle("Practice1");
                 SCREEN.setVisible(true);
-                SCREEN.setSize(500, 250);
+                SCREEN.setSize(500, 300);
                 SCREEN.add(panel);
                 panel.setLayout(null);
 
@@ -80,15 +110,15 @@ class Handle_Button_Event_1  implements ActionListener, METHOD {
                 GUI.USER_INPUT_STUDENT.setBounds(120, 50, 165, 25);
                 panel.add(GUI.USER_INPUT_STUDENT);
 
-                GUI.USER_INPUT_ROW = new JFormattedTextField();
-                GUI.USER_INPUT_ROW.setValue(0);
-                GUI.USER_INPUT_ROW.setBounds(300, 50, 165, 25);
-                panel.add(GUI.USER_INPUT_ROW);
+                GUI.USER_INPUT_COLUMN = new JFormattedTextField();
+                GUI.USER_INPUT_COLUMN.setValue(0);
+                GUI.USER_INPUT_COLUMN.setBounds(300, 50, 165, 25);
+                panel.add(GUI.USER_INPUT_COLUMN);
 
-                GUI.RESULT = new JTextField("Practice 1: Tính điểm câu hỏi trắc nghiệm của học sinh");
-                GUI.RESULT.setBounds(120, 100, 345, 100);
-                GUI.RESULT.setForeground(Color.red);
-                panel.add(GUI.RESULT);
+                GUI.LINE = new JTextArea("Practice 1: Tính điểm câu hỏi trắc nghiệm của học sinh");
+                GUI.LINE.setBounds(120, 100, 345, 150);
+                GUI.LINE.setForeground(Color.red);
+                panel.add(GUI.LINE);
 
                 JButton BUTTON = new JButton("Result");
                 BUTTON.setBounds( 10, 130, 100, 30);
@@ -99,39 +129,30 @@ class Handle_Button_Event_1  implements ActionListener, METHOD {
 
                     public void actionPerformed(ActionEvent event) {
 
-                        char[][] array = {
-
-                                {'A', 'B', 'A', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
-                                {'D', 'B', 'A', 'B', 'C', 'A', 'E', 'E', 'A', 'D'},
-                                {'E', 'D', 'D', 'A', 'C', 'B', 'E', 'E', 'A', 'D'},
-                                {'C', 'B', 'A', 'E', 'D', 'C', 'E', 'E', 'A', 'D'},
-                                {'A', 'B', 'D', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
-                                {'B', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
-                                {'B', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
-                                {'E', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'}
-                        };
-                        char[] arrayCheck = { 'D','B','D','C','C','D','A','E','A','D'};
 
                         int student = (int) GUI.USER_INPUT_STUDENT.getValue();
 
-                        int row = (int) GUI.USER_INPUT_ROW.getValue();
+                        int column = (int) GUI.USER_INPUT_COLUMN.getValue();
 
                         try {
 
-                           // HandleArray(array, student, row);
-                           // CheckResult(array, student, row);
-                            checkAnswer(array,arrayCheck);
+                            CheckResult(CHARACTER,student,column);
+
+                            if(student == 0 || column == 0){
+
+                                GUI.LINE.setText("vui long nhap so nguyen lon hon  > " + GUI.ZeroPlayer);
+                            }
 
                         } catch (Exception ERROR) {
 
                             if (student > 8) {
 
-                                GUI.RESULT.setText("sai roi ban phai nhap vao fieldtext student so nguyen be hon < 9");
+                                GUI.LINE.setText("sai roi ban phai nhap vao fieldtext student so nguyen be hon < 9");
                             }
 
-                            else if (row > 10) {
+                            else if (column > 10) {
 
-                                GUI.RESULT.setText("sai roi ban phai nhap vao fieldtext row so nguyen be hon < 11");
+                                GUI.LINE.setText("sai roi ban phai nhap vao fieldtext row so nguyen be hon < 11");
                             }
                         }
                     }

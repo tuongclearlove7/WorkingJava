@@ -25,7 +25,7 @@ public class Handle_Button_Event_6 implements ActionListener,METHOD6 {
             }
         }
 
-        String replaceStrings = str2.replaceAll("\\s{2,}", " ").trim();// xoa những space thừa
+        String replaceStrings = str2.replaceAll("\\s{2,}", " ").trim();
 
         String replaceStrings1 = replaceStrings.toLowerCase();
 
@@ -49,44 +49,49 @@ public class Handle_Button_Event_6 implements ActionListener,METHOD6 {
         {
             public void run() {
 
-                JFrame SCREEN = new JFrame();
                 JPanel panel = new JPanel();
-                Image icon = Toolkit.getDefaultToolkit().getImage(GUI.PATH_ICON);
-
-                SCREEN.setIconImage(icon);
-                SCREEN.setTitle("Practice15");
-                SCREEN.setVisible(true);
-                SCREEN.setSize(500, 250);
-                SCREEN.add(panel);
+                GUI.ICON = Toolkit.getDefaultToolkit().getImage(GUI.PATH_ICON);
+                GUI.SCREEN.setIconImage(GUI.ICON);
+                GUI.SCREEN.setTitle("Practice15");
+                GUI.SCREEN.setVisible(true);
+                GUI.SCREEN.setSize(800, 250);
+                GUI.SCREEN.add(panel);
                 panel.setLayout(null);
 
-                GUI.LABEL_INPUT = new JLabel("Input : ");
-                GUI.LABEL_INPUT.setBounds(30, 50, 100, 25);
+                GUI.LABEL_INPUT = new JLabel("Input String : ");
+                GUI.LABEL_INPUT.setBounds(300, 50, 100, 25);
                 GUI.LABEL_INPUT.setForeground(new Color(21, 160, 153));
                 panel.add(GUI.LABEL_INPUT);
 
                 GUI.USER_INPUT_PRACTICE15 = new JFormattedTextField();
-                GUI.USER_INPUT_PRACTICE15.setText("Practice15");
-                GUI.USER_INPUT_PRACTICE15.setBounds(120, 50, 345, 25);
+                GUI.USER_INPUT_PRACTICE15.setText("");
+                GUI.USER_INPUT_PRACTICE15.setBounds(400, 50, 345, 25);
                 panel.add(GUI.USER_INPUT_PRACTICE15);
 
                 GUI.RESULT = new JTextField("Practice 15: Chuẩn hóa chuỗi ký tự");
-                GUI.RESULT.setBounds(120, 100, 345, 100);
+                GUI.RESULT.setBounds(400, 100, 345, 100);
                 GUI.RESULT.setForeground(Color.red);
                 panel.add(GUI.RESULT);
 
                 JButton BUTTON = new JButton("Result");
-                BUTTON.setBounds( 10, 130, 100, 30);
+                BUTTON.setBounds( 290, 130, 100, 30);
                 BUTTON.setForeground(Color.cyan);
                 BUTTON.setBackground(new Color(50, 50, 50));
                 panel.add(BUTTON);
                 BUTTON.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent event) {
 
-                        String user =  GUI.USER_INPUT_PRACTICE15.getText();
+                        String user = GUI.USER_INPUT_PRACTICE15.getText();
 
-                        GUI.RESULT.setText("the standard string is : " + standardString(user));
+                        try {
 
+                            GUI.RESULT.setText("the standard string is : " + standardString(user));
+
+                        }
+                        catch (Exception Error) {
+
+                            GUI.RESULT.setText("vui long nhap vao 1 chuoi !!!");
+                        }
                     }
                 });
             }

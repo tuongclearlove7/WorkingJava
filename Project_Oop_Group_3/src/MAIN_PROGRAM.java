@@ -9,12 +9,6 @@ import java.util.Hashtable;
 
 public class MAIN_PROGRAM extends GUI{
 
-    public static void main(Object obj){
-
-        System.out.println(obj.toString());
-
-    }
-
     public static void main(String[] args)  {
 
         MAIN_PROGRAM MainObj = new MAIN_PROGRAM();

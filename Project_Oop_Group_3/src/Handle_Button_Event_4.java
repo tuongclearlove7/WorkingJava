@@ -8,7 +8,7 @@ interface METHOD4{
 
 }
 
-public class Handle_Button_Event_4 implements ActionListener,METHOD4 {
+public class Handle_Button_Event_4 extends Thread implements ActionListener,METHOD4 {
 
     private int i = 0;
 
@@ -26,17 +26,16 @@ public class Handle_Button_Event_4 implements ActionListener,METHOD4 {
 
                 JFrame SCREEN = new JFrame();
                 JPanel panel = new JPanel();
-                Image icon = Toolkit.getDefaultToolkit().getImage(GUI.PATH_ICON);
-
-                SCREEN.setIconImage(icon);
-                SCREEN.setTitle("Practice7");
+                GUI.ICON = Toolkit.getDefaultToolkit().getImage(GUI.PATH_ICON);
+                SCREEN.setIconImage(GUI.ICON);
+                SCREEN.setTitle("Practice" + 7);
                 SCREEN.setVisible(true);
                 SCREEN.setSize(500, 250);
                 SCREEN.add(panel);
                 panel.setLayout(null);
 
-                GUI.LABEL_INPUT = new JLabel("Input : ");
-                GUI.LABEL_INPUT.setBounds(30, 50, 100, 25);
+                GUI.LABEL_INPUT = new JLabel("Input PNumber  : ");
+                GUI.LABEL_INPUT.setBounds(10, 50, 100, 25);
                 GUI.LABEL_INPUT.setForeground(new Color(21, 160, 153));
                 panel.add(GUI.LABEL_INPUT);
 
@@ -46,10 +45,10 @@ public class Handle_Button_Event_4 implements ActionListener,METHOD4 {
                 panel.add(GUI.USER_INPUT_PRIME);
 
 
-                GUI.RESULT = new JTextField("Practice 7: Số siêu nguyên tố");
-                GUI.RESULT.setBounds(120, 100, 345, 100);
-                GUI.RESULT.setForeground(Color.red);
-                panel.add(GUI.RESULT);
+                GUI.LINE = new JTextArea("Practice 7: Số siêu nguyên tố");
+                GUI.LINE.setBounds(120, 100, 345, 100);
+                GUI.LINE.setForeground(Color.red);
+                panel.add(GUI.LINE);
 
                 JButton BUTTON = new JButton("Result");
                 BUTTON.setBounds( 10, 130, 100, 30);
@@ -60,23 +59,35 @@ public class Handle_Button_Event_4 implements ActionListener,METHOD4 {
                     public void actionPerformed(ActionEvent event) {
 
                         int n = (int) GUI.USER_INPUT_PRIME.getValue();
-                        SuperPrimeNumber(n);
 
-                        if(n == 6){
+                        if(n == 6) {
 
-                            GUI.RESULT.setText("vui long nhap so nguyen be hon 6 !");
-
+                            GUI.LINE.setText("con số quá lớn chương trình chạy không nổi\nvui lòng nhập số bé hơn < 6");
                         }
 
                         if(n > 6){
 
-                            System.exit(0);
+                            int TIME_LIMITED = 2000;
+                            System.out.println("con số quá lớn chương trình chạy không nổi chương trình sẽ tắt sau " + TIME_LIMITED / 1000 + " giây");
+
+                            try {
+
+                                    Thread.sleep(TIME_LIMITED);
+                                    System.exit(0);
+
+                            }
+                            catch (InterruptedException e) {
+
+                                    throw new RuntimeException(e);
+                            }
                         }
 
                         if(n == 0){
 
-                            GUI.RESULT.setText("vui long nhap so nguyen lon hon 0 !");
+                            GUI.LINE.setText("vui long nhap so nguyen lon hon 0 !");
                         }
+
+                        SuperPrimeNumber(n);
                     }
                 });
             }
@@ -104,7 +115,9 @@ public class Handle_Button_Event_4 implements ActionListener,METHOD4 {
     }
 
     public static void SuperPrimeNumber(int n) {
+
         int count = 0;
+        String str = "";
 
         if (n > 0 || n < 10) {
 
@@ -112,24 +125,21 @@ public class Handle_Button_Event_4 implements ActionListener,METHOD4 {
 
                 case 1:
 
-                    String str1 = "";
-
                     for (int i = 0; i < 10; i++) {
 
                         if (CheckPrimeNumber(i) == true) {
 
-                            str1 = str1 + i + " ";
+                            str = str + i + " ";
                             count++;
                         }
                     }
 
-                    GUI.RESULT.setText("so luong sieu so nguyen to co 2 chu so la: " + count + ", cac so nguyen to la : " + str1);
+                    GUI.LINE.setText("so luong sieu so nguyen to co 2 chu so la: " + count + "\ncac so nguyen to la : " + str);
 
                     break;
 
                 case 2 : {
 
-                    String str2 = "";
                     int k = 0;
 
                     for (int i = 10; i < 100; i++) {
@@ -141,20 +151,19 @@ public class Handle_Button_Event_4 implements ActionListener,METHOD4 {
                             k = k / 10;
                             if (k == 0) {
 
-                                str2 = str2 + i + " ";
+                                str = str + i + " ";
                                 count++;
                             }
                         }
                     }
 
-                    GUI.RESULT.setText("so luong sieu so nguyen to co 2 chu so la: " + count + ", cac so nguyen to la : " + str2);
+                    GUI.LINE.setText("so luong sieu so nguyen to co 2 chu so la: " + count + "\ncac so nguyen to la : " + str);
 
                     break;
                 }
 
                 case 3: {
 
-                    String str3 = "";
                     int  k = 0;
 
                     for (int i = 10; i < 1000; i++) {
@@ -167,22 +176,20 @@ public class Handle_Button_Event_4 implements ActionListener,METHOD4 {
 
                             if (k == 0) {
 
-                                str3 = str3 + i + " ";
+                                str = str + i + " ";
 
                                 count++;
                             }
                         }
                     }
 
-                    GUI.RESULT.setText("so luong sieu so nguyen to co 2 chu so la: " + count + ", cac so nguyen to la : " + str3);
+                    GUI.LINE.setText("so luong sieu so nguyen to co 2 chu so la: " + count + "\ncac so nguyen to la : " + str);
 
                     break;
 
                 }
 
                 case 4:
-
-                    String str4 = "";
 
                     for (int i = 1000; i < 10000; i++) {
 
@@ -194,19 +201,17 @@ public class Handle_Button_Event_4 implements ActionListener,METHOD4 {
                         }
                         if (f == 0) {
 
-                            str4 = str4 + i + " ";
+                            str = str + i + " ";
                             count++;
 
                         }
                     }
 
-                    GUI.RESULT.setText("so luong sieu so nguyen to co 2 chu so la: " + count + ", cac so nguyen to la : " + str4);
+                    GUI.LINE.setText("so luong sieu so nguyen to co 2 chu so la: " + count + "\ncac so nguyen to la : " + str);
 
                     break;
 
                 case 5:
-
-                    String str5 = "";
 
                     for (int i = 10000; i < 100000; i++) {
 
@@ -218,12 +223,12 @@ public class Handle_Button_Event_4 implements ActionListener,METHOD4 {
                         }
                         if (f == 0) {
 
-                            str5 = str5 + i + " ";
+                            str = str + i + " ";
                             count++;
 
                         }
 
-                            GUI.RESULT.setText("so luong sieu so nguyen to co 2 chu so la: " + count + ", cac so nguyen to la : " + str5);
+                        GUI.LINE.setText("so luong sieu so nguyen to co 2 chu so la: " + count + "\ncac so nguyen to la : " + str);
 
                     }
 
@@ -246,7 +251,9 @@ public class Handle_Button_Event_4 implements ActionListener,METHOD4 {
                         }
 
                     }
+
                     System.out.println("\nco " + count + " so nguyen to");
+
                     break;
 
                 case 7:

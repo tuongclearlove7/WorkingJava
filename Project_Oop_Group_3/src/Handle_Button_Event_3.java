@@ -14,28 +14,26 @@ public class Handle_Button_Event_3 implements ActionListener, METHOD3 {
     @Override
     public void actionPerformed(ActionEvent event) {
 
-        EventQueue.invokeLater(new Runnable()
-        {
+        EventQueue.invokeLater(new Runnable() {
             public void run() {
 
                 JFrame SCREEN = new JFrame();
                 JPanel panel = new JPanel();
-                Image icon = Toolkit.getDefaultToolkit().getImage(GUI.PATH_ICON);
-
-                SCREEN.setIconImage(icon);
+                GUI.ICON = Toolkit.getDefaultToolkit().getImage(GUI.PATH_ICON);
+                SCREEN.setIconImage(GUI.ICON);
                 SCREEN.setTitle("Practice6");
                 SCREEN.setVisible(true);
                 SCREEN.setSize(500, 250);
                 SCREEN.add(panel);
                 panel.setLayout(null);
 
-                GUI.LABEL_INPUT = new JLabel("Input : ");
+                GUI.LABEL_INPUT = new JLabel("Input String : ");
                 GUI.LABEL_INPUT.setBounds(30, 50, 100, 25);
                 GUI.LABEL_INPUT.setForeground(new Color(21, 160, 153));
                 panel.add(GUI.LABEL_INPUT);
 
                 GUI.USER_INPUT_STR = new JTextField();
-                GUI.USER_INPUT_STR.setText("");
+                GUI.USER_INPUT_STR.setText("KhanhGioiTuongDaiThanh");
                 GUI.USER_INPUT_STR.setBounds(120, 50, 345, 25);
                 panel.add(GUI.USER_INPUT_STR);
 
@@ -70,12 +68,14 @@ public class Handle_Button_Event_3 implements ActionListener, METHOD3 {
         int b;
         int h = 0;
         char g;
+        String IN = "";
 
         for (int i = 0; i < str.length(); i++) {
 
             b = str.charAt(i);
 
             if (b >= 'a' && b <= 'z') {
+
                 b = b - 97;
                 b = b + 5;
                 b = b % 26;
@@ -104,12 +104,14 @@ public class Handle_Button_Event_3 implements ActionListener, METHOD3 {
             }
         }
 
-        for (int j = 0; j < h; j++) {
+        for (int j = 0; j < h ; j++) {
 
-            GUI.RESULT.setText("Chuoi sau khi ma hoa la :\n" + Arrays.toString(str1));
-            System.out.println("Chuoi sau khi ma hoa la : " + Arrays.toString(str1));
+                IN = IN + str1[j] + " ";
 
-            break;
+                GUI.RESULT.setText("chuoi ma hoa la : " + IN);
+
+                System.out.print(str1[j] + " ");
+
         }
     }
 }

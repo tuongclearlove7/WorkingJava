@@ -80,10 +80,10 @@ public class Worker extends Person implements Tax{
 
     @Override
     public float payTax(float income, int start_time, int end_time) {
+
        if (income > 15000000)
-            return (income*1/100);
+            return (income* 1 / 100);
+
         return 0;
     }
-    
-    
 }

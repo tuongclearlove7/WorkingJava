@@ -41,19 +41,20 @@ public class Person {
         this.blood_type = blood_type;
     }
     public void inputInfor(){
-        sc.nextLine();
-        System.out.println("input birthday: ");
+
+        System.out.println("Nhap ngay sinh : ");
         birthday=sc.nextLine();
-        System.out.println("input gender: ");
+        System.out.println("Nhap gioi tinh : ");
         gender=sc.nextLine();
-        System.out.println("input blood_type: ");
+        System.out.println("Nhap nhom mau : ");
         blood_type=sc.nextLine();
         
     }
 
     @Override
     public String toString() {
-        return   ", birthday=" + birthday + ", gender=" + gender + ", blood_type=" + blood_type ;
+
+        return   ", ngay sinh : " + birthday + ", gioi tinh : " + gender + ", nhom mau : " + blood_type ;
     }
     
 }
