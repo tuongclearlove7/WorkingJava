@@ -15,8 +15,6 @@ public class GUI extends JFrame{
 
     private static final int One_Hundred = 100;
 
-    public static String PATH = "C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\Project_Oop_Group_3\\src\\File_Text\\test.txt";
-
     public static JFormattedTextField USER_INPUT_COLUMN =  new JFormattedTextField();
 
     public static JFormattedTextField USER_INPUT_STUDENT =  new JFormattedTextField();
@@ -56,6 +54,8 @@ public class GUI extends JFrame{
     public static String PATH_ICON = "C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\Project_Oop_Group_3\\src\\Model\\Logo\\logo1.png";
 
     public static Image ICON = Toolkit.getDefaultToolkit().getImage(PATH_ICON);
+
+    public static String PATH = "C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\Project_Oop_Group_3\\src\\File_Text\\test.txt";
 
     public void GUI() {
 

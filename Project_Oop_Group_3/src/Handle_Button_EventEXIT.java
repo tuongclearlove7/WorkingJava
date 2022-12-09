@@ -10,5 +10,4 @@ public class Handle_Button_EventEXIT implements ActionListener {
         System.exit(0);
 
     }
-
 }

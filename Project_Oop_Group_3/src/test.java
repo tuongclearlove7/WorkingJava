@@ -9,30 +9,29 @@ import javax.swing.JTextField;
 
 public class test {
 
-    public static JFormattedTextField USER_INPUT_PRIME =  new JFormattedTextField();
+    public static JLabel LABEL_COLUMN = new JLabel();
+
+    public static JLabel LABEL_STUDENT = new JLabel();
+
+    public static JLabel LABEL_INPUT = new JLabel();
+
+    public static JFormattedTextField USER_INPUT_COLUMN =  new JFormattedTextField();
+
+    public static JFormattedTextField USER_INPUT_STUDENT =  new JFormattedTextField();
 
     public static JTextField RESULT = new JTextField();
 
-    public static JFrame SCREEN = new JFrame("Algorithmn Team 3");
+    public static JFrame SCREEN = new JFrame("GUI");
 
-    public static JPanel panel = new JPanel();
+    public static JPanel PANEL = new JPanel();
 
 
     public static void test() {
 
         SCREEN.setSize(250,250);
-        SCREEN.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        SCREEN.add(panel);
-        panel.setLayout(null);
-
-        test.USER_INPUT_PRIME = new JFormattedTextField();
-        test.USER_INPUT_PRIME.setValue(0);
-        test.USER_INPUT_PRIME.setBounds(15, 60, 200, 25);
-        panel.add(test.USER_INPUT_PRIME);
-
-        test.RESULT = new JTextField("");
-        test.RESULT.setBounds(15, 100, 200, 100);
-        panel.add(test.RESULT);
+        SCREEN.setDefaultCloseOperation(SCREEN.EXIT_ON_CLOSE);
+        SCREEN.add(PANEL);
+        PANEL.setLayout(null);
 
 
         JButton BUTTON4 = new JButton("Practice7");
@@ -41,7 +40,7 @@ public class test {
         BUTTON4.setBackground(new Color(50, 50, 50));
         ActionListener listener4 = new PRATICE7();
         BUTTON4.addActionListener(listener4);
-        panel.add(BUTTON4);
+        PANEL.add(BUTTON4);
 
         SCREEN.setVisible(true);
 
@@ -55,232 +54,83 @@ public class test {
 }
 
 class PRATICE7 implements ActionListener {
+
+    private void thuat_toan(int student, int column){
+
+        System.out.println("student is : " + student);
+        System.out.println("column is : " + column);
+
+        test.RESULT.setText("student is : " + student + ", column is : " + column);
+
+    }
+
+
     @Override
-    public void actionPerformed(ActionEvent event){
+    public void actionPerformed(ActionEvent e) {// method() hàm xử lý nút bấm
 
-        int n = (int) test.USER_INPUT_PRIME.getValue();
-        SuperPrimeNumber(n);
 
-        if(n > 5){
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
 
-            test.RESULT.setText("vui long nhap so nguyen be hon 6 !");
-        }
+                JFrame SCREEN = new JFrame();
+                JPanel panel = new JPanel();
+                SCREEN.setTitle("Practice1");
+                SCREEN.setVisible(true);
+                SCREEN.setSize(500, 300);
+                SCREEN.add(panel);
+                panel.setLayout(null);
 
-        if(n == 0){
+                test.LABEL_STUDENT = new JLabel("Student");// label student
+                test.LABEL_STUDENT.setBounds(120, 20, 100, 25);
+                test.LABEL_STUDENT.setForeground(Color.red);
+                panel.add(test.LABEL_STUDENT);
 
-            test.RESULT.setText("vui long nhap so nguyen lon hon 0 !");
-        }
-    }
+                test.LABEL_COLUMN = new JLabel("Column");// label column
+                test.LABEL_COLUMN.setBounds(300, 20, 100, 25);
+                test.LABEL_COLUMN.setForeground(Color.red);
+                panel.add(test.LABEL_COLUMN);
 
-    public static boolean CheckPrimeNumber(int n) {
+                test.LABEL_INPUT = new JLabel("Input : ");// label chữ input
+                test.LABEL_INPUT.setBounds(30, 50, 100, 25);
+                test.LABEL_INPUT.setForeground(new Color(21, 160, 153));
+                panel.add(test.LABEL_INPUT);
 
-        if (n < 2) {
+                test.USER_INPUT_STUDENT = new JFormattedTextField(); // ô nhập cho người dùng student
+                test.USER_INPUT_STUDENT.setValue(0);
+                test.USER_INPUT_STUDENT.setBounds(120, 50, 165, 25);
+                panel.add(test.USER_INPUT_STUDENT);
 
-            return false;
-        }
+                test.USER_INPUT_COLUMN = new JFormattedTextField();// ô nhập cho người dùng column
+                test.USER_INPUT_COLUMN.setValue(0);
+                test.USER_INPUT_COLUMN.setBounds(300, 50, 165, 25);
+                panel.add(test.USER_INPUT_COLUMN);
 
-        int squareRoot = (int) Math.sqrt(n);
+                test.RESULT = new JTextField("Practice 1: Tính điểm câu hỏi trắc nghiệm của học sinh");// ô output
+                test.RESULT.setBounds(120, 100, 345, 150);
+                test.RESULT.setForeground(Color.red);
+                panel.add(test.RESULT);
 
-        for (int i = 2; i <= squareRoot; i++) {
+                JButton BUTTON = new JButton("Result");// nút bấm
+                BUTTON.setBounds( 10, 130, 100, 30);
+                BUTTON.setForeground(Color.cyan);
+                BUTTON.setBackground(new Color(50, 50, 50));
+                panel.add(BUTTON);
+                BUTTON.addActionListener(new ActionListener() {
 
-            if (n % i == 0) {
+                    public void actionPerformed(ActionEvent event) {// method() hàm xử lý nút bấm
 
-                return false;
+
+                        int student = (int) test.USER_INPUT_STUDENT.getValue();
+
+                        int column = (int) test.USER_INPUT_COLUMN.getValue();
+
+                        thuat_toan(student, column);
+
+
+                    }
+                });
             }
-        }
-
-        return true;
-    }
-
-    public static void SuperPrimeNumber(int n) {
-        int count = 0;
-
-        if (n > 0 || n < 10) {
-
-            switch (n) {
-
-                case 1:
-
-                    for (int i = 1; i < 10; i++) {
-
-                        int f = i;
-
-                        while (CheckPrimeNumber(f)) {
-                            f = f / 10;
-
-                        }
-                        if (f == 0) {
-
-                            count++;
-
-                            test.RESULT.setText((i + " co " + count + " so nguyen to"));
-                        }
-
-                    }
-                    System.out.print("\nco " + count + " so nguyen to");
-                    break;
-                case 2: {
-                    for (int i = 10; i < 100; i++) {
-
-                        int f = i;
-
-                        while (CheckPrimeNumber(f)) {
-                            f = f / 10;
-                        }
-                        if (f == 0) {
-
-                            count++;
-
-                            test.RESULT.setText((i + " co " + count + " so nguyen to"));
-                        }
-
-                    }
-                    System.out.print("\nco " + count + " so nguyen to");
-                }
-                break;
-                case 3:
-                    for (int i = 100; i < 1000; i++) {
-
-                        int f = i;
-
-                        while (CheckPrimeNumber(f)) {
-                            f = f / 10;
-                        }
-                        if (f == 0) {
-
-                            count++;
-
-                            test.RESULT.setText((i + " co " + count + " so nguyen to"));
-                        }
-
-                    }
-                    System.out.print("\nco " + count + " so nguyen to");
-
-                    break;
-
-                case 4:
-
-                    for (int i = 1000; i < 10000; i++) {
-
-                        int f = i;
-
-                        while (CheckPrimeNumber(f)) {
-
-                            f = f / 10;
-                        }
-                        if (f == 0) {
-
-                            count++;
-
-                            test.RESULT.setText((i + " co " + count + " so nguyen to"));
-
-                        }
-                    }
-
-                    System.out.print("\nco " + count + " so nguyen to");
-
-                    break;
-
-                case 5:
-                    for (int i = 10000; i < 100000; i++) {
-
-                        int f = i;
-
-                        while (CheckPrimeNumber(f)) {
-                            f = f / 10;
-                        }
-                        if (f == 0) {
-
-                            count++;
-
-                            test.RESULT.setText((i + " co " + count + " so nguyen to"));
-                        }
-
-                    }
-                    System.out.print("\nco " + count + " so nguyen to");
-
-                    break;
-
-                case 6:
-
-                    for (int i = 100000; i < 1000000; i++) {
-
-                        int f = i;
-
-                        while (CheckPrimeNumber(f)) {
-                            f = f / 10;
-                        }
-                        if (f == 0) {
-
-                            System.out.print(i + " ");
-                            count++;
-                        }
-
-                    }
-                    System.out.println("\nco " + count + " so nguyen to");
-                    break;
-
-                case 7:
-
-                    for (int i = 1000000; i < 10000000; i++) {
-
-                        int f = i;
-
-                        while (CheckPrimeNumber(f)) {
-                            f = f / 10;
-                        }
-                        if (f == 0) {
-                            System.out.print(i + " ");
-                            count++;
-                        }
-
-                    }
-
-                    System.out.println("\nco " + count + " so nguyen to");
-
-                    break;
-
-                case 8:
-
-                    for (int i = 10000000; i < 100000000; i++) {
-
-                        int f = i;
-
-                        while (CheckPrimeNumber(f)) {
-                            f = f / 10;
-                        }
-                        if (f == 0) {
-
-                            System.out.print(i + " ");
-                            count++;
-                        }
-
-                    }
-
-                    System.out.println("\nco " + count + " so nguyen to");
-                    break;
-
-                case 9:
-
-                    for (int i = 100000000; i < 1000000000; i++) {
-
-                        int f = i;
-
-                        while (CheckPrimeNumber(f)) {
-                            f = f / 10;
-                        }
-                        if (f == 0) {
-
-                            System.out.print(i + " ");
-                            count++;
-                        }
-                    }
-
-                    System.out.println("\nco " + count + " so nguyen to");
-                    break;
-
-            }
-        }
+        });
     }
 }
 

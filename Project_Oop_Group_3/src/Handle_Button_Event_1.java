@@ -25,7 +25,7 @@ class Handle_Button_Event_1  implements ActionListener, METHOD {
             {'B', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
             {'E', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'}
     };
-    
+
     private static char[] KEY = {
 
              'D', 'B', 'D', 'C', 'C', 'D', 'A', 'E', 'A', 'D'
