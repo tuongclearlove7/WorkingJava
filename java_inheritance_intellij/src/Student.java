@@ -95,19 +95,20 @@ public class Student extends Person implements Tax {
 
         super.inputInfor();
         System.out.println("input name : ");
-        name = sc.nextLine();
+        name = input.nextLine();
 
         System.out.println("input student ID : ");
-        StudentId = sc.nextLine();
+        StudentId = input.nextLine();
 
         System.out.println("input phone number : ");
-        phone = sc.nextInt();
+        phone = input.nextInt();
+        input.nextLine();
 
         System.out.println("input email : ");
-        email = sc.nextLine();
+        email = input.nextLine();
 
         System.out.println("input student's income: ");
-        income = sc.nextInt();
+        income = input.nextInt();
         
         
     }
@@ -115,17 +116,17 @@ public class Student extends Person implements Tax {
     @Override
     public String toString() {
 
-        return "hoc sinh {" + super.toString() +
-                "name : " + name + ", " +
-                "id : " + StudentId + ", " +
-                "so dien thoai : " + phone + ", " +
-                "email : " + email + '}';
+        return "hoc sinh : { \n" + super.toString() +
+                "\n\t\tname : " + name +
+                "\n\t\tid : " + StudentId +
+                "\n\t\tso dien thoai : " + phone +
+                "\n\t\temail : " + email + "\n}";
     }
 
     public void listStudent(ArrayList<Student> listStudent) {
 
         System.out.println("nhap so hoc sinh : ");
-        int number = sc.nextInt();
+        int number = input.nextInt();
 
         for (int i = 0; i < number; i++) {
 

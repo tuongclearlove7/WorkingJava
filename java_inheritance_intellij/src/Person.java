@@ -3,7 +3,7 @@
 import java.util.Scanner;
 
 public class Person {
-    Scanner sc=new Scanner(System.in);
+    Scanner input =new Scanner(System.in);
     private String birthday;
     private String gender; 
     private String blood_type; 
@@ -43,18 +43,18 @@ public class Person {
     public void inputInfor(){
 
         System.out.println("Nhap ngay sinh : ");
-        birthday=sc.nextLine();
+        birthday = input.nextLine();
         System.out.println("Nhap gioi tinh : ");
-        gender=sc.nextLine();
+        gender = input.nextLine();
         System.out.println("Nhap nhom mau : ");
-        blood_type=sc.nextLine();
+        blood_type = input.nextLine();
         
     }
 
     @Override
     public String toString() {
 
-        return   ", ngay sinh : " + birthday + ", gioi tinh : " + gender + ", nhom mau : " + blood_type ;
+        return  "\t\tngay sinh : " + birthday + "\n\t\tgioi tinh : " + gender + "\n\t\tnhom mau : " + blood_type ;
     }
     
 }

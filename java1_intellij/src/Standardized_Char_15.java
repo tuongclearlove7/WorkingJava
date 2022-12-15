@@ -10,6 +10,7 @@ public class Standardized_Char_15 {
     public static final char TAB = '\t';
 
     public static final char BREAK_LINE = '\n';
+    
     public static void Dictionary_Space(String str){
 
         char[] strArray = str.toCharArray();
