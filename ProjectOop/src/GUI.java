@@ -13,11 +13,7 @@ public class GUI extends JFrame{
 
     static final int ZeroPlayer = 0;
 
-    private static final int One_Hundred = 100;
-
-    public static String PATH = "C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\Project_Oop_Group_3\\src\\File_Text\\weather.txt";
-
-    public static JFormattedTextField USER_INPUT_ROW =  new JFormattedTextField();
+    public static JFormattedTextField USER_INPUT_COLUMN =  new JFormattedTextField();
 
     public static JFormattedTextField USER_INPUT_STUDENT =  new JFormattedTextField();
 
@@ -46,44 +42,31 @@ public class GUI extends JFrame{
 
     public static JFrame SCREEN = new JFrame("Algorithmn Team 3");
 
-    public static JPanel panel = new JPanel();
+    public static JPanel PANEL = new JPanel();
+
+    public static Font TEAM_FONT = new Font("Fantasy", Font.BOLD+Font.ITALIC, 50);
 
 
-    public static Font font = new Font("Times New Roman", Font.BOLD, 13);
+    public static JTextArea LINE = new JTextArea(10,10);
 
-    public static Font Output_font = new Font("Times New Roman", Font.BOLD, 20);
+    public static String PATH_ICON = "C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\Project_Oop_Team_3\\src\\Model\\Logo\\logo1.png";
 
-    public static Font GR_FONT = new Font("Fantasy", Font.BOLD+Font.ITALIC, 50);
+    public static Image ICON = Toolkit.getDefaultToolkit().getImage(PATH_ICON);
 
-
-    public  static  JTextArea LINE = new JTextArea(10, 10);
-
-    public static String PATH_ICON = "C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\Project_Oop_Group_3\\src\\Model\\Logo\\logo1.png";
-
-
-    //static JInternalFrame in = new JInternalFrame("Frame1",true,true,true,true);
-
+    public static String PATH = "C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\Project_Oop_Team_3\\src\\File_Text\\test.txt";
 
     public void GUI() {
 
-
-        Image icon = Toolkit.getDefaultToolkit().getImage(GUI.PATH_ICON);
-
-        SCREEN.setIconImage(icon);
+        SCREEN.setIconImage(ICON);
         SCREEN.setSize(250,250);
-        SCREEN.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        SCREEN.add(panel);
-        //panel.setLayout(null);
+        SCREEN.add(PANEL);
+        SCREEN.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        GUI.LABEL_TEXT_GRUOP = new JLabel("Team 3");
-        GUI.LABEL_TEXT_GRUOP.setBounds(230,10,200,50);
-        GUI.LABEL_TEXT_GRUOP.setForeground(new Color(148, 27, 182));
-        GUI.LABEL_TEXT_GRUOP.setFont(GR_FONT);
-        panel.add(GUI.LABEL_TEXT_GRUOP);
-
-        /*GUI.RESULT = new JTextField("");
-        GUI.RESULT.setBounds(300, 320, 350, 425);
-        panel.add(GUI.RESULT);*/
+        LABEL_TEXT_GRUOP = new JLabel("Team 3");
+        LABEL_TEXT_GRUOP.setBounds(230,10,200,50);
+        LABEL_TEXT_GRUOP.setForeground(new Color(148, 27, 182));
+        LABEL_TEXT_GRUOP.setFont(TEAM_FONT);
+        PANEL.add(GUI.LABEL_TEXT_GRUOP);
 
         JButton BUTTON = new JButton("Practice1");
         BUTTON.setBounds(0, 120, 100, 25);
@@ -91,7 +74,7 @@ public class GUI extends JFrame{
         BUTTON.setBackground(new Color(50, 50, 50));
         ActionListener listener1 = new Handle_Button_Event_1();
         BUTTON.addActionListener(listener1);
-        panel.add(BUTTON);
+        PANEL.add(BUTTON);
 
         JButton BUTTON2 = new JButton("Practice3");
         BUTTON2.setBounds(0, 220, 100, 25);
@@ -99,7 +82,7 @@ public class GUI extends JFrame{
         BUTTON2.setBackground(new Color(50, 50, 50));
         ActionListener listener2 = new Handle_Button_Event_2();
         BUTTON2.addActionListener(listener2);
-        panel.add(BUTTON2);
+        PANEL.add(BUTTON2);
 
         JButton BUTTON3 = new JButton("Practice6");
         BUTTON3.setBounds(0, 320, 100, 25);
@@ -107,7 +90,7 @@ public class GUI extends JFrame{
         BUTTON3.setBackground(new Color(50, 50, 50));
         ActionListener listener3 = new Handle_Button_Event_3();
         BUTTON3.addActionListener(listener3);
-        panel.add(BUTTON3);
+        PANEL.add(BUTTON3);
 
         JButton BUTTON4 = new JButton("Practice7");
         BUTTON4.setBounds(0, 420, 100, 25);
@@ -115,7 +98,7 @@ public class GUI extends JFrame{
         BUTTON4.setBackground(new Color(50, 50, 50));
         ActionListener listener4 = new Handle_Button_Event_4();
         BUTTON4.addActionListener(listener4);
-        panel.add(BUTTON4);
+        PANEL.add(BUTTON4);
 
         JButton BUTTON5 = new JButton("Practice14");
         BUTTON5.setBounds(0, 520, 100, 25);
@@ -123,7 +106,7 @@ public class GUI extends JFrame{
         BUTTON5.setBackground(new Color(50, 50, 50));
         ActionListener listener5 = new Handle_Button_Event_5();
         BUTTON5.addActionListener(listener5);
-        panel.add(BUTTON5);
+        PANEL.add(BUTTON5);
 
         JButton BUTTON6 = new JButton("Practice15");
         BUTTON6.setBounds(0, 620, 100, 25);
@@ -131,15 +114,15 @@ public class GUI extends JFrame{
         BUTTON6.setBackground(new Color(50, 50, 50));
         ActionListener listener6 = new Handle_Button_Event_6();
         BUTTON6.addActionListener(listener6);
-        panel.add(BUTTON6);
+        PANEL.add(BUTTON6);
 
-        JButton CleanBUTTON = new JButton("CleanFieldText");
+        JButton CleanBUTTON = new JButton("Clean Text");
         CleanBUTTON.setBounds(0, 720, 120, 25);
         CleanBUTTON.setForeground(Color.red);
         CleanBUTTON.setBackground(Color.WHITE);
         ActionListener clean = new Handle_Button_EventClean();
         CleanBUTTON.addActionListener(clean);
-        panel.add(CleanBUTTON);
+        PANEL.add(CleanBUTTON);
 
         JButton EXITBUTTON = new JButton("EXIT App");
         EXITBUTTON.setBounds(0, 820, 120, 25);
@@ -147,7 +130,7 @@ public class GUI extends JFrame{
         EXITBUTTON.setBackground(Color.WHITE);
         ActionListener EXIT = new Handle_Button_EventEXIT();
         EXITBUTTON.addActionListener(EXIT);
-        panel.add(EXITBUTTON);
+        PANEL.add(EXITBUTTON);
 
         SCREEN.setVisible(true);
 

@@ -10,24 +10,27 @@ public class Person extends Mydate{
     private String address;
 
 
+    public Person(int day, int month, int year, String name, String birthDay, String address) {
 
-    public Person(String name, String birthDay, String address) {
+        super(day,month,year);
 
-        super();
         this.name = name;
         this.birthday = birthDay;
         this.address = address;
 
     }
 
+    public Person(String name, String birthday, String address) {
+
+        this.name = name;
+        this.birthday = birthday;
+        this.address = address;
+    }
+
     public Person() {
 
 
-        super();
     }
-
-
-
 
     public String getName() {
 
@@ -90,9 +93,7 @@ public class Person extends Mydate{
     @Override
     public String toString() {
 
-        return super.toString() + "\n\t\tname : " + name
-                                + "\n\t\tbirthday : " + birthday
-                                + "\n\t\taddress : " + address ;
+        return super.toString() + ", name : " + name + ", birthday : " + birthday + ", address : " + address ;
     }
 
 }

@@ -130,7 +130,7 @@ public class Pratice_ReplaceString_20 {
 
         System.out.print("Chuoi viet hoa ky tu dau la : " + Dictionary_Upper(str));
 
-        System.out.print("\nXoa Space dung ham : "+str.replace(StringSPACE,NoStringSPACE));
+        System.out.print("\nXoa Space dung ham : "+str.replace(str,""));
 
         System.out.print("\nTach chuoi thanh cac mang dung ham split la : " + FuncSplit_String(str,StringNoSpace));
 

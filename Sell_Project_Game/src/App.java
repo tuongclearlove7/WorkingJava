@@ -27,6 +27,7 @@ public class App extends JFrame {
     public static JLabel LABEL_CHECK;
 
     public static JLabel LABEL_SHOWDATA;
+
     protected static JTextField ID;
 
     protected static JTextField FIRSTNAME;

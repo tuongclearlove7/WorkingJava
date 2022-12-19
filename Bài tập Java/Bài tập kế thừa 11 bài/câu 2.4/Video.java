@@ -1,13 +1,16 @@
 import java.util.ArrayList;
 
 public class Video extends Media{
+    
     private String Runtime;
+
     private double PriceVideo;
 
-    public Video(String Runtime, double PriceVideo, String NameMedia, double PriceMedia) {
+    public Video(String NameMedia, double PriceMedia, double PriceVideo, String Runtime) {
 
 
         super(NameMedia, PriceMedia);
+
         this.Runtime = Runtime;
         this.PriceVideo = PriceVideo;
     }
@@ -67,6 +70,6 @@ public class Video extends Media{
     @Override
     public String toString() {
 
-        return super.toString() + "\n\t\truntime : " + Runtime + "\n\t\tPriceVideo : " + PriceVideo;
+        return super.toString() + ", runtime : " + Runtime + ", PriceVideo : " + PriceVideo;
     }
 }

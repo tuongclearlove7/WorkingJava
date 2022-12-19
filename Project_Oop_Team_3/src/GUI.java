@@ -13,8 +13,6 @@ public class GUI extends JFrame{
 
     static final int ZeroPlayer = 0;
 
-    private static final int One_Hundred = 100;
-
     public static JFormattedTextField USER_INPUT_COLUMN =  new JFormattedTextField();
 
     public static JFormattedTextField USER_INPUT_STUDENT =  new JFormattedTextField();
@@ -49,7 +47,7 @@ public class GUI extends JFrame{
     public static Font TEAM_FONT = new Font("Fantasy", Font.BOLD+Font.ITALIC, 50);
 
 
-    public static JTextArea LINE = new JTextArea();
+    public static JTextArea LINE = new JTextArea(10,10);
 
     public static String PATH_ICON = "C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\Project_Oop_Team_3\\src\\Model\\Logo\\logo1.png";
 
@@ -60,12 +58,9 @@ public class GUI extends JFrame{
     public void GUI() {
 
         SCREEN.setIconImage(ICON);
-
         SCREEN.setSize(250,250);
         SCREEN.add(PANEL);
         SCREEN.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        ICON = Toolkit.getDefaultToolkit().getImage(GUI.PATH_ICON);
-        //panel.setLayout(null);
 
         LABEL_TEXT_GRUOP = new JLabel("Team 3");
         LABEL_TEXT_GRUOP.setBounds(230,10,200,50);

@@ -2,13 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 
-interface METHOD4{
 
-}
-
-public class Handle_Button_Event_4 extends Thread implements ActionListener,METHOD4 {
+public class Handle_Button_Event_4 extends Thread implements ActionListener {
 
     private int i = 0;
 
@@ -46,9 +42,10 @@ public class Handle_Button_Event_4 extends Thread implements ActionListener,METH
 
 
                 GUI.LINE = new JTextArea("Practice 7: Số siêu nguyên tố");
-                GUI.LINE.setBounds(120, 100, 345, 100);
                 GUI.LINE.setForeground(Color.red);
-                panel.add(GUI.LINE);
+                JScrollPane SCROLL = new JScrollPane( GUI.LINE,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                SCROLL.setBounds(120, 100, 345, 100);
+                panel.add(SCROLL);
 
                 JButton BUTTON = new JButton("Output");
                 BUTTON.setBounds( 10, 130, 100, 30);
@@ -90,239 +87,241 @@ public class Handle_Button_Event_4 extends Thread implements ActionListener,METH
 
                         SuperPrimeNumber(n);
                     }
+
+
+                    public static boolean CheckPrimeNumber(int n) {
+
+                        if (n < 2) {
+
+                            return false;
+                        }
+
+                        int squareRoot = (int) Math.sqrt(n);
+
+                        for (int i = 2; i <= squareRoot; i++) {
+
+                            if (n % i == 0) {
+
+                                return false;
+                            }
+                        }
+
+                        return true;
+                    }
+
+                    public static void SuperPrimeNumber(int n) {
+
+                        int count = 0;
+                        String str = " ";
+
+                        if (n > 0 || n < 10) {
+
+                            switch (n) {
+
+                                case 1:
+
+                                    for (int i = 0; i < 10; i++) {
+
+                                        if (CheckPrimeNumber(i) == true) {
+
+                                            str = str +  i + "\n";
+                                            count++;
+                                        }
+
+                                        GUI.LINE.setText("so luong sieu so nguyen to co "+ n +" chu so la: " + count + "\ncac so nguyen to la : " + str);
+
+                                    }
+
+
+                                    break;
+
+                                case 2 : {
+
+                                    int k = 0;
+
+                                    for (int i = 10; i < 100; i++) {
+
+                                        k = i;
+
+                                        while (CheckPrimeNumber(k) == true) {
+
+                                            k = k / 10;
+                                            if (k == 0) {
+
+                                                count++;
+                                                str = str + count + "__" + i + "\n";
+
+                                            }
+                                        }
+
+                                        GUI.LINE.setText("so luong sieu so nguyen to co "+ n + " chu so la : " + count + "\ncac so nguyen to la : \n" + str);
+                                    }
+
+                                    break;
+                                }
+
+                                case 3: {
+
+                                    int  k = 0;
+
+                                    for (int i = 10; i < 1000; i++) {
+
+                                        k=i;
+
+                                        while (CheckPrimeNumber(k) == true) {
+
+                                            k = k / 10;
+
+                                            if (k == 0) {
+
+                                                count++;
+                                                str = str + count + "__" + i + "\n";
+                                            }
+                                        }
+
+                                        GUI.LINE.setText("so luong sieu so nguyen to co "+ n + " chu so la : " + count + "\ncac so nguyen to la : \n" + str);
+                                    }
+
+                                    break;
+
+                                }
+
+                                case 4:
+
+                                    for (int i = 1000; i < 10000; i++) {
+
+                                        int f = i;
+
+                                        while (CheckPrimeNumber(f)) {
+
+                                            f = f / 10;
+                                        }
+                                        if (f == 0) {
+
+                                            count++;
+                                            str = str + count + "__" + i + "\n";
+
+                                        }
+
+                                        GUI.LINE.setText("so luong sieu so nguyen to co "+ n + " chu so la : " + count + "\ncac so nguyen to la : \n" + str);
+                                    }
+
+                                    break;
+
+                                case 5:
+
+                                    System.out.print("Chuong trinh dang chay vui long doi giay lat !!!");
+
+                                    for (int i = 10000; i < 100000; i++) {
+
+                                        int f = i;
+
+                                        while (CheckPrimeNumber(f)) {
+
+                                            f = f / 10;
+                                        }
+                                        if (f == 0) {
+
+                                            count++;
+                                            str = str + count + "__" + i + "\n";
+
+                                        }
+
+                                        GUI.LINE.setText("so luong sieu so nguyen to co "+ n + " chu so la : " + count + "\ncac so nguyen to la : \n" + str);
+
+                                    }
+
+                                    break;
+
+                                case 6:
+
+                                    for (int i = 100000; i < 1000000; i++) {
+
+                                        int f = i;
+
+                                        while (CheckPrimeNumber(f)) {
+
+                                            f = f / 10;
+                                        }
+                                        if (f == 0) {
+
+                                            System.out.print(i + " ");
+                                            count++;
+                                        }
+
+                                    }
+
+                                    System.out.println("\nco " + count + " so nguyen to");
+
+                                    break;
+
+                                case 7:
+
+                                    for (int i = 1000000; i < 10000000; i++) {
+
+                                        int f = i;
+
+                                        while (CheckPrimeNumber(f)) {
+                                            f = f / 10;
+                                        }
+
+                                        if (f == 0) {
+
+                                            System.out.print(i + " ");
+                                            count++;
+                                        }
+
+                                    }
+
+                                    System.out.println("\nco " + count + " so nguyen to");
+
+                                    break;
+
+                                case 8:
+
+                                    for (int i = 10000000; i < 100000000; i++) {
+
+                                        int f = i;
+
+                                        while (CheckPrimeNumber(f)) {
+
+                                            f = f / 10;
+                                        }
+                                        if (f == 0) {
+
+                                            System.out.print(i + " ");
+                                            count++;
+                                        }
+
+                                    }
+
+                                    System.out.println("\nco " + count + " so nguyen to");
+                                    break;
+
+                                case 9:
+
+                                    for (int i = 100000000; i < 1000000000; i++) {
+
+                                        int f = i;
+
+                                        while (CheckPrimeNumber(f)) {
+                                            f = f / 10;
+                                        }
+                                        if (f == 0) {
+
+                                            System.out.print(i + " ");
+                                            count++;
+                                        }
+                                    }
+
+                                    System.out.println("\nco " + count + " so nguyen to");
+                                    break;
+
+                            }
+                        }
+                    }
                 });
             }
         });
-    }
-
-    public static boolean CheckPrimeNumber(int n) {
-
-        if (n < 2) {
-
-            return false;
-        }
-
-        int squareRoot = (int) Math.sqrt(n);
-
-        for (int i = 2; i <= squareRoot; i++) {
-
-            if (n % i == 0) {
-
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    public static void SuperPrimeNumber(int n) {
-
-        int count = 0;
-        String str = "";
-
-        if (n > 0 || n < 10) {
-
-            switch (n) {
-
-                case 1:
-
-                    for (int i = 0; i < 10; i++) {
-
-                        if (CheckPrimeNumber(i) == true) {
-
-                            str = str + i + " ";
-                            count++;
-                        }
-                    }
-
-                    GUI.LINE.setText("so luong sieu so nguyen to co 2 chu so la: " + count + "\ncac so nguyen to la : " + str);
-
-                    break;
-
-                case 2 : {
-
-                    int k = 0;
-
-                    for (int i = 10; i < 100; i++) {
-
-                        k = i;
-
-                        while (CheckPrimeNumber(k) == true) {
-
-                            k = k / 10;
-                            if (k == 0) {
-
-                                str = str + i + " ";
-                                count++;
-                            }
-                        }
-                    }
-
-                    GUI.LINE.setText("so luong sieu so nguyen to co 2 chu so la: " + count + "\ncac so nguyen to la : " + str);
-
-                    break;
-                }
-
-                case 3: {
-
-                    int  k = 0;
-
-                    for (int i = 10; i < 1000; i++) {
-
-                        k=i;
-
-                        while (CheckPrimeNumber(k) == true) {
-
-                            k = k / 10;
-
-                            if (k == 0) {
-
-                                str = str + i + " ";
-
-                                count++;
-                            }
-                        }
-                    }
-
-                    GUI.LINE.setText("so luong sieu so nguyen to co 2 chu so la: " + count + "\ncac so nguyen to la : " + str);
-
-                    break;
-
-                }
-
-                case 4:
-
-                    for (int i = 1000; i < 10000; i++) {
-
-                        int f = i;
-
-                        while (CheckPrimeNumber(f)) {
-
-                            f = f / 10;
-                        }
-                        if (f == 0) {
-
-                            str = str + i + " ";
-                            count++;
-
-                        }
-                    }
-
-                    GUI.LINE.setText("so luong sieu so nguyen to co 2 chu so la: " + count + "\ncac so nguyen to la : " + str);
-
-                    break;
-
-                case 5:
-
-                    System.out.print("Chuong trinh dang chay vui long doi giay lat !!!");
-
-                    for (int i = 10000; i < 100000; i++) {
-
-                        int f = i;
-
-                        while (CheckPrimeNumber(f)) {
-
-                            f = f / 10;
-                        }
-                        if (f == 0) {
-
-                            str = str + i + " ";
-                            count++;
-
-                        }
-
-
-                        GUI.LINE.setText("so luong sieu so nguyen to co 2 chu so la: " + count + "\ncac so nguyen to la : " + str);
-
-                    }
-
-                    break;
-
-                case 6:
-
-                    for (int i = 100000; i < 1000000; i++) {
-
-                        int f = i;
-
-                        while (CheckPrimeNumber(f)) {
-
-                            f = f / 10;
-                        }
-                        if (f == 0) {
-
-                            System.out.print(i + " ");
-                            count++;
-                        }
-
-                    }
-
-                    System.out.println("\nco " + count + " so nguyen to");
-
-                    break;
-
-                case 7:
-
-                    for (int i = 1000000; i < 10000000; i++) {
-
-                        int f = i;
-
-                        while (CheckPrimeNumber(f)) {
-                            f = f / 10;
-                        }
-
-                        if (f == 0) {
-
-                            System.out.print(i + " ");
-                            count++;
-                        }
-
-                    }
-
-                    System.out.println("\nco " + count + " so nguyen to");
-
-                    break;
-
-                case 8:
-
-                    for (int i = 10000000; i < 100000000; i++) {
-
-                        int f = i;
-
-                        while (CheckPrimeNumber(f)) {
-
-                            f = f / 10;
-                        }
-                        if (f == 0) {
-
-                            System.out.print(i + " ");
-                            count++;
-                        }
-
-                    }
-
-                    System.out.println("\nco " + count + " so nguyen to");
-                    break;
-
-                case 9:
-
-                    for (int i = 100000000; i < 1000000000; i++) {
-
-                        int f = i;
-
-                        while (CheckPrimeNumber(f)) {
-                            f = f / 10;
-                        }
-                        if (f == 0) {
-
-                            System.out.print(i + " ");
-                            count++;
-                        }
-                    }
-
-                    System.out.println("\nco " + count + " so nguyen to");
-                    break;
-
-            }
-        }
     }
 }

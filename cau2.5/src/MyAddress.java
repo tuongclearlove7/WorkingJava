@@ -63,6 +63,6 @@ public class MyAddress {
     @Override
     public String toString() {
 
-        return "\n\t\tprovince : " + province + "\n\t\tdistrict : " + district;
+        return "province : " + province + ", district : " + district;
     }
 }

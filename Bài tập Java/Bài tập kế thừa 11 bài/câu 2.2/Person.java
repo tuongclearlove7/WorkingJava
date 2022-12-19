@@ -12,7 +12,7 @@ public class Person extends Mydate{
     private String phone;
 
 
-    public Person( String name, String address, String phone, int day, int month, int year) {
+    public Person(int day, int month, int year, String name, String address, String phone) {
 
             super(day,month,year);
 
@@ -22,17 +22,10 @@ public class Person extends Mydate{
 
     }
 
-    Person( String name, String address, String phone){
-
-            this.name = name;
-            this.address = address;
-            this.phone = phone;
+    public Person() {
         
     }
-    public Person() {
 
-
-    }
 
     public String getName() {
 
@@ -85,7 +78,7 @@ public class Person extends Mydate{
 
         System.out.println("name  : " + getName());
         System.out.println("address  : " + getAddress());
-        System.out.println("Phone  : " + getAddress());
+        System.out.println("Phone  : " + getPhone());
 
         return null;
     }
@@ -93,11 +86,7 @@ public class Person extends Mydate{
     @Override
     public String toString() {
 
-        return super.toString() +"\n\t\tname : " + getName()
-
-                                + "\n\t\taddress : " + getAddress()
-
-                                + "\n\t\tphone : " + getPhone();
+        return super.toString() +"name : " + getName() + ", address : " + getAddress() + ", phone : " + getPhone();
 
     }
 }

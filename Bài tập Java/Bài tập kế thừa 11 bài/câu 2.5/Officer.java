@@ -5,15 +5,17 @@ public class Officer extends Person {
 
     private double salary;
 
-    public Officer(double salary, String name, int phone, String province, String district) {
+    public Officer(double salary, String name, String phone, String province, String district) {
 
         super(name, phone, province, district);
+
         this.salary = salary;
     }
 
-    public Officer(double salary, String name, int phone) {
+    public Officer(double salary, String name, String phone) {
 
         super(name, phone);
+
         this.salary = salary;
     }
 
@@ -58,10 +60,10 @@ public class Officer extends Person {
     public String toString() {
 
 
-        return super.toString() + "\n\t\tSalary : " + salary + "\n}";
+        return super.toString() + ", Salary : " + salary;
     }
 
-    public void Mylist(ArrayList<Officer> list) {
+    public void InputMylist(ArrayList<Officer> list) {
 
         System.out.println("Nhap so nhan vien : ");
 
@@ -81,17 +83,15 @@ public class Officer extends Person {
 
         System.out.print("\t\tBan co muon huy chuong trinh k?\n\t\t\tOption[choose yes or no]\nInput> ");
 
-        input.nextLine();
-
         String user  = input.nextLine();
 
-        System.out.println("Sap xep tang dan theo luong ");
+        System.out.println("Sap xep tang dan theo luong : ");
 
         for (int i = 0; i < list.size(); i++) {
 
             if(user.equals("no")){
 
-                System.out.println("Officer " + (i + 1) + " : {" + list.get(i));
+                System.out.println((i+1)+" Officer " + list.get(i).getName() + " : {" + list.get(i) + "}");
             }
             if (user.equals("yes")){
 
@@ -123,7 +123,7 @@ public class Officer extends Person {
         System.out.println("nhan vien co luong cao nhat la : " + max);
     }
 
-    public void Sort(ArrayList<Officer> list) {
+    public void SortMyList(ArrayList<Officer> list) {
 
         for (int i = 0; i < list.size() - 1; i++) {
 
@@ -135,6 +135,7 @@ public class Officer extends Person {
                 }
             }
         }
+
 
         OutputMylist(list);
     }

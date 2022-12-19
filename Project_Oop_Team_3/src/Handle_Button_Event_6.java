@@ -4,49 +4,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
 
-interface METHOD6{
 
-}
-
-public class Handle_Button_Event_6 implements ActionListener,METHOD6 {
+public class Handle_Button_Event_6 implements ActionListener {
 
     private int i = 0;
-
-    public String standardString(String str) {
-
-        String newStr="";
-        String str2="";
-
-        for(int i=0;i<str.length();i++){
-
-            if((str.charAt(i)>='a'&&str.charAt(i)<='z')||
-
-                    (str.charAt(i)>='A'&&str.charAt(i)<='Z')||str.charAt(i)==' '){str2=str2+str.charAt(i);
-            }
-        }
-
-        String replaceStrings = str2.replaceAll("\\s{2,}", " ").trim();
-
-        String replaceStrings1 = replaceStrings.toLowerCase();
-
-        String[] arr = replaceStrings1.split(" ");
-
-        for (String arr1 : arr) {
-
-            char c = arr1.charAt(0);
-            String sub = arr1.substring(1);
-            String c1 = String.valueOf(c).toUpperCase();
-            newStr = newStr+c1 + sub + " ";
-        }
-
-        return newStr;
-    }
 
     @Override
     public void actionPerformed(ActionEvent event) {
 
-        EventQueue.invokeLater(new Runnable()
-        {
+        EventQueue.invokeLater(new Runnable() {
+
+
             public void run() {
 
                 JFrame SCREEN = new JFrame();
@@ -94,6 +62,39 @@ public class Handle_Button_Event_6 implements ActionListener,METHOD6 {
 
                             GUI.RESULT.setText("vui long nhap vao 1 chuoi !!!");
                         }
+                    }
+
+                    public String standardString(String str) {
+
+                        String newStr="";
+                        String str2="";
+
+                        for(int i=0;i<str.length();i++){
+
+                            if((str.charAt(i)>='a'&&str.charAt(i)<='z')||(str.charAt(i)>='A'&&str.charAt(i)<='Z')||str.charAt(i)==' '){
+
+                                str2=str2+str.charAt(i);
+                            }
+                        }
+
+                        String replaceStrings = str2.replaceAll("\\s{2,}", " ").trim();
+
+                        String replaceStrings1 = replaceStrings.toLowerCase();
+
+                        String[] arr = replaceStrings1.split(" ");
+
+                        for (String arr1 : arr) {
+
+                            char c = arr1.charAt(0);
+
+                            String sub = arr1.substring(1);
+
+                            String c1 = String.valueOf(c).toUpperCase();
+
+                            newStr = newStr+c1 + sub + " ";
+                        }
+
+                        return newStr;
                     }
                 });
             }

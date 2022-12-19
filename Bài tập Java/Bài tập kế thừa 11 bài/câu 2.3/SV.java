@@ -48,6 +48,6 @@ public class SV {
     public String toString() {
 
 
-        return "\n\t\tclass : " + Class + "\n\t\tname : " + name;
+        return "class : " + Class + ", name : " + name;
     }
 }

@@ -6,10 +6,12 @@ import java.io.IOException;
 import java.io.File;
 
 public class MyFile_Temperature_Humidity {
+
         public static final int ZeroPlayer = 0;
         public static final int One_Hundred = 100;
 
         public static Scanner input = new Scanner(System.in);
+        
         public static void F_Array(float[] FloatArray, float[] day, int n, float[] hour, float[] temperature, float[] humidity) {
 
             for (int a = 1; a <= n; a = a + 4) {

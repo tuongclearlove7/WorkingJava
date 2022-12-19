@@ -55,7 +55,7 @@ public class SVCN extends SVNH {
     public String toString() {
 
 
-        return super.toString() + "\n\t\tHoc phi : " + tuition + "\n}";
+        return super.toString() + ", Hoc phi : " + tuition;
     }
     
 }

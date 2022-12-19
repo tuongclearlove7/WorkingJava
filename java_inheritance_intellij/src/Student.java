@@ -3,16 +3,17 @@ import java.util.ArrayList;
 public class Student extends Person implements Tax {
 
     private String name;
-    private String StudentId;
+    private String StudentID;
     private int phone;
     private String email;
     private float income;
 
-    public Student(String name, String StudentId, int phone, String email, String birthday, String gender, String blood_type, float income) {
+    public Student(String name, String StudentID, int phone, String email, String birthday, String gender, String blood_type, float income) {
 
         super(birthday, gender, blood_type);
+
         this.name = name;
-        this.StudentId = StudentId;
+        this.StudentID = StudentID;
         this.phone = phone;
         this.email = email;
         this.income=income;
@@ -21,7 +22,7 @@ public class Student extends Person implements Tax {
     public Student(String name, String StudentId, int phone, String email,float income) {
 
         this.name = name;
-        this.StudentId = StudentId;
+        this.StudentID = StudentId;
         this.phone = phone;
         this.email = email;
         this.income=income;
@@ -40,14 +41,14 @@ public class Student extends Person implements Tax {
         this.name = name;
     }
 
-    public String getStudentId() {
+    public String getStudentID() {
 
-        return StudentId;
+        return StudentID;
     }
 
-    public void setStudentId(String StudentId) {
+    public void setStudentID(String StudentId) {
 
-        this.StudentId = StudentId;
+        this.StudentID = StudentId;
     }
 
     public int getPhone() {
@@ -81,9 +82,10 @@ public class Student extends Person implements Tax {
     }
     
     @Override
-    public float payTax(float income, int start_time, int end_time) {
+    public float Pay_Tax(float income, int start_time, int end_time) {
 
         if (income > 11000000) {
+
             return (float) (income * 0.5 / 100);
         }
         return 0;
@@ -91,23 +93,23 @@ public class Student extends Person implements Tax {
     }
 
     @Override
-    public void inputInfor() {
+    public void Input() {
 
-        super.inputInfor();
-        System.out.println("input name : ");
+        super.Input();
+        System.out.println("Input name : ");
         name = input.nextLine();
 
-        System.out.println("input student ID : ");
-        StudentId = input.nextLine();
+        System.out.println("Nhap ID : ");
+        StudentID = input.nextLine();
 
-        System.out.println("input phone number : ");
+        System.out.println("Nhap so dien thoai : ");
         phone = input.nextInt();
         input.nextLine();
 
-        System.out.println("input email : ");
+        System.out.println("Nhap email : ");
         email = input.nextLine();
 
-        System.out.println("input student's income: ");
+        System.out.println("Nhap so thu nhap : ");
         income = input.nextInt();
         
         
@@ -116,42 +118,45 @@ public class Student extends Person implements Tax {
     @Override
     public String toString() {
 
-        return "hoc sinh : { \n" + super.toString() +
-                "\n\t\tname : " + name +
-                "\n\t\tid : " + StudentId +
-                "\n\t\tso dien thoai : " + phone +
-                "\n\t\temail : " + email + "\n}";
+            return super.toString() +
+
+                                    "\n\t\t\tname : " + name +
+
+                                    "\n\t\t\tid : " + StudentID +
+
+                                    "\n\t\t\tphone : " + phone +
+
+                                    "\n\t\t\temail : " + email +
+
+                                    "\n\t\t\tincome : " + income;
     }
 
-    public void listStudent(ArrayList<Student> listStudent) {
+    public void InputListStudent(ArrayList<Student> list) {
 
-        System.out.println("nhap so hoc sinh : ");
-        int number = input.nextInt();
+        System.out.println("Nhap so hoc sinh : ");
+        int n = input.nextInt();
 
-        for (int i = 0; i < number; i++) {
+        for (int i = 0; i < n; i++) {
 
             Student st = new Student();
-            System.out.println("============= Hoc sinh "+(i+1)+"=============");
-            st.inputInfor();
-            listStudent.add(st);
+            System.out.println("Hoc sinh "+(i+1));
+            st.Input();
+            list.add(st);
         }
     }
-    public void ouputListStudent(ArrayList<Student> listStudent){
+    public void OuputListStudent(ArrayList<Student> list) {
 
-        for(int i=0;i<listStudent.size();i++){
+        for (int i = 0; i < list.size(); i++) {
 
-            System.out.println("the student "+(i+1)+" ");
-            System.out.println(listStudent.get(i));
+            System.out.println("hoc sinh " + (i + 1) + " : {\n" + "\t\t" + list.get(i).getName()
+
+                                           + " : {\n" + " " + list.get(i)
+
+                                           + "\n\t\t\tThue cua hoc sinh " + list.get(i).getName()
+
+                                           + " la : " + Pay_Tax(list.get(i).getIncome(), 2, 3)
+
+                                           + "\n\t}" + "\n}");
         }
-    }
-    public void countTax(ArrayList<Student> listStudent){
-
-        for(int i=0;i<listStudent.size();i++){
-
-            System.out.println("Thue cua hoc sinh "+(i+1)+" la : "  +
-            payTax(listStudent.get(i).getIncome(), 2,3));
-        }
-       
-    }
-
+}
 }

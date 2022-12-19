@@ -52,6 +52,6 @@ public class SVTC extends SV {
     @Override
     public String toString() {
 
-        return super.toString() + "\n\t\ttuition : " + tuition;
+        return super.toString() + ", tuition : " + tuition;
     }
 }

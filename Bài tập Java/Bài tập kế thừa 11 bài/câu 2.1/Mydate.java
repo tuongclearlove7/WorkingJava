@@ -1,11 +1,9 @@
 import java.util.Scanner;
 
 public class Mydate {
-
-    protected static int day;
-    protected static int month;
-
-    protected static int year;
+    private int day;
+    private int month;
+    private int year;
     Scanner input = new Scanner(System.in);
 
     public Mydate(int day, int month, int year) {
@@ -16,6 +14,7 @@ public class Mydate {
     }
 
     public Mydate() {
+
     }
 
     public boolean HandleDate() {
@@ -45,11 +44,10 @@ public class Mydate {
         return true;
     }
 
-    public String ShowDate(int DAY, int MONTH, int YEAR){
+    public static void ShowDate(int DAY, int MONTH, int YEAR){
 
         System.out.print(DAY + "/" + MONTH + "/" + YEAR);
 
-        return "";
     }
 
     public void input() {
@@ -67,13 +65,15 @@ public class Mydate {
 
         }
         while (!HandleDate());
+
+        ShowDate(day,month,year);
     }
 
 
     @Override
     public String toString() {
 
-        return "\n\t\tday : " + day + "\n\t\tmonth : " + month + "\n\t\tyear : " + year;
+        return "day : " + day + ", month : " + month + ", year : " + year;
     }
 
 }

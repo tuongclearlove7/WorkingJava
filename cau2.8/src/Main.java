@@ -1,10 +1,10 @@
 class Mytime {
 
-    private static int second;
+    private int second;
 
-    private static int minutes;
+    private int minutes;
 
-    private static int hour;
+    private int hour;
 
     public Mytime(int second, int minutes, int hour) {
 
@@ -21,7 +21,7 @@ class Mytime {
     @Override
     public String toString() {
 
-        String time = "MyTime : { \n\n\t\t" + hour + ":" + minutes + ":" + second + "\n}";
+        String time = "MyTime : {" + hour + ":" + minutes + ":" + second + "}";
 
         return Output(time);
     }
@@ -51,7 +51,7 @@ class Mydate{
     @Override
     public String toString() {
 
-        String date = "\nMyDate : { \n\n\t\t" + day + "/" + month + "/" + year + "\n}";
+        String date = "\nMyDate : {" + day + "/" + month + "/" + year + "}";
 
         return Output(date);
     }

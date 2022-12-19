@@ -1,17 +1,18 @@
 public class Person extends MyAddress {
 
     private String name;
-    private int phone;
+    private String phone;
 
-    public Person(String name, int phone, String province, String district) {
+    public Person(String name, String phone, String province, String district) {
 
 
         super(province, district);
+
         this.name = name;
         this.phone = phone;
     }
 
-    public Person(String name, int phone) {
+    public Person(String name, String phone) {
 
 
         this.name = name;
@@ -33,13 +34,13 @@ public class Person extends MyAddress {
         this.name = name;
     }
 
-    public int getPhone() {
+    public String getPhone() {
 
 
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
 
 
         this.phone = phone;
@@ -52,7 +53,7 @@ public class Person extends MyAddress {
         System.out.println("name : ");
         name = input.nextLine();
         System.out.println("phone : ");
-        phone = input.nextInt();
+        phone = input.nextLine();
     }
 
     @Override
@@ -67,7 +68,7 @@ public class Person extends MyAddress {
     public String toString() {
 
 
-        return super.toString()+"\n\t\tname : " + name + "\n\t\tphone : " + phone;
+        return super.toString()+", name : " + name + ", phone : " + phone;
     }
 }
 

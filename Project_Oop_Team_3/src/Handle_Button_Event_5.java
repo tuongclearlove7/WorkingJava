@@ -3,34 +3,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-interface METHOD5{
-
-}
 
 
-public class Handle_Button_Event_5 implements ActionListener,METHOD5 {
+public class Handle_Button_Event_5 implements ActionListener{
 
     private int i = 0;
-
-    public int countWord(String str) {
-
-        String str1 = str + " ";
-        int count = 0;
-
-        for (int i = 0; i < str1.length(); i++) {
-
-            if (((str1.charAt(i) >= 'a' && str1.charAt(i) < 'z') || (str1.charAt(i) >= 'A' && str1.charAt(i) < 'Z'))
-
-                    && !((str1.charAt(i + 1) >= 'a' && str.charAt(i + 1) < 'z')
-                    || (str1.charAt(i + 1) >= 'A' && str1.charAt(i + 1) < 'Z'))) {
-
-                count++;
-
-            }
-        }
-
-        return count;
-    }
 
     @Override
     public void actionPerformed(ActionEvent event) {
@@ -78,6 +55,26 @@ public class Handle_Button_Event_5 implements ActionListener,METHOD5 {
 
                         GUI.RESULT.setText("the number of word in String is :  " + countWord(user));
 
+                    }
+
+                    public int countWord(String str) {
+
+                        String str1 = str + " ";
+                        int count = 0;
+
+                        for (int i = 0; i < str1.length(); i++) {
+
+                            if (((str1.charAt(i) >= 'a' && str1.charAt(i) < 'z') || (str1.charAt(i) >= 'A' && str1.charAt(i) < 'Z'))
+
+                                    && !((str1.charAt(i + 1) >= 'a' && str.charAt(i + 1) < 'z')
+                                    || (str1.charAt(i + 1) >= 'A' && str1.charAt(i + 1) < 'Z'))) {
+
+                                count++;
+
+                            }
+                        }
+
+                        return count;
                     }
                 });
             }

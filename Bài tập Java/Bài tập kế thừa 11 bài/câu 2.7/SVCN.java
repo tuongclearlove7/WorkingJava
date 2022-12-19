@@ -100,7 +100,7 @@ public class SVCN extends SVTC {
 
         for (int i = 0; i < list.size(); i++) {
 
-            System.out.println("Sinh vien " + (i+1) + " {" + list.get(i) + "\n}");
+            System.out.print("\nSinh vien " + (i+1) + " : {" + list.get(i) + "}");
         }
     }
 
@@ -135,14 +135,18 @@ public class SVCN extends SVTC {
             }
         }
 
-        System.out.println("Sap xep giam dan theo diem trung binh : ");
-        OutputMylist(list);
+        System.out.println("\nSap xep giam dan theo diem trung binh : ");
+
+        for (int i = 0; i < list.size(); i++) {
+
+            System.out.println((i+1) + " Sinh vien " + list.get(i).getName() + " : {MediumScore : "+ list.get(i).getMediumScore() + "}");
+        }
     }
 
     @Override
     public String toString() {
 
-        return super.toString() + "\n\t\tMediumScore : " + MediumScore + "\n\t\tscholarship : " + scholarship;
+        return super.toString() + ", MediumScore : " + MediumScore + ", scholarship : " + scholarship;
     }
 }
 

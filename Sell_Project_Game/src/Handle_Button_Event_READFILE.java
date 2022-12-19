@@ -22,15 +22,15 @@ public class Handle_Button_Event_READFILE extends JFrame implements ActionListen
             StringBuffer sb = new StringBuffer();
             String line;
 
-            while((line=br.readLine()) != null) {
+            while((line = br.readLine()) != null) {
 
                 sb.append(line);
                 sb.append("\n");
             }
 
             fr.close();
-            System.out.println("Contents of File: ");
-            System.out.println(sb.toString());
+            System.out.println("Show data!!!");
+            //System.out.println(sb.toString());
             App.ShowData.setText(sb.toString());
 
             }

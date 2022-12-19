@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class MyAddress {
 
     private String province;
+    
     private String district;
 
     Scanner input = new Scanner(System.in);
@@ -63,6 +64,6 @@ public class MyAddress {
     @Override
     public String toString() {
 
-        return "\n\t\tprovince : " + province + "\n\t\tdistrict : " + district;
+        return "province : " + province + ", district : " + district;
     }
 }

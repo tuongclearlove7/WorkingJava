@@ -40,16 +40,16 @@ public class Handle_Button_Event_WriteFile implements ActionListener {
 
             for(int i = 0; i < App.COLUMN.length; i++){
 
-               // bw.write(App.COLUMN[i] + "\t");
+                //bw.write(App.COLUMN[i] + "\t");
             }
 
-
+           // bw.write("\n");
 
             for(int i=0 ; i < App.TABLE.getRowCount(); i++){
 
                 for(int j=0; j < App.COLUMN.length; j++){
 
-                    bw.write(App.TABLE.getModel().getValueAt(i, j) + "  ");
+                    bw.write(App.TABLE.getModel().getValueAt(i, j) + "         ");
 
                 }
 

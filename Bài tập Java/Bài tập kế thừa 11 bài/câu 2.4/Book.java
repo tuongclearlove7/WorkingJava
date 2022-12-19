@@ -1,6 +1,8 @@
 public class Book extends Media {
 
     private int Page_Number;
+
+    
     private String author;
 
     public Book(int Page_Number, String author, String name, double price) {
@@ -68,6 +70,6 @@ public class Book extends Media {
     public String toString() {
 
 
-        return super.toString() + "\n\t\tPage number : " + Page_Number + "\n\t\tauthor : " + author;
+        return super.toString() + ", Page number : " + Page_Number + ", author : " + author;
     }
 }

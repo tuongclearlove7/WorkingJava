@@ -15,6 +15,7 @@ public class Media {
     }
 
     public Media() {
+
     }
 
 
@@ -61,6 +62,6 @@ public class Media {
     @Override
     public String toString() {
 
-        return "Property \n\t\tNameMedia : " + NameMedia + "\n\t\tPriceMedia : " + PriceMedia;
+        return "NameMedia : " + NameMedia + ", PriceMedia : " + PriceMedia;
     }
 }

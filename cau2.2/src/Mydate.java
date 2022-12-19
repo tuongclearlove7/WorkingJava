@@ -4,15 +4,15 @@ public class Mydate {
 
     Scanner input = new Scanner(System.in);
 
-    private static int day;
-    private static int month;
-    private static int year;
+    private  int day;
+    private  int month;
+    private  int year;
 
     public Mydate(int day, int month, int year) {
 
-        Mydate.day = day;
-        Mydate.month = month;
-        Mydate.year = year;
+        this.day = day;
+        this.month = month;
+        this.year = year;
     }
 
     public Mydate() {
@@ -31,7 +31,7 @@ public class Mydate {
 
     public void setDay(int day) {
 
-        Mydate.day = day;
+        this.day = day;
     }
 
     public int getMonth() {
@@ -42,7 +42,7 @@ public class Mydate {
 
     public void setMonth(int month) {
 
-        Mydate.month = month;
+        this.month = month;
     }
 
     public int getYear() {
@@ -53,7 +53,7 @@ public class Mydate {
 
     public void setYear(int year) {
 
-        Mydate.year = year;
+        this.year = year;
     }
 
     public boolean HandleDate() {
@@ -106,17 +106,13 @@ public class Mydate {
 
         ShowDate(day,month,year);
 
-        Mydate date1 =  new Mydate(2002);
-        Mydate date2 = new Mydate(1998);
 
-        System.out.print("\nSo sanh 2 doi tuong Mydate bang toan tu so sanh > : ");
-        System.out.print(date1.getYear() > date2.getYear());
     }
 
     public Officer Output(){
 
 
-        System.out.println("day  : " + getDay());
+        System.out.println("\nday  : " + getDay());
         System.out.println("month  : " + getMonth());
         System.out.println("year  : " + getYear());
 
@@ -126,6 +122,6 @@ public class Mydate {
     @Override
     public String toString() {
 
-        return "\n\t\tday : " + getDay() + "\n\t\tmonth : " + getMonth() + "\n\t\tyear : " + getYear();
+        return "day : " + getDay() + ", month : " + getMonth() + ", year : " + getYear();
     }
 }

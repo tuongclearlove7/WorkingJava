@@ -9,134 +9,151 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 
-interface METHOD{
 
-}
-class Handle_Button_Event_1  implements ActionListener, METHOD {
+    class Handle_Button_Event_1  implements ActionListener {
 
+        private static final char[][] CHARACTER = {
 
-    public static void checkAnswer(char[][] array, char[] arrayCheck) {
+                {'A', 'B', 'A', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                {'D', 'B', 'A', 'B', 'C', 'A', 'E', 'E', 'A', 'D'},
+                {'E', 'D', 'D', 'A', 'C', 'B', 'E', 'E', 'A', 'D'},
+                {'C', 'B', 'A', 'E', 'D', 'C', 'E', 'E', 'A', 'D'},
+                {'A', 'B', 'D', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                {'B', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                {'B', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                {'E', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'}
+        };
 
-        int count = 0, student = 0;
-        String str = "";
+        private static final char[] KEY = {
 
-        for (int i = 0; i < array.length; i++) {
+                'D', 'B', 'D', 'C', 'C', 'D', 'A', 'E', 'A', 'D'
+        };
 
-            for (int j = 0; j < array[i].length; j++) {
-
-                if (array[i][j] == arrayCheck[j]) {
-
-                    count++;
-                }
-            }
-
-            student++;
-
-            str  = str + "student " + student + " correct " + count + " answer\n";
-            System.out.println(str);
-            count = 0;
-        }
-
-        GUI.RESULT.setText(str);
+        @Override
+        public void actionPerformed(ActionEvent e) {
 
 
-    }
+            EventQueue.invokeLater(new Runnable() {
+                public void run() {
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
+                    JFrame SCREEN = new JFrame();
+                    JPanel panel = new JPanel();
+                    GUI.ICON = Toolkit.getDefaultToolkit().getImage(GUI.PATH_ICON);
+                    SCREEN.setIconImage(GUI.ICON);
+                    SCREEN.setTitle("Practice1");
+                    SCREEN.setVisible(true);
+                    SCREEN.setSize(500, 300);
+                    SCREEN.add(panel);
+                    panel.setLayout(null);
+
+                    GUI.LABEL_STUDENT = new JLabel("Student");
+                    GUI.LABEL_STUDENT.setBounds(120, 20, 100, 25);
+                    GUI.LABEL_STUDENT.setForeground(Color.red);
+                    panel.add(GUI.LABEL_STUDENT);
+
+                    GUI.LABEL_COLUMN = new JLabel("Column");
+                    GUI.LABEL_COLUMN.setBounds(300, 20, 100, 25);
+                    GUI.LABEL_COLUMN.setForeground(Color.red);
+                    panel.add(GUI.LABEL_COLUMN);
+
+                    GUI.LABEL_INPUT = new JLabel("Input : ");
+                    GUI.LABEL_INPUT.setBounds(30, 50, 100, 25);
+                    GUI.LABEL_INPUT.setForeground(new Color(21, 160, 153));
+                    panel.add(GUI.LABEL_INPUT);
+
+                    GUI.USER_INPUT_STUDENT = new JFormattedTextField();
+                    GUI.USER_INPUT_STUDENT.setValue(0);
+                    GUI.USER_INPUT_STUDENT.setBounds(120, 50, 165, 25);
+                    panel.add(GUI.USER_INPUT_STUDENT);
+
+                    GUI.USER_INPUT_COLUMN = new JFormattedTextField();
+                    GUI.USER_INPUT_COLUMN.setValue(0);
+                    GUI.USER_INPUT_COLUMN.setBounds(300, 50, 165, 25);
+                    panel.add(GUI.USER_INPUT_COLUMN);
+
+                    GUI.LINE = new JTextArea("Practice 1: Tính điểm câu hỏi trắc nghiệm của học sinh");
+                    GUI.LINE.setBounds(120, 100, 345, 150);
+                    GUI.LINE.setForeground(Color.red);
+                    panel.add(GUI.LINE);
+
+                    JButton BUTTON = new JButton("Output");
+                    BUTTON.setBounds( 10, 130, 100, 30);
+                    BUTTON.setForeground(Color.cyan);
+                    BUTTON.setBackground(new Color(50, 50, 50));
+                    panel.add(BUTTON);
+                    BUTTON.addActionListener(new ActionListener() {
+
+                        public void actionPerformed(ActionEvent event) {
 
 
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
+                            int student = (int) GUI.USER_INPUT_STUDENT.getValue();
 
-                JFrame SCREEN = new JFrame();
-                JPanel panel = new JPanel();
-                Image icon = Toolkit.getDefaultToolkit().getImage(GUI.PATH_ICON);
+                            int column = (int) GUI.USER_INPUT_COLUMN.getValue();
 
-                SCREEN.setIconImage(icon);
-                SCREEN.setTitle("Practice1");
-                SCREEN.setVisible(true);
-                SCREEN.setSize(500, 250);
-                SCREEN.add(panel);
-                panel.setLayout(null);
+                            try {
 
-                GUI.LABEL_STUDENT = new JLabel("Student");
-                GUI.LABEL_STUDENT.setBounds(120, 20, 100, 25);
-                GUI.LABEL_STUDENT.setForeground(Color.red);
-                panel.add(GUI.LABEL_STUDENT);
+                                CheckResult(CHARACTER,student,column);
 
-                GUI.LABEL_COLUMN = new JLabel("Column");
-                GUI.LABEL_COLUMN.setBounds(300, 20, 100, 25);
-                GUI.LABEL_COLUMN.setForeground(Color.red);
-                panel.add(GUI.LABEL_COLUMN);
+                                if(student == 0 || column == 0){
 
-                GUI.LABEL_INPUT = new JLabel("Input : ");
-                GUI.LABEL_INPUT.setBounds(30, 50, 100, 25);
-                GUI.LABEL_INPUT.setForeground(new Color(21, 160, 153));
-                panel.add(GUI.LABEL_INPUT);
+                                    GUI.LINE.setText("vui long nhap so nguyen lon hon  > " + GUI.ZeroPlayer);
+                                }
 
-                GUI.USER_INPUT_STUDENT = new JFormattedTextField();
-                GUI.USER_INPUT_STUDENT.setValue(0);
-                GUI.USER_INPUT_STUDENT.setBounds(120, 50, 165, 25);
-                panel.add(GUI.USER_INPUT_STUDENT);
+                            } catch (Exception ERROR) {
 
-                GUI.USER_INPUT_ROW = new JFormattedTextField();
-                GUI.USER_INPUT_ROW.setValue(0);
-                GUI.USER_INPUT_ROW.setBounds(300, 50, 165, 25);
-                panel.add(GUI.USER_INPUT_ROW);
+                                if (student > 8) {
 
-                GUI.RESULT = new JTextField("Practice 1: Tính điểm câu hỏi trắc nghiệm của học sinh");
-                GUI.RESULT.setBounds(120, 100, 345, 100);
-                GUI.RESULT.setForeground(Color.red);
-                panel.add(GUI.RESULT);
+                                    GUI.LINE.setText("sai roi ban phai nhap vao fieldtext student so nguyen be hon < 9");
+                                }
 
-                JButton BUTTON = new JButton("Result");
-                BUTTON.setBounds( 10, 130, 100, 30);
-                BUTTON.setForeground(Color.cyan);
-                BUTTON.setBackground(new Color(50, 50, 50));
-                panel.add(BUTTON);
-                BUTTON.addActionListener(new ActionListener() {
+                                else if (column > 10) {
 
-                    public void actionPerformed(ActionEvent event) {
-
-                        char[][] array = {
-
-                                {'A', 'B', 'A', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
-                                {'D', 'B', 'A', 'B', 'C', 'A', 'E', 'E', 'A', 'D'},
-                                {'E', 'D', 'D', 'A', 'C', 'B', 'E', 'E', 'A', 'D'},
-                                {'C', 'B', 'A', 'E', 'D', 'C', 'E', 'E', 'A', 'D'},
-                                {'A', 'B', 'D', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
-                                {'B', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
-                                {'B', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
-                                {'E', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'}
-                        };
-                        char[] arrayCheck = { 'D','B','D','C','C','D','A','E','A','D'};
-
-                        int student = (int) GUI.USER_INPUT_STUDENT.getValue();
-
-                        int row = (int) GUI.USER_INPUT_ROW.getValue();
-
-                        try {
-
-                           // HandleArray(array, student, row);
-                           // CheckResult(array, student, row);
-                            checkAnswer(array,arrayCheck);
-
-                        } catch (Exception ERROR) {
-
-                            if (student > 8) {
-
-                                GUI.RESULT.setText("sai roi ban phai nhap vao fieldtext student so nguyen be hon < 9");
-                            }
-
-                            else if (row > 10) {
-
-                                GUI.RESULT.setText("sai roi ban phai nhap vao fieldtext row so nguyen be hon < 11");
+                                    GUI.LINE.setText("sai roi ban phai nhap vao fieldtext row so nguyen be hon < 11");
+                                }
                             }
                         }
-                    }
-                });
-            }
-        });
+
+                        public static int CheckResult(char[][] character, int student, int column) {
+
+                            int n = KEY.length;
+                            int result = 0;
+                            String str = "";
+
+                            System.out.print("\ndap an : ");
+
+                            for(int i = 0; i < n; i++){
+
+                                System.out.print(KEY[i]+" ");
+
+                            }
+
+                            System.out.print("\n");
+
+                            for (int i = 0; i < student; i++) {
+
+                                for (int j = 0; j < column; j++) {
+
+                                    if (character[i][j] == KEY[j]) {
+
+                                        result++;
+
+                                    }
+                                }
+
+                                str = str + "hoc sinh " + (i+1) + " dung " + result + " dap an " + result + " diem \n";
+
+                                GUI.LINE.setText(str);
+
+                                System.out.println("hoc sinh " + (i+1) + " dung " + result + " dap an " + result + " diem");
+
+                                result = 0;
+
+                            }
+
+                            return  0;
+                        }
+                    });
+                }
+            });
+        }
     }
-}

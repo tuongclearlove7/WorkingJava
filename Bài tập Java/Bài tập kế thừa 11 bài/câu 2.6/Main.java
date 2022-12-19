@@ -16,7 +16,7 @@ public class Main {
         laser.Output();
         color.Output();
 
-        int Import = printer.getAmount()/3;
+        int Import = printer.getAmount() / 3;
         int Out = Import / 2;
 
         printer.import_warehouse(Import);

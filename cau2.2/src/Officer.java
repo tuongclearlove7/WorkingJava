@@ -1,10 +1,12 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Officer extends Person{
-    private float salary;
+    private double salary;
 
-    public Officer(float salary, int day, int month, int year, String name,String phone ,String address){
+    public Officer(int day, int month, int year, String name,String phone ,String address, double salary){
 
+        super(day,month,year,name,phone,address);
         this.salary = salary;
     }
 
@@ -17,7 +19,7 @@ public class Officer extends Person{
     public Officer() {
 
     }
-    public float getSalary() {
+    public double getSalary() {
 
         return salary;
     }
@@ -50,45 +52,41 @@ public class Officer extends Person{
     @Override
     public String toString() {
 
-        return super.toString() + "\n\t\tluong (format salary * 1000) : " + (getSalary() * 1000)   + " USD" + "\n}";
+        return super.toString() + ", luong (format " +getSalary() + " * 1000) : " + (getSalary() * 1000)   + " USD";
     }
 
-    public void Mylist(ArrayList<Officer> list) {
-
-        System.out.println("Nhap so nguoi : ");
-
-        int number = input.nextInt();
-
-        for (int i = 0; i < number; i++) {
-
-            System.out.println("Person " + (i + 1));
-
-            Officer o = new Officer();
-            o.input();
-            list.add(o);
-
-        }
-    }
-
-    public void OutputMylist(ArrayList<Officer> list) {
+    public void  OutputOfficials(ArrayList<Officer> list){
 
         for (int i = 0; i < list.size(); i++) {
 
-            System.out.println();
-            System.out.println("Person " + (i+1) + " {" + list.get(i));
-        }
-    }
+            if(list.get(i).getSalary() > 5){
 
-    public void Officials(ArrayList<Officer> list){
-
-
-        for (int i = 0; i < list.size(); i++) {
-
-            if(list.get(i).getSalary() > 1){
-
-                System.out.println();
-                System.out.println((i + 1) + " quan chuc " + list.get(i).getName() + " {" + list.get(i));
+                System.out.println((i + 1) + " Can bo vien chuc " + list.get(i).getName() + " : {" + list.get(i) + "}");
             }
+        }
+    }
+
+    public void SortOfficerList(ArrayList<Officer> list) {
+
+        System.out.print("Sap xep tang dan theo ngay thang (lay ngay + thang roi soft) : ");
+
+        for (int i = 0; i < list.size() - 1; i++) {
+
+            for (int j = i + 1; j < list.size(); j++) {
+
+                int I_DayMonth = list.get(i).getDay() + list.get(i).getMonth();
+                int J_DayMonth = list.get(j).getDay() + list.get(j).getMonth();
+
+                if (I_DayMonth > J_DayMonth) {
+
+                    Collections.swap(list, i, j);
+                }
+            }
+        }
+
+        for (int i = 0; i < list.size(); i++) {
+
+                System.out.print("\n" + (i + 1) + " Officer " + list.get(i).getName() + " : {" + list.get(i)+ "}");
         }
     }
 }

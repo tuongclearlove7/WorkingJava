@@ -43,6 +43,7 @@ public class Count_Dictionary_14 {
                 notCounted = true;
             }
         }
+        
         return count;
     }
 

@@ -9,9 +9,10 @@ public class Employee extends Person {
 
     private String DateCome;
 
-    public Employee(String room, float salarySystem, String DateCome, String name, String birthday, String address) {
+    public Employee(int day, int month, int year,String room, float salarySystem, String DateCome, String name, String birthday, String address) {
 
-        super(name, birthday, address);
+        super(day,month,year,name, birthday, address);
+
         this.room = room;
         this.salarySystem = salarySystem;
         this.DateCome = DateCome;
@@ -19,15 +20,8 @@ public class Employee extends Person {
 
     public Employee() {
 
-        super();
     }
 
-    public Employee(String room, float salarySystem, String DateCome) {
-
-        this.room = room;
-        this.salarySystem = salarySystem;
-        this.DateCome = DateCome;
-    }
 
     public String getRoom() {
 
@@ -81,26 +75,8 @@ public class Employee extends Person {
     public String toString() {
 
 
-        return super.toString() + "\n\t\tPhong ban : " + room
-                                + "\n\t\tHe so luong : " + salarySystem
-                                + "\n\t\tNgay vao cong ty : " + DateCome;
+        return super.toString() + ", Phong ban : " + room + ", He so luong : " + salarySystem + ", Ngay vao cong ty : " + DateCome;
 
-    }
-
-    public void Mylist(ArrayList<Employee> list) {
-
-        System.out.println("\nNhap so nhan vien : ");
-
-        int n = input.nextInt();
-
-        for (int i = 0; i < n; i++) {
-
-            System.out.println("Nhan vien " + (i + 1));
-            Employee e = new Employee();
-            e.input();
-            list.add(e);
-
-        }
     }
 
     public void OutputMylist(ArrayList<Employee> list, double BasicSalary) {
@@ -108,19 +84,13 @@ public class Employee extends Person {
 
         for (int i = 0; i < list.size(); i++) {
 
-            System.out.println("\nNhan_vien_" + (i + 1) + " : {\n\t"
+            System.out.println((i+1) + " Nhan_vien_" + list.get(i).getName()  + " : {" + list.get(i)
 
-                                  + list.get(i).getName()  + " : {"
-
-                                  + list.get(i) + "\n\t\tluong cua nhan vien la : "
-
-                                  + list.get(i).getSalary() * BasicSalary + " USD" + "\n\t}\n}");
+            + "\nluong cua nhan vien la : " + list.get(i).getSalary() * BasicSalary + " USD" + " } ");
         }
     }
 
     public void OutputSort(ArrayList<Employee> list, double BasicSalary) {
-
-        ShowDate(Mydate.day,Mydate.month,Mydate.year);
 
         for (int i = 0; i < list.size() - 1; i++) {
 

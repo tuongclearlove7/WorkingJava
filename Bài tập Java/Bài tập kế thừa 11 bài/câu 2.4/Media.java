@@ -5,7 +5,11 @@ import java.util.Scanner;
 public class Media {
 
     private String NameMedia;
+    
+
     private double PriceMedia;
+
+
     static Scanner input = new Scanner(System.in);
 
     public Media(String NameMedia, double PriceMedia) {
@@ -15,6 +19,7 @@ public class Media {
     }
 
     public Media() {
+
     }
 
 
@@ -61,6 +66,6 @@ public class Media {
     @Override
     public String toString() {
 
-        return "Property \n\t\tNameMedia : " + NameMedia + "\n\t\tPriceMedia : " + PriceMedia;
+        return "Property : NameMedia : " + NameMedia + ", PriceMedia : " + PriceMedia;
     }
 }

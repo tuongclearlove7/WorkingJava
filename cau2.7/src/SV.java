@@ -60,7 +60,7 @@ public class SV {
 
     }
 
-    public void cancel(){
+    protected void cancel(){
 
         System.out.print("ban co muon huy chuong trinh k?\n\t\tOption[yes or no] : ");
         String user  = input.nextLine();
@@ -80,6 +80,6 @@ public class SV {
     @Override
     public String toString() {
 
-        return "\n\t\tname : " + name + "\n\t\tClass : " + Class;
+        return "name : " + name + ", Class : " + Class;
     }
 }

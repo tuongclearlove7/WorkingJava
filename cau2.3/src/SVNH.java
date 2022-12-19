@@ -58,6 +58,6 @@ public class SVNH extends SV {
     @Override
     public String toString() {
 
-        return super.toString() + "\n\t\tDiem trung binh : " + Medium_Score + "\n\t\tHoc bong : " + scholarship;
+        return super.toString() + ", Diem trung binh : " + Medium_Score + ", Hoc bong : " + scholarship;
     }
 }
