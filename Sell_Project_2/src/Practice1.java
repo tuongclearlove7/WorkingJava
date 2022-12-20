@@ -24,7 +24,7 @@ class Practice1  implements ActionListener {
 
                 JPanel panel = new JPanel();
                 JFrame window = new JFrame();
-                window.setTitle("Practice1");
+                window.setTitle("App Practice1");
                 window.setSize(500, 300);
                 window.add(panel);
                 text_student = new JLabel("hoc sinh");

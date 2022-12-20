@@ -3,7 +3,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.JTextField;
 
-public class App<CL7> extends JFrame{
+public class App<T> extends JFrame{
 
 
     public static JLabel text_input = new JLabel();
@@ -11,9 +11,9 @@ public class App<CL7> extends JFrame{
     public static JTextField out = new JTextField();
 
 
-    public static void main(String[] arg){
+    public void main(String[] arg){
 
-        new App<test>();
+        new App<T>();
 
     }
     public App() {

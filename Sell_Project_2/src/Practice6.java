@@ -49,15 +49,12 @@ public class Practice6 extends Practice3 implements ActionListener{
                     }
 
                     private static void Encode_String(String str, String[] str1){
-
                         int b;
                         int h = 0;
                         char g;
-
                         for (int i = 0; i < str.length(); i++) {
                             b = str.charAt(i);
                             if (b >= 'a' && b <= 'z') {
-
                                 b = b - 97;
                                 b = b + 5;
                                 b = b % 26;
@@ -66,7 +63,6 @@ public class Practice6 extends Practice3 implements ActionListener{
                                 str1[i] = g + "";
                                 h++;
                             }
-
                             else if (b >= 'A' && b <= 'Z') {
                                 b = b - 65;
                                 b = b + 5;
@@ -75,15 +71,12 @@ public class Practice6 extends Practice3 implements ActionListener{
                                 g = (char) b;
                                 str1[i] = g + "";
                                 h++;
-
                             }
-
                             else if (b == -65) {
                                 str1[i] = " ";
                                 h++;
                             }
                         }
-
                         String tostring = " ";
 
                         for (int j = 0; j < h ; j++) {

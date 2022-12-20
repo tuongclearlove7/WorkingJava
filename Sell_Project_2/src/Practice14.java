@@ -46,11 +46,11 @@ public class Practice14 extends Practice6 implements ActionListener {
 
                         String user =  input_str.getText();
 
-                        Count_Dictionary(user);
+                        Count_String(user);
 
                     }
 
-                    public static void Count_Dictionary(String str) {
+                    public static void Count_String(String str) {
 
                         String str1 = str + " ";
                         int count = 0;
