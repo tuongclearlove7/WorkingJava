@@ -74,9 +74,9 @@ public class Officer extends Person{
 
             for (int j = i + 1; j < list.size(); j++) {
 
-
                 int I_DayMonth = list.get(i).getDay() + list.get(i).getMonth();
                 int J_DayMonth = list.get(j).getDay() + list.get(j).getMonth();
+
                 if (I_DayMonth > J_DayMonth) {
 
                     Collections.swap(list, i, j);

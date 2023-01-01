@@ -1,0 +1,8 @@
+receipt_ID : Hoadon_lap_1, device_ID : thietbi_laptop_1, product : san pham1, model : MSI, size : 43, resolution : Resolution, type : 'Bravo15, receipt : 1000.0, amount : 40, chip : AMD Ryzen, ram : RAM 32GB, capacity : 1000GB
+, Thanh tien : 51400.0 USD
+receipt_ID : Hoadon_lap_1, device_ID : thietbi_laptop_1, product : san pham1, model : MSI, size : 43, resolution : Resolution, type : 'Bravo15, receipt : 1000.0, amount : 40, chip : AMD Ryzen, ram : RAM 32GB, capacity : 1000GB
+, Thanh tien : 51400.0 USD
+receipt_ID : Hoadon_lap_1, device_ID : thietbi_laptop_1, product : san pham1, model : MSI, size : 43, resolution : Resolution, type : 'Bravo15, receipt : 1000.0, amount : 40, chip : AMD Ryzen, ram : RAM 32GB, capacity : 1000GB
+, Thanh tien : 51400.0 USD
+receipt_ID : Hoadon_lap_1, device_ID : thietbi_laptop_1, product : san pham1, model : MSI, size : 43, resolution : Resolution, type : 'Bravo15, receipt : 1000.0, amount : 40, chip : AMD Ryzen, ram : RAM 32GB, capacity : 1000GB
+, Thanh tien : 51400.0 USD

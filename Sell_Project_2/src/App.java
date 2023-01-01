@@ -7,9 +7,10 @@ public class App<T> extends JFrame{
 
 
     public static JLabel text_input = new JLabel();
-    public static JTextArea outline = new JTextArea(10,10);
-    public static JTextField out = new JTextField();
 
+    public static JTextArea outline = new JTextArea(10,10);
+
+    public static JTextField out = new JTextField();
 
     public void main(String[] arg){
 
