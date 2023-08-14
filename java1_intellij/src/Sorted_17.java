@@ -1,7 +1,7 @@
 public class Sorted_17 {
 
     public static void SortedArray(int arr[],int n) {
-
+         //bubble sort (sắp xếp nổi bọt)
         int flag;
         n = arr.length;
 
