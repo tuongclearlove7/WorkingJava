@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d9eeb49f-74be-432c-95b5-4183678860b7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../java1_intellij/src/test2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_On_thi3/src/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_On_thi3/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_On_thi3/src/QLPTGT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_On_thi3/src/action_add.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_On_thi3/src/action_delete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_On_thi3/src/action_readfile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_On_thi3/src/action_remove.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_On_thi3/src/action_trash.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_On_thi3/src/liBrary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_On_thi3/src/xe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_On_thi3/src/xe_oto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_On_thi3/src/xe_tai.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/File_Text/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/File_Text/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/File_Text/weather.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/File_Text/weather.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/GUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_EventClean.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_EventClean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_EventEXIT.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_EventEXIT.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_1$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_1$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_2$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_2$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_3$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_3$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_3$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_4$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_4$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_4$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_4.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_5$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_5$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_5$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_5$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_5.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_6$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_6$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_6$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_6$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_6.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/Handle_Button_Event_6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/MAIN_PROGRAM.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/MAIN_PROGRAM.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/METHOD.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/METHOD2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/METHOD3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/METHOD4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/METHOD5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/METHOD6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/PRATICE7.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/PRATICE7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/out/production/ProjectOop/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectOop/src/test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project_Onthi2/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Project_Onthi2/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project_Onthi2/data2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Project_Onthi2/data2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project_ReadWriteFileOop/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Project_ReadWriteFileOop/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project_ReadWriteFileOop/data2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Project_ReadWriteFileOop/data2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project_ReadWriteFileOop/out/production/Project_ReadWriteFileOop/ACTION_ADD.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Project_ReadWriteFileOop/out/production/Project_ReadWriteFileOop/ACTION_ADD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project_ReadWriteFileOop/out/production/Project_ReadWriteFileOop/file/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Project_ReadWriteFileOop/out/production/Project_ReadWriteFileOop/file/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sell_Project_Game/out/production/Sell_Project_Game/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Sell_Project_Game/out/production/Sell_Project_Game/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sell_Project_Game/out/production/Sell_Project_Game/Handle_Button_Event_Clean.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Sell_Project_Game/out/production/Sell_Project_Game/Handle_Button_Event_Clean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sell_Project_Game/out/production/Sell_Project_Game/Handle_Button_Event_READFILE.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Sell_Project_Game/out/production/Sell_Project_Game/Handle_Button_Event_READFILE.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sell_Project_Game/out/production/Sell_Project_Game/Text/Data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Sell_Project_Game/out/production/Sell_Project_Game/Text/Data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sell_Project_Game/out/production/Sell_Project_Game/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Sell_Project_Game/out/production/Sell_Project_Game/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sell_Project_Game/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Sell_Project_Game/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sell_Project_Game/src/Handle_Button_Event_Clean.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Sell_Project_Game/src/Handle_Button_Event_Clean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sell_Project_Game/src/Handle_Button_Event_READFILE.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Sell_Project_Game/src/Handle_Button_Event_READFILE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sell_Project_Game/src/Text/Data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Sell_Project_Game/src/Text/Data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sell_Project_Game/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Sell_Project_Game/src/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cau2.2/out/production/cau2.2/Officer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cau2.2/out/production/cau2.2/Officer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cau2.2/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cau2.2/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cau2.4/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cau2.4/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/Count_Dictionary_14.class" beforeDir="false" afterPath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/Count_Dictionary_14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/MyFile_Temperature_Humidity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/MyFile_Temperature_Humidity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/Pratice_ReplaceString_20.class" beforeDir="false" afterPath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/Pratice_ReplaceString_20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/Standardized_Char_15.class" beforeDir="false" afterPath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/Standardized_Char_15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/demo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/path/oxy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/path/oxy.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/path/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/path/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/path/test2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/path/test2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/student.class" beforeDir="false" afterPath="$PROJECT_DIR$/../java1_intellij/out/production/java1_intellij/student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java_inheritance_intellij/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java_inheritance_intellij/src/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2LLWD3zD2gaKHTIKQIxe0jjjhBe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/clearlove7/Documents/GitHub/WorkingJava/Project_ReadWriteFileOop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="App" />
+      <module name="sach_giao_khoa" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main" />
+      <module name="sach_giao_khoa" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+        <item itemvalue="Application.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d9eeb49f-74be-432c-95b5-4183678860b7" name="Changes" comment="" />
+      <created>1675650721576</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1675650721576</updated>
+      <workItem from="1675650724050" duration="4429000" />
+      <workItem from="1675663165622" duration="48000" />
+      <workItem from="1686572926085" duration="29000" />
+      <workItem from="1686581760295" duration="151000" />
+      <workItem from="1696582285410" duration="18000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

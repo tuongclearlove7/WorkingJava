@@ -1,0 +1,20 @@
+Insert 1
+2342345345         Nguyễn Văn         A         19/12/2022         0         0         0         0         Điểm trung bình         
+2342345345         Nguyễn Văn         A         19/12/2022         0         0         0         0         Điểm trung bình         
+Insert 2
+2342345345         Nguyễn Văn         A         19/12/2022         0         0         0         0         Điểm trung bình         
+2342345345         Nguyễn Văn         A         19/12/2022         0         0         0         0         Điểm trung bình         
+2342345345         Nguyễn Văn         A         19/12/2022         1         2         3         4         Điểm trung bình         
+Insert 3
+2342345345         Nguyễn Văn         A         19/12/2022         0         0         0         0         Điểm trung bình         
+2342345345         Nguyễn Văn         A         19/12/2022         0         0         0         0         Điểm trung bình         
+2342345345         Nguyễn Văn         A         19/12/2022         1         2         3         4         Điểm trung bình         
+2342345345         Nguyễn Văn         A         19/12/2022         1         2         3         4         2.5         
+2342345345         Nguyễn Văn         A         19/12/2022         1         2         3         4         2.5         
+2342345345         Nguyễn Văn         A         19/12/2022         1         2         3         4         2.5         
+Insert 1
+2342345345         Nguyễn Văn         A         19/12/2022         0         0         0         0         Điểm trung bình         
+Insert 2
+2342345345         Nguyễn Văn         A         19/12/2022         0         0         0         0         Điểm trung bình         
+
+

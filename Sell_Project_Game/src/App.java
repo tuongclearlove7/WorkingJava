@@ -60,14 +60,9 @@ public class App extends JFrame {
 
     JScrollBar SCROLLBAR = new JScrollBar(JScrollBar.HORIZONTAL);
 
-    protected static String PATH_TXT = "C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\Sell_Project_Game\\src\\Text\\Data.txt";
-
-    private static String PATH_ICON = "C:\\Users\\clearlove7\\Documents\\GitHub\\WorkingJava\\Sell_Project_Game\\src\\Model\\icon\\clearlove7.png";
-
-    private static Image ICON = Toolkit.getDefaultToolkit().getImage(PATH_ICON);
-
+    protected static String PATH_TXT = "Data.txt";
     static JDialog MESSENGER = new JDialog(App.SCREEN, "Messenger box");
-
+    static JDialog MESSENGER2 = new JDialog(App.SCREEN, "Messenger box");
     protected static Object[] COLUMN = new String[]{
 
             "ID","Firstname","Lastname","Birthday","HomeWorkScore",
@@ -78,8 +73,6 @@ public class App extends JFrame {
     public App(){
 
         JPanel panel = new JPanel();
-        SCREEN.setIconImage(ICON);
-
         LABEL_ID = new JLabel("Input ID : ");
         LABEL_ID.setBounds(10, 25, 100, 25);
         LABEL_ID.setForeground(Color.red);

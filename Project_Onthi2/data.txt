@@ -8,3 +8,19 @@ id_hang : 001, date : 16/1/2002, receipt_price : 1600.0, amount : 9, where_produ
 Thành tiền : 14400.0 USD
 id_hang : 001, date : 16/1/2002, receipt_price : 1600.0, amount : 9, where_production : trong nuoc
 Thành tiền : 14400.0 USD
+id_hang : 001, date : 16/1/2002, receipt_price : 1600.0, amount : 9, where_production : trong nuoc
+Thành tiền : 14400.0 USD
+id_hang : 001, date : 16/1/2002, receipt_price : 1600.0, amount : 9, where_production : trong nuoc
+Thành tiền : 14400.0 USD
+id_hang : 001, date : 16/1/2002, receipt_price : 1600.0, amount : 9, where_production : trong nuoc
+Thành tiền : 14400.0 USD
+id_hang : 001, date : 16/1/2002, receipt_price : 1600.0, amount : 9, where_production : trong nuoc
+Thành tiền : 14400.0 USD
+id_hang : 001, date : 16/1/2002, receipt_price : 1600.0, amount : 9, where_production : trong nuoc
+Thành tiền : 14400.0 USD
+id_hang : 001, date : 16/1/2002, receipt_price : 1600.0, amount : 9, where_production : trong nuoc
+Thành tiền : 14400.0 USD
+id_hang : 001, date : 16/1/2002, receipt_price : 1600.0, amount : 9, where_production : trong nuoc
+Thành tiền : 14400.0 USD
+id_hang : 001, date : 16/1/2002, receipt_price : 1600.0, amount : 9, where_production : trong nuoc
+Thành tiền : 14400.0 USD

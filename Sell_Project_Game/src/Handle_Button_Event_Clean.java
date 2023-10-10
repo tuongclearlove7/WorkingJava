@@ -1,5 +1,9 @@
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 
 public class Handle_Button_Event_Clean implements ActionListener {
 
@@ -8,16 +12,32 @@ public class Handle_Button_Event_Clean implements ActionListener {
 
         System.out.println("Clean text !!!");
 
-        App.ID.setText("");
-        App.FIRSTNAME.setText("");
-        App.LASTNAME.setText("");
-        App.BIRTHDAY.setText("");
-        App.HomeWorkScore.setText("");
-        App.DiscussionScore.setText("");
-        App.FrequentScore.setText("");
-        App.FinalScore.setText("");
-        App.MediumScore.setText("");
+        
         App.ShowData.setText("");
+
+        boolean clean_file = false;
+
+        try {
+
+            File file = new File(App.PATH_TXT);
+            FileWriter fw = new FileWriter(file, clean_file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("");
+            JLabel cleansuccess = new JLabel("Xóa thành công!");
+            App.MESSENGER2.add(cleansuccess);
+            App.MESSENGER2.setSize(200, 100);
+            App.MESSENGER2.setVisible(true);
+            bw.close();
+            fw.close();
+
+        }
+
+        catch (Exception err) {
+            JLabel cleanfail = new JLabel("Xóa thất bại!");
+            App.MESSENGER2.add(cleanfail);
+            App.MESSENGER2.setSize(200, 100);
+            App.MESSENGER2.setVisible(true);
+        }
 
     }
 }

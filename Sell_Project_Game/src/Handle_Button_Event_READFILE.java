@@ -31,13 +31,16 @@ public class Handle_Button_Event_READFILE extends JFrame implements ActionListen
             fr.close();
             System.out.println("Show data!!!");
             //System.out.println(sb.toString());
+            if(sb.toString().equals("")){
+                App.ShowData.setText("chưa có dữ liệu");
+            }
             App.ShowData.setText(sb.toString());
 
             }
 
         catch (Exception err) {
 
-            err.printStackTrace();
+            App.ShowData.setText("chưa có dữ liệu");
         }
     }
 }
