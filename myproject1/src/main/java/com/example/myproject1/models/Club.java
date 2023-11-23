@@ -9,7 +9,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 @Data
 @NoArgsConstructor
@@ -27,12 +26,10 @@ public class Club {
     private String title;
     private String photoUrl;
     private String content;
-
     @CreationTimestamp
     private LocalDateTime createdOn;
     @UpdateTimestamp
-    private LocalDateTime updateOn;
-
+    private LocalDateTime updatedOn;
 
 
 }
