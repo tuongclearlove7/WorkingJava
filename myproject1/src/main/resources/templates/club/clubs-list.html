@@ -15,6 +15,7 @@
                     <th scope="col">Title</th>
                     <th scope="col">Image</th>
                     <th scope="col">Content</th>
+                    <th colspan="2">Action</th>
                 </tr>
                 </thead>
                 <tbody th:each="club :${clubs}" >
@@ -23,10 +24,21 @@
                         <td th:text="${club.title}"></td>
                         <td><img width="30%" height="100%" th:src="${club.photoUrl}" alt="image" ></td>
                         <td th:text="${club.content}"></td>
+                        <td>
+                            <form method="GET" th:action="@{/clubs/{id}/edit(id=${club.id})}">
+                                <button class="btn btn-primary" type="submit">EDIT</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form >
+                                <button class="btn btn-danger" type="button" th:attr="onclick='alert(\'Delete item: ' + ${club.id} + '\')'" >DELETE</button>
+                            </form>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
     </div>
 
 

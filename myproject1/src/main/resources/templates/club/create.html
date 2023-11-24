@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<body>
+
+<div layout:fragment="content" class="container">
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">New club</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form role="form" method="POST" th:action="@{/clubs/create}" th:object="${club}">
+                        <div class="mb-3">
+                            <label for="title" class="col-form-label">Title:</label>
+                            <input type="text" class="form-control" th:field="*{title}" name="title" id="title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="photoUrl" class="col-form-label">Image:</label>
+                            <input type="text" class="form-control" th:field="*{photoUrl}" name="photoUrl" id="photoUrl">
+                        </div>
+                        <div class="mb-3">
+                            <label for="content" class="col-form-label">Content:</label>
+                            <input type="text" class="form-control" th:field="*{content}" name="content" id="content">
+                        </div>
+
+                        <div class="modal-footer">
+                            <a class="btn btn-dark" th:href="@{/clubs}">Close</a>
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
