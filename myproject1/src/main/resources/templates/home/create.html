@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<body>
+
+<div layout:fragment="content" class="container">
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">New post</h1>
+                    <a class="btn-close" th:href="@{/}"></a>
+                </div>
+                <div class="modal-body">
+
+                    <form role="form" th:action="@{/saveSessionMessage}" method="POST">
+                        <div class="mb-3">
+                            <label for="image"  class="col-form-label">Image:</label>
+                            <input type="text" class="form-control" name="image" id="image">
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="status" class="col-form-label">Status:</label>
+                            <input type="text" class="form-control" name="status" id="status">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="msg"  class="col-form-label">Message:</label>
+                            <input type="text" class="form-control" name="msg" id="msg">
+                        </div>
+
+                        <br>
+                        <a class="btn btn-dark" th:href="@{/}">Close</a>
+                        <button type="submit" class="btn btn-primary">POST</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

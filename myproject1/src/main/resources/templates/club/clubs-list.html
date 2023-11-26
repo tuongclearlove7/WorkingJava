@@ -8,6 +8,18 @@
 
     <div layout:fragment="content" class="container">
         <div class="table-container" >
+
+            <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${success}">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                <strong th:text="${success}"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${failed}">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <strong th:text="${failed}"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
             <table class="table">
                 <thead>
                 <tr>

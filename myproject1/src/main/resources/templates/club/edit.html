@@ -13,7 +13,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Old club</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <a class="btn-close" th:href="@{/clubs}"></a>
                 </div>
                 <div class="modal-body">
 
@@ -22,14 +22,17 @@
                         <div class="mb-3">
                             <label for="title" class="col-form-label">Title:</label>
                             <input type="text" class="form-control" th:field="*{title}" name="title" id="title">
+                            <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="text-danger"></p>
                         </div>
                         <div class="mb-3">
                             <label for="photoUrl" class="col-form-label">Image:</label>
                             <input type="text" class="form-control" th:field="*{photoUrl}" name="photoUrl" id="photoUrl">
+                            <p th:if="${#fields.hasErrors('photoUrl')}" th:errors="*{photoUrl}" class="text-danger"></p>
                         </div>
                         <div class="mb-3">
                             <label for="content" class="col-form-label">Content:</label>
                             <input type="text" class="form-control" th:field="*{content}" name="content" id="content">
+                            <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="text-danger"></p>
                         </div>
 
                         <div class="modal-footer">

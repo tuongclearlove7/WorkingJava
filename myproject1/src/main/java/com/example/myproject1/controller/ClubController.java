@@ -2,14 +2,17 @@ package com.example.myproject1.controller;
 
 import com.example.myproject1.dto.ClubDto;
 import com.example.myproject1.models.Club;
+import jakarta.validation.Valid;
 import org.springframework.ui.Model;
 import com.example.myproject1.service.ClubService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -45,17 +48,35 @@ public class ClubController {
     }
 
     @PostMapping("/clubs/create")
-    public String saveClub(@ModelAttribute("club") Club club){
+    public String saveClub(@Valid @ModelAttribute("club") ClubDto clubDto, BindingResult res, Model model, RedirectAttributes flashMessage){
 
-        clubService.saveClub(club);
+        String success = "Create successfully";
 
-        return "redirect:/clubs";
+        if(res.hasErrors()){
+
+            model.addAttribute("club", clubDto);
+
+            return "club/create";
+        }
+
+        try{
+
+            clubService.saveClub(clubDto);
+            flashMessage.addFlashAttribute("success", success);
+
+            return "redirect:/clubs";
+
+        }catch (Exception error){
+
+            flashMessage.addFlashAttribute("failed", error);
+
+            return "redirect:/clubs";
+        }
     }
 
 
     @GetMapping("/clubs/{id}/edit")
     public String editClub(@PathVariable("id") Long id, Model model){
-
 
         ClubDto clubDto = clubService.findClubById(id);
 
@@ -65,13 +86,32 @@ public class ClubController {
     }
 
     @PostMapping("/clubs/{id}/edit")
-    public String updateClub(@PathVariable("id") Long id, @ModelAttribute("club") ClubDto clubDto){
+    public String updateClub(@PathVariable("id") Long id, @Valid @ModelAttribute("club") ClubDto clubDto, BindingResult res, RedirectAttributes flashMessage){
 
-        clubDto.setId(id);
+        String success = "Update successfully";
 
-        clubService.updateClub(clubDto);
+        if(res.hasErrors()){
 
-        return "redirect:/clubs";
+            return "/club/edit";
+        }
+
+        try{
+
+            clubDto.setId(id);
+
+            clubService.updateClub(clubDto);
+
+            flashMessage.addFlashAttribute("success", success);
+
+            return "redirect:/clubs";
+
+        }catch (Exception error){
+
+            flashMessage.addFlashAttribute("failed", error);
+
+            return "redirect:/clubs";
+        }
+
     }
 
 
