@@ -30,6 +30,14 @@ public class ClubServiceImpl implements ClubService {
     }
 
     @Override
+    public List<ClubDto> searchClubs(String query) {
+
+        List<Club> clubs = clubRepository.searchClubs(query);
+
+        return clubs.stream().map(club -> mapToClubDto(club)).collect(Collectors.toList());
+    }
+
+    @Override
     public Club saveClub(ClubDto clubDto) {
 
         Club club = mapToClub(clubDto);
@@ -50,6 +58,12 @@ public class ClubServiceImpl implements ClubService {
 
         Club club = mapToClub(clubDto);
         clubRepository.save(club);
+    }
+
+    @Override
+    public void deleteClub(Long id) {
+
+        clubRepository.deleteById(id);
     }
 
     private Club mapToClub(ClubDto club) {

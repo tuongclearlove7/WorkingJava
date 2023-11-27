@@ -17,7 +17,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <form role="form" method="POST" th:action="@{/clubs/create}" th:object="${club}">
+                    <form role="form" method="POST" th:action="@{/clubs/store}" th:object="${club}">
                         <div class="mb-3">
                             <label for="title" class="col-form-label">Title:</label>
                             <input type="text" class="form-control" th:field="*{title}" name="title" id="title">

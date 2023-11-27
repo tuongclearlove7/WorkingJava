@@ -8,10 +8,7 @@ import com.example.myproject1.service.ClubService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -28,7 +25,7 @@ public class ClubController {
     }
 
     @GetMapping("/clubs")
-    public String listClubs(Model model){
+    public String index(Model model){
 
         List<ClubDto> clubs = clubService.findAllClubs();
 
@@ -37,8 +34,28 @@ public class ClubController {
         return "club/clubs-list";
     }
 
+    @GetMapping("clubs/search")
+    public String search(@RequestParam(value = "query") String query, Model model ){
+
+        List<ClubDto> clubs = clubService.searchClubs(query);
+
+        model.addAttribute("clubs",clubs);
+
+        return "club/clubs-list";
+    }
+
+    @GetMapping("/clubs/{id}")
+    public String show(@PathVariable("id") long id, Model model){
+
+        ClubDto clubDto = clubService.findClubById(id);
+
+        model.addAttribute("club", clubDto);
+
+        return "club/show";
+    }
+
     @GetMapping("/clubs/create")
-    public String createClub(Model model){
+    public String create(Model model){
 
         Club club = new Club();
 
@@ -47,8 +64,8 @@ public class ClubController {
         return "club/create";
     }
 
-    @PostMapping("/clubs/create")
-    public String saveClub(@Valid @ModelAttribute("club") ClubDto clubDto, BindingResult res, Model model, RedirectAttributes flashMessage){
+    @PostMapping("/clubs/store")
+    public String store(@Valid @ModelAttribute("club") ClubDto clubDto, BindingResult res, Model model, RedirectAttributes flashMessage){
 
         String success = "Create successfully";
 
@@ -76,7 +93,7 @@ public class ClubController {
 
 
     @GetMapping("/clubs/{id}/edit")
-    public String editClub(@PathVariable("id") Long id, Model model){
+    public String edit(@PathVariable("id") Long id, Model model){
 
         ClubDto clubDto = clubService.findClubById(id);
 
@@ -86,7 +103,7 @@ public class ClubController {
     }
 
     @PostMapping("/clubs/{id}/edit")
-    public String updateClub(@PathVariable("id") Long id, @Valid @ModelAttribute("club") ClubDto clubDto, BindingResult res, RedirectAttributes flashMessage){
+    public String update(@PathVariable("id") Long id, @Valid @ModelAttribute("club") ClubDto clubDto, BindingResult res, RedirectAttributes flashMessage){
 
         String success = "Update successfully";
 
@@ -100,6 +117,28 @@ public class ClubController {
             clubDto.setId(id);
 
             clubService.updateClub(clubDto);
+
+            flashMessage.addFlashAttribute("success", success);
+
+            return "redirect:/clubs";
+
+        }catch (Exception error){
+
+            flashMessage.addFlashAttribute("failed", error);
+
+            return "redirect:/clubs";
+        }
+
+    }
+
+    @GetMapping("clubs/{id}/delete")
+    public String delete(@PathVariable("id") Long id, RedirectAttributes flashMessage){
+
+        String success = "Delete successfully";
+
+        try{
+
+            clubService.deleteClub(id);
 
             flashMessage.addFlashAttribute("success", success);
 

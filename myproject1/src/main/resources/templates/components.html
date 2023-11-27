@@ -46,8 +46,9 @@
 
   <div class="px-3 py-2 border-bottom">
     <div class="container d-flex flex-wrap justify-content-center">
-      <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto">
-        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+      <form th:action="@{/clubs/search}" class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto form-search">
+        <input id="search-query" type="search" name="query" class="form-control" placeholder="Search..." aria-label="Search">
+        <button id="btn-search" type="submit" class="btn btn-primary">Search</button>
       </form>
       <div class="text-end">
         <form th:action="@{/destroy}" method="POST">
