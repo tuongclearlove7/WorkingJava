@@ -27,7 +27,7 @@
                     <th scope="col">Title</th>
                     <th scope="col">Image</th>
                     <th scope="col">Content</th>
-                    <th colspan="3">Action</th>
+                    <th colspan="4">Action</th>
                 </tr>
                 </thead>
                 <tbody th:each="club :${clubs}" >
@@ -40,6 +40,9 @@
                             <form method="GET" th:action="@{'/clubs/' + ${club.id}}">
                                 <button class="btn btn-success" type="submit">VIEW</button>
                             </form>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" th:href="@{'/events/create/' + ${club.id}}" >Create event</a>
                         </td>
                         <td>
                             <form method="GET" th:action="@{/clubs/{id}/edit(id=${club.id})}">

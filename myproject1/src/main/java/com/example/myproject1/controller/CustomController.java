@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CustomController implements ErrorController {
 
 
-    @RequestMapping("/error")
+     @RequestMapping("/error")
     public String handleError() {
 
         return "redirect:/";

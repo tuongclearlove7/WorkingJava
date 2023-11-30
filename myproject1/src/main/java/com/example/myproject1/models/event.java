@@ -13,26 +13,26 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
-@Table(name = "clubs")
-
-public class Club {
+public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private Long id;
-    private String title;
-    private String photoUrl;
-    private String content;
+    Long id;
+    String name;
+    LocalDateTime startTime;
+    LocalDateTime endTime;
+    String type;
     @CreationTimestamp
     private LocalDateTime createdOn;
     @UpdateTimestamp
     private LocalDateTime updatedOn;
 
-    @OneToMany(mappedBy = "club", cascade = CascadeType.REMOVE)
-    private Set<Event> events = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "club_id", nullable = true)
+    private Club club;
+
 }

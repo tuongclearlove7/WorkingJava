@@ -10,6 +10,17 @@
 
     <div class="table-container" >
 
+        <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${success}">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <strong th:text="${success}"></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${failed}">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <strong th:text="${failed}"></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
         <table class="table">
             <thead>
             <tr>
@@ -17,7 +28,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Image</th>
                 <th scope="col">Content</th>
-                <th colspan="3">Action</th>
+                <th colspan="4">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -30,6 +41,9 @@
                     <form method="GET" th:action="@{'/clubs'}">
                         <button class="btn btn-success" type="submit">BACK TO LIST</button>
                     </form>
+                </td>
+                <td>
+                    <a class="btn btn-primary" th:href="@{'/events/create/' + ${club.id}}" >Create event</a>
                 </td>
                 <td>
                     <form method="GET" th:action="@{/clubs/{id}/edit(id=${club.id})}">

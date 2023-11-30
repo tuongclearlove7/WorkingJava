@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<body>
+
+<div layout:fragment="content" class="container">
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">New Event</h1>
+                    <a class="btn-close" href=""></a>
+                </div>
+                <div class="modal-body">
+
+                    <form role="form" method="POST" th:action="@{/events/{clubId}(clubId=${clubId})}" th:object="${event}">
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" th:field="*{name}" name="name" id="name">
+                            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></p>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="type" class="col-form-label">Type:</label>
+                            <input type="text" class="form-control" th:field="*{type}" name="type" id="type">
+                            <p th:if="${#fields.hasErrors('type')}" th:errors="*{type}" class="text-danger"></p>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="startTime" class="col-form-label">Start Time:</label>
+                            <input type="datetime-local" class="form-control" th:field="*{startTime}" name="startTime" id="startTime">
+                            <p th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}" class="text-danger"></p>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="endTime" class="col-form-label">End Time:</label>
+                            <input type="datetime-local" class="form-control" th:field="*{endTime}" name="endTime" id="endTime">
+                            <p th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}" class="text-danger"></p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <a class="btn btn-dark" th:href="@{/clubs}">Close</a>
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

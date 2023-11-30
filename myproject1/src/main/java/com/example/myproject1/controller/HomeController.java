@@ -53,13 +53,13 @@ public class HomeController {
     }
 
     @GetMapping("/post/create")
-    public String createPost(Model model){
+    public String create(Model model){
 
         return "home/create";
     }
 
     @PostMapping("/saveSessionMessage")
-    public String saveSessionMessage(
+    public String store(
             @RequestParam("msg")  String msg,
             @RequestParam("status")  String status,
             @RequestParam("image")  String image,
@@ -83,7 +83,7 @@ public class HomeController {
 
 
     @PostMapping("/destroy")
-    public String destroySession(HttpServletRequest request) {
+    public String destroy(HttpServletRequest request) {
 
         request.getSession().invalidate();
 
