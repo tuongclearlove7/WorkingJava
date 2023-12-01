@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<body>
+
+<div layout:fragment="content" class="container">
+
+  <div class="time-line-container" th:if="${not #lists.isEmpty(clubs)}">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="content" class="content content-full-width">
+          <div class="profile-content">
+            <div class="tab-content p-0">
+              <div class="tab-pane fade active show" id="profile-post">
+
+                <ul class="timeline">
+                  <li th:each="club :${clubs}">
+                    <th:block th:if="${not #lists.isEmpty(club.events)}">
+                      <div class="timeline-time">
+                        <span class="date">today</span>
+                        <span class="time" th:text="${formattedTime}"></span>
+                      </div>
+                      <div class="timeline-icon">
+                        <a href="javascript:;">&nbsp;</a>
+                      </div>
+                      <div class="timeline-body">
+                        <div class="timeline-header">
+                          <span class="userimage">
+                              <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt>
+                          </span>
+                          <span class="username" th:text="${admin}"></span>
+                          <span class="pull-right text-muted"></span>
+                        </div>
+                        <div class="timeline-content">
+                          <span class="fs-5" th:text="${club.title}"></span>
+                          <div class="timeline-content-img">
+                            <img style="margin: 20px" width="30%" th:src="${club.photoUrl}" alt="${club.photoUrl}">
+                          </div>
+                          <div th:each="event :${club.events}" th:if="${event.id != null}">
+                            <b class="text-danger fs-6" th:text="${'Tin ' + event.type}"></b>
+                            <br>
+                            <div class="event-name">
+                              <span th:text="${event.name}"></span>
+                            </div>
+                            <div class="event-name">
+                              <a href="">edit</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="timeline-footer">
+                          <a href="javascript:;" class="m-r-15 text-inverse-lighter">Like</a>
+                          <a href="javascript:;" class="m-r-15 text-inverse-lighter">Comment</a>
+                          <a href="javascript:;" class="m-r-15 text-inverse-lighter">Share</a>
+                        </div>
+                      </div>
+                    </th:block>
+                  </li>
+                </ul>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

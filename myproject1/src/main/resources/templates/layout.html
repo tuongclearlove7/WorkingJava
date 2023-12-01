@@ -25,14 +25,20 @@
 </svg>
 
 <div th:replace="components :: header"></div>
-  <div style="background: aliceblue; padding-top: 50px" class="container"></div>
+  <div style="clear:both; background: aliceblue; padding-top: 50px" class="container"></div>
       <body layout:fragment="content"></body>
-  <div style="background: aliceblue; padding-top: 200px" class="container"></div>
+  <div style="clear:both; background: aliceblue; padding-top: 200px" class="container"></div>
 <div th:replace="components :: footer"></div>
 
 <script th:inline="javascript">
   $(document).ready(function(){
     $('#exampleModal').modal('show');
+  });
+
+  $(document).ready(function () {
+    $('#openModalButton').click(function () {
+      $('#exampleModal2').modal('show');
+    });
   });
 </script>
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>

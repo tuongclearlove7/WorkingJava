@@ -8,6 +8,17 @@
 
     <div layout:fragment="content" class="container">
 
+        <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${success}">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <strong th:text="${success}"></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${failed}">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <strong th:text="${failed}"></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
         <div class="time-line-container"  th:if="${posts != null and not #lists.isEmpty(posts)}">
             <div class="row">
                 <div class="col-md-12">
@@ -43,9 +54,8 @@
 
                             </div>
                             <div class="timeline-footer">
-                                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
-                                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
-                                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
+                                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                                <a  class="text-danger" th:attr="onclick='alert(\'Delete item: ' + ${I.index} + '\')'" th:href="@{'/delete/post/' + ${I.index}}">Delete</a>
                             </div>
                         </div>
                     </li>

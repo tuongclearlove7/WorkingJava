@@ -9,8 +9,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Data
 @Builder
@@ -21,11 +19,11 @@ public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String name;
-    LocalDateTime startTime;
-    LocalDateTime endTime;
-    String type;
+    private Long id;
+    private String name;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
+    private String type;
     @CreationTimestamp
     private LocalDateTime createdOn;
     @UpdateTimestamp
@@ -34,5 +32,6 @@ public class Event {
     @ManyToOne
     @JoinColumn(name = "club_id", nullable = true)
     private Club club;
+
 
 }

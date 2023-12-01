@@ -1,12 +1,17 @@
 package com.example.myproject1.controller;
 
+import com.example.myproject1.dto.ClubDto;
+import com.example.myproject1.dto.EventDto;
 import com.example.myproject1.models.Club;
 import com.example.myproject1.models.Post;
+import com.example.myproject1.service.ClubService;
+import com.example.myproject1.service.EventService;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import jakarta.annotation.Priority;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,72 +28,37 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    private final String COUNT_VIEW = "COUNT_VIEW";
+    private EventService eventService;
+    private ClubService clubService;
 
-    public HomeController() {
-
+    @Autowired
+    public HomeController(EventService eventService, ClubService clubService) {
+        this.eventService = eventService;
+        this.clubService = clubService;
     }
 
-    @GetMapping(value = {"/", "post", "home"})
+    @GetMapping(value = {"/", "home"})
     public String index(Model model, HttpSession session){
         @SuppressWarnings("unchecked")
 
         long view = 10103234;
-        List<Post> posts = (List<Post>) session.getAttribute("MY_SESSIONS");
+        List<EventDto> events = eventService.findAllEvents();
+        List<ClubDto> clubs = clubService.findAllClubs();
         LocalTime currentTime = LocalTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         String formattedTime = currentTime.format(formatter);
 
-        if (posts == null) {
-
-            posts = new ArrayList<>();
-        }
-
-        model.addAttribute("posts", posts);
+     
+        model.addAttribute("clubs", clubs);
+        model.addAttribute("events", events);
         model.addAttribute("admin", "ADMIN");
         model.addAttribute("view", view + " Views");
         model.addAttribute("formattedTime", formattedTime);
 
-        return "home/index";
-    }
-
-    @GetMapping("/post/create")
-    public String create(Model model){
-
-        return "home/create";
-    }
-
-    @PostMapping("/saveSessionMessage")
-    public String store(
-            @RequestParam("msg")  String msg,
-            @RequestParam("status")  String status,
-            @RequestParam("image")  String image,
-            HttpServletRequest request
-    ) {
-        @SuppressWarnings("unchecked")
-        List<Post> posts = (List<Post>) request.getSession().getAttribute("MY_SESSIONS");
-
-        if (posts == null) {
-
-            posts = new ArrayList<>();
-            request.getSession().setAttribute("MY_SESSIONS", posts);
-        }
-
-        Post post = new Post(msg, status, image);
-        posts.add(post);
-        request.getSession().setAttribute("MY_SESSIONS", posts);
-
-        return "redirect:/";
+        return "event/index";
     }
 
 
-    @PostMapping("/destroy")
-    public String destroy(HttpServletRequest request) {
-
-        request.getSession().invalidate();
-
-        return "redirect:/";
-    }
 
 
 }

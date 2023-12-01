@@ -7,6 +7,65 @@
     background-color: aliceblue;
 }
 
+.timeline-content-img{
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.btn-w{
+
+    width: 100%;
+
+}
+.btn-w button{
+
+    width: 100%;
+}
+
+.list-nav, .list-nav button{
+    width: 100%;
+}
+
+.list-nav li{
+
+    list-style: none;
+}
+
+.event-name{
+
+    margin: 15px 0px;
+    width: 60%;
+}
+
+.event-name span {
+
+    font-size: 15px;
+}
+
+.show-container{
+
+    margin: 0px 20% 0px 30px;
+    padding: 20px;
+    float: left;
+}
+
+.show-container-left{
+
+    text-align: center;
+    float: left;
+    width: 25%;
+    padding-right: 20px;
+}
+
+.show-container-left img{
+
+    padding-bottom: 15px;
+}
+
+.show-container-right{
+    float: left;
+    width: 70%;
+}
 .table-container{
 
     background-color: aliceblue;
@@ -87,7 +146,43 @@
 
 }
 
+@media (max-width: 1000px){
+
+    #btn-search{
+        width: 150px;
+    }
+    #search-query{
+        width: 300px;
+    }
+    .show-container-left{
+
+        text-align: center;
+        float: left;
+        width: 100%;
+        padding-right: 20px;
+    }
+
+    .show-container-left img{
+
+        padding-bottom: 15px;
+        width: 50%;
+        height: 50%;
+    }
+
+    .show-container-right{
+        float: left;
+        width: 100%;
+    }
+}
+
 @media (max-width: 725px) {
+
+    #btn-search{
+        display: none;
+    }
+    #search-query{
+        width: 100%;
+    }
 
     .time-line-container{
 

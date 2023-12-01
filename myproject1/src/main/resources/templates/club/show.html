@@ -21,42 +21,32 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
 
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Title</th>
-                <th scope="col">Image</th>
-                <th scope="col">Content</th>
-                <th colspan="4">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row" th:text="${club.id}"></th>
-                <td th:text="${club.title}"></td>
-                <td><img width="30%" height="100%" th:src="${club.photoUrl}" alt="image"></td>
-                <td th:text="${club.content}"></td>
-                <td>
-                    <form method="GET" th:action="@{'/clubs'}">
-                        <button class="btn btn-success" type="submit">BACK TO LIST</button>
-                    </form>
-                </td>
-                <td>
-                    <a class="btn btn-primary" th:href="@{'/events/create/' + ${club.id}}" >Create event</a>
-                </td>
-                <td>
-                    <form method="GET" th:action="@{/clubs/{id}/edit(id=${club.id})}">
-                        <button class="btn btn-primary" type="submit">EDIT</button>
-                    </form>
-                </td>
-                <td>
-                    <a class="btn btn-danger" th:href="@{/clubs/{id}/delete(id=${club.id})}" th:attr="onclick='alert(\'Delete item: ' + ${club.id} + '\')'">DELETE</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="show-container">
+            <div class="show-container-left">
+                <img width="100%" height="100%" th:src="${club.photoUrl}" th:alt="${club.photoUrl}">
+                <form method="GET" th:action="@{'/clubs'}">
+                    <button class="btn btn-success" type="submit">BACK TO LIST</button>
+                </form>
+            </div>
+            <br>
+            <div class="show-container-right">
+                <b class="fs-3">Title:</b>
+                <span class="fs-4" th:text="${club.title}"></span>
+                <br>
+                <b>Content:</b>
+                <span th:text="${club.content}"></span>
+                <br>
+                <div th:each="event :${club.events}" >
+                    <b>Event name:</b>
+                    <span th:if="${event.name != null}" th:text="${event.name}"></span>
+                    <br>
+                    <b>Event type:</b>
+                    <span th:if="${event.name != type}" th:text="${event.type}"></span>
+                </div>
+                <br>
+            </div>
 
+        </div>
 
     </div>
 

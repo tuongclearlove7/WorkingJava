@@ -45,7 +45,7 @@ public class ClubController {
     }
 
     @GetMapping("/clubs/{id}")
-    public String show(@PathVariable("id") long id, Model model){
+    public String show(@PathVariable("id") Long id, Model model){
 
         ClubDto clubDto = clubService.findClubById(id);
 
