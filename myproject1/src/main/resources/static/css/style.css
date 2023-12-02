@@ -21,6 +21,9 @@
 
     width: 100%;
 }
+.list-nav{
+    padding-left: 0px;
+}
 
 .list-nav, .list-nav button{
     width: 100%;

@@ -4,6 +4,7 @@ import com.example.myproject1.dto.ClubDto;
 import com.example.myproject1.dto.EventDto;
 import com.example.myproject1.models.Club;
 import com.example.myproject1.models.Post;
+import com.example.myproject1.models.Reuse;
 import com.example.myproject1.service.ClubService;
 import com.example.myproject1.service.EventService;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
@@ -47,8 +48,17 @@ public class HomeController {
         LocalTime currentTime = LocalTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         String formattedTime = currentTime.format(formatter);
+        List<Reuse> reuses = new ArrayList<>();
 
-     
+        reuses.add(new Reuse(
+                "CLUB","/clubs","List club","",""
+        ));
+        reuses.add(new Reuse(
+                "EVENT","/events","List event","",""
+        ));
+
+        System.out.println("Number of reuses: " + reuses.size());
+
         model.addAttribute("clubs", clubs);
         model.addAttribute("events", events);
         model.addAttribute("admin", "ADMIN");

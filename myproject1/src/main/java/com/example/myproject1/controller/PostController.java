@@ -44,7 +44,7 @@ public class PostController {
         return "home/index";
     }
 
-    @GetMapping("/post/create")
+    @GetMapping("/posts/create")
     public String create(Model model){
 
         return "home/create";

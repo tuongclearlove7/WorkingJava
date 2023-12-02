@@ -11,7 +11,7 @@
     <div class="container-fluid">
       <li class="nav-item dropdown">
         <button class="btn btn-dark dropdown-toggle navbar-brand" id="openModalButton" data-bs-toggle="dropdown" aria-expanded="false">
-          TAB
+          MENU
         </button>
 
         <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -21,37 +21,7 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Option</h1>
                 <a class="btn-close" th:href="@{/}"></a>
               </div>
-              <div class="modal-body">
-                <ul class="list-nav">
-
-                  <div class="mb-3">
-                    <li class="nav-item dropdown">
-                      <button  class="btn btn-dark" data-bs-toggle="dropdown" aria-expanded="false">
-                        EVENT
-                      </button>
-                      <ul class="btn-w dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" th:href="@{/events}">List events</a></li>
-                      </ul>
-                    </li>
-                  </div>
-
-                </ul>
-
-                <ul class="list-nav">
-
-                  <div class="mb-3">
-                    <li class="nav-item dropdown">
-                      <button  class="btn btn-dark" data-bs-toggle="dropdown" aria-expanded="false">
-                        EVENT
-                      </button>
-                      <ul class="btn-w dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" th:href="@{/events}">List events</a></li>
-                      </ul>
-                    </li>
-                  </div>
-
-                </ul>
-
+              <div id="modal_body" class="modal-body">
 
               </div>
             </div>
@@ -63,39 +33,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" th:href="@{/home}">HOME</a>
-          </li>
+        <ul id="list_nav_link" class="navbar-nav">
 
-          <li class="nav-item dropdown">
-            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              CLUB
-            </button>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" th:href="@{/clubs}">List clubs</a></li>
-              <li><a class="dropdown-item" th:href="@{/clubs/create}">Create club</a></li>
-            </ul>
-          </li>
-
-          <li class="nav-item dropdown">
-            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              POST
-            </button>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" th:href="@{/posts}">List posts</a></li>
-              <li><a class="dropdown-item" th:href="@{/post/create}">Create post</a></li>
-            </ul>
-          </li>
-
-          <li class="nav-item dropdown">
-            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              EVENT
-            </button>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" th:href="@{/events}">List events</a></li>
-            </ul>
-          </li>
+        </ul>
+        <ul id="list_nav_dropdown" class="navbar-nav">
 
         </ul>
       </div>

@@ -24,11 +24,12 @@
   </symbol>
 </svg>
 
-<div th:replace="components :: header"></div>
-  <div style="clear:both; background: aliceblue; padding-top: 50px" class="container"></div>
-      <body layout:fragment="content"></body>
-  <div style="clear:both; background: aliceblue; padding-top: 200px" class="container"></div>
-<div th:replace="components :: footer"></div>
+<div th:replace="~{components :: header}"></div>
+
+<div style="clear:both; background: aliceblue; padding-top: 50px" class="container"></div>
+<body layout:fragment="content"></body>
+<div style="clear:both; background: aliceblue; padding-top: 200px" class="container"></div>
+<div th:replace="~{components :: footer}"></div>
 
 <script th:inline="javascript">
   $(document).ready(function(){
@@ -43,4 +44,5 @@
 </script>
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/js/script1.js}"></script>
 </html>
