@@ -33,7 +33,7 @@ public class EventController {
         this.clubService = clubService;
     }
 
-    @GetMapping("/events")
+    @GetMapping(value = { "/events"})
     public String index(Model model){
 
         List<EventDto> events = eventService.findAllEvents();
@@ -53,6 +53,16 @@ public class EventController {
         return "/event/index";
     }
 
+    @GetMapping(value = {"/events/{id}"})
+    public String show(@PathVariable("id") Long id, Model model){
+
+        EventDto eventDto = eventService.findByEventId(id);
+
+        model.addAttribute("event", eventDto);
+
+        return "event/show";
+    }
+
 
     @GetMapping("/events/create/{clubId}")
     public String create(@PathVariable("clubId") Long clubId, Model model){
@@ -65,17 +75,17 @@ public class EventController {
     }
 
     @PostMapping("/events/{clubId}")
-    public String store(@PathVariable("clubId") Long clubId, @ModelAttribute("event") EventDto eventDto, Model model , BindingResult res, RedirectAttributes flashMessage){
+    public String store(@PathVariable("clubId") Long clubId,@Valid @ModelAttribute("event") EventDto eventDto, Model model , BindingResult res, RedirectAttributes flashMessage){
 
         String success = "Create event successfully";
 
-        //        if(res.hasErrors()){
-        //
-        //            model.addAttribute("event", eventDto);
-        //
-        //            return "redirect:/events/create/" + clubId;
-        //
-        //        }
+                if(res.hasErrors()){
+
+                    model.addAttribute("event", eventDto);
+
+                    return "event/create";
+
+                }
 
         try {
 
@@ -83,13 +93,81 @@ public class EventController {
 
             flashMessage.addFlashAttribute("success", success);
 
-            return "redirect:/clubs";
+            return "redirect:/events";
         }
         catch (Exception error)
         {
             flashMessage.addFlashAttribute("failed", error);
 
-            return "redirect:/clubs";
+            return "redirect:/events";
+        }
+
+    }
+
+    @GetMapping("/events/{id}/edit")
+    public String edit(@PathVariable("id") Long id, Model model){
+
+        EventDto eventDto = eventService.findByEventId(id);
+
+        System.out.println("club ID: " + eventDto.getClub().getId());
+
+        model.addAttribute("event", eventDto);
+
+        return "/event/edit";
+    }
+
+    @PostMapping("/events/{id}/edit")
+    public String update(@PathVariable("id") Long id, @Valid @ModelAttribute("event") EventDto event, BindingResult res, RedirectAttributes flashMessage, Model model){
+
+        String success = "Update successfully";
+
+        if(res.hasErrors()){
+
+            model.addAttribute("event", event);
+
+            return "/event/edit";
+        }
+
+        try{
+
+            EventDto eventDto = eventService.findByEventId(id);
+            eventDto.setId(id);
+            eventDto.setClub(eventDto.getClub());
+
+            eventService.updateEvent(event);
+
+            flashMessage.addFlashAttribute("success", success);
+
+            return "redirect:/events";
+
+        }catch (Exception error){
+
+            flashMessage.addFlashAttribute("failed", error);
+
+            return "redirect:/events";
+        }
+
+    }
+
+
+    @GetMapping("events/{id}/delete")
+    public String delete(@PathVariable("id") Long id, RedirectAttributes flashMessage){
+
+        String success = "Delete successfully";
+
+        try{
+
+            eventService.deleteEvent(id);
+
+            flashMessage.addFlashAttribute("success", success);
+
+            return "redirect:/events";
+
+        }catch (Exception error){
+
+            flashMessage.addFlashAttribute("failed", error);
+
+            return "redirect:/events";
         }
 
     }

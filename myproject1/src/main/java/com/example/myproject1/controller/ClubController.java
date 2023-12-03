@@ -103,11 +103,13 @@ public class ClubController {
     }
 
     @PostMapping("/clubs/{id}/edit")
-    public String update(@PathVariable("id") Long id, @Valid @ModelAttribute("club") ClubDto clubDto, BindingResult res, RedirectAttributes flashMessage){
+    public String update(@PathVariable("id") Long id, @Valid @ModelAttribute("club") ClubDto clubDto, BindingResult res, RedirectAttributes flashMessage, Model model){
 
         String success = "Update successfully";
 
         if(res.hasErrors()){
+
+            model.addAttribute("club", clubDto);
 
             return "/club/edit";
         }

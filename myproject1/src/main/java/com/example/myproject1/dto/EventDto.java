@@ -1,5 +1,7 @@
 package com.example.myproject1.dto;
 
+import com.example.myproject1.models.Club;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,15 +20,18 @@ import java.util.List;
 public class EventDto {
 
     Long id;
+    @NotEmpty(message = "Name event title should not be empty!")
     String name;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     LocalDateTime startTime;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     LocalDateTime endTime;
+    @NotEmpty(message = "Type event title should not be empty!")
     String type;
     private String photoUrl;
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
+    private Club club;
 
 
 }

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.example.myproject1.mapper.ClubMapper.mapToClub;
 import static com.example.myproject1.mapper.ClubMapper.mapToClubDto;
 import static com.example.myproject1.mapper.EventMapper.mapToEvent;
 import static com.example.myproject1.mapper.EventMapper.mapToEventDto;
@@ -47,6 +48,28 @@ public class EventServiceImp implements EventService {
         List<Event> events = eventRepository.findAll();
 
         return events.stream().map(event -> mapToEventDto(event)).collect(Collectors.toList());
+    }
+
+    @Override
+    public EventDto findByEventId(Long id) {
+
+        Event event = eventRepository.findById(id).get();
+
+        return mapToEventDto(event);
+    }
+
+    @Override
+    public void deleteEvent(Long id) {
+
+        eventRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateEvent(EventDto eventDto) {
+
+        Event event = mapToEvent(eventDto);
+
+        eventRepository.save(event);
     }
 
 

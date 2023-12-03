@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<body>
+
+<div layout:fragment="content" class="container">
+
+    <div class="table-container" >
+
+        <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${success}">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <strong th:text="${success}"></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${failed}">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <strong th:text="${failed}"></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div class="show-container">
+            <div class="show-container-left">
+
+            </div>
+            <br>
+            <div class="show-container-right">
+                <div>
+                    <b>Event name:</b>
+                    <span th:if="${event.name != null}" th:text="${event.name}"></span>
+                    <br>
+                    <b>Event type:</b>
+                    <span th:if="${event.name != type}" th:text="${event.type}"></span>
+
+                    <form style="padding-top: 20px" method="GET" th:action="@{'/events'}">
+                        <button class="btn btn-success" type="submit">BACK TO LIST</button>
+                    </form>
+                </div>
+                <br>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

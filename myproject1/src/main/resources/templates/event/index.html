@@ -8,6 +8,17 @@
 
 <div layout:fragment="content" class="container">
 
+  <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${success}">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+    <strong th:text="${success}"></strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${failed}">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+    <strong th:text="${failed}"></strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
   <div class="time-line-container" th:if="${not #lists.isEmpty(clubs)}">
     <div class="row">
       <div class="col-md-12">
@@ -17,8 +28,7 @@
               <div class="tab-pane fade active show" id="profile-post">
 
                 <ul class="timeline">
-                  <li th:each="club :${clubs}">
-                    <th:block th:if="${not #lists.isEmpty(club.events)}">
+                  <li th:each="club :${clubs}"  th:if="${not #lists.isEmpty(club.events)}">
                       <div class="timeline-time">
                         <span class="date">today</span>
                         <span class="time" th:text="${formattedTime}"></span>
@@ -40,13 +50,19 @@
                             <img style="margin: 20px" width="30%" th:src="${club.photoUrl}" alt="${club.photoUrl}">
                           </div>
                           <div th:each="event :${club.events}" th:if="${event.id != null}">
-                            <b class="text-danger fs-6" th:text="${'Tin ' + event.type}"></b>
+
+                            <b class="text-danger fs-6" th:text="${'Tin tức ' + event.type}"></b>
                             <br>
                             <div class="event-name">
                               <span th:text="${event.name}"></span>
                             </div>
                             <div class="event-name">
-                              <a href="">edit</a>
+                              <a th:href="@{/events/{id}/edit(id=${event.id})}">edit</a>
+                              <a th:href="@{'/events/' + ${event.id}}">view</a>
+                              <a th:href="@{events/{id}/delete(id=${event.id})}"
+                                 th:attr="onclick='alert(\'Delete event item: ' + ${event.id} + '\')'" >
+                                delete
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -56,7 +72,6 @@
                           <a href="javascript:;" class="m-r-15 text-inverse-lighter">Share</a>
                         </div>
                       </div>
-                    </th:block>
                   </li>
                 </ul>
 
