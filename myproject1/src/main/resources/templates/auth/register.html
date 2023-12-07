@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<body>
+
+<div layout:fragment="content" class="container">
+
+  <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${param.success}">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+    <strong>You are registered successfully.</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${param.fail}">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+    <strong>Username or email alrealy exists!</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <div class="form-register">
+    <form role="form" method="POST" th:action="@{/register/save}" th:object="${user}">
+      <div class="mb-3">
+        <label for="username" class="col-form-label">Username:</label>
+        <input type="text" class="form-control" th:field="*{username}" name="title" id="username">
+        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></p>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="col-form-label">Email:</label>
+        <input type="text" class="form-control" th:field="*{email}" name="email" id="email">
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></p>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="col-form-label">Password:</label>
+        <input type="text" class="form-control" th:field="*{password}" name="password" id="password">
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></p>
+      </div>
+      <div class="modal-footer">
+        <button th:href="@{/login}" type="submit" class="btn btn-primary">Login</button>
+        <button th:href="@{/register}" type="submit" class="btn btn-primary">Register</button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+
+</body>
+</html>

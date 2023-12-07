@@ -1,7 +1,5 @@
 package com.example.myproject1.models;
 
-import jakarta.validation.constraints.NotEmpty;
-
 import java.io.Serial;
 import java.io.Serializable;
 

@@ -2,7 +2,6 @@ package com.example.myproject1.controller;
 
 import com.example.myproject1.dto.ClubDto;
 import com.example.myproject1.models.Club;
-import jakarta.validation.Valid;
 import org.springframework.ui.Model;
 import com.example.myproject1.service.ClubService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller

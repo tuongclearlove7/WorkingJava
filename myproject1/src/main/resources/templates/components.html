@@ -50,8 +50,11 @@
         <button id="btn-search" type="submit" class="btn btn-primary">Search</button>
       </form>
       <div class="text-end">
+        <a th:href="@{/login}" class="btn btn-primary">Login</a>
+        <a th:href="@{/register}" class="btn btn-primary">Register</a>
+        <a th:href="@{/logout}" class="btn btn-primary">Logout</a>
         <form th:action="@{/destroy}" method="POST">
-          <button type="submit" class="btn btn-primary">Logout</button>
+          <button type="submit" class="btn btn-primary">Destroy</button>
         </form>
       </div>
     </div>

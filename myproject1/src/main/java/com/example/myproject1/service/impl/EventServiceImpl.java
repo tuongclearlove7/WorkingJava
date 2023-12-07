@@ -1,6 +1,5 @@
 package com.example.myproject1.service.impl;
 
-import com.example.myproject1.dto.ClubDto;
 import com.example.myproject1.dto.EventDto;
 import com.example.myproject1.models.Club;
 import com.example.myproject1.models.Event;
@@ -13,20 +12,18 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.example.myproject1.mapper.ClubMapper.mapToClub;
-import static com.example.myproject1.mapper.ClubMapper.mapToClubDto;
 import static com.example.myproject1.mapper.EventMapper.mapToEvent;
 import static com.example.myproject1.mapper.EventMapper.mapToEventDto;
 
 @Service
-public class EventServiceImp implements EventService {
+public class EventServiceImpl implements EventService {
 
     private EventRepository eventRepository;
     private ClubRepository clubRepository;
 
 
     @Autowired
-    public EventServiceImp(EventRepository eventRepository, ClubRepository clubRepository) {
+    public EventServiceImpl(EventRepository eventRepository, ClubRepository clubRepository) {
         this.eventRepository = eventRepository;
         this.clubRepository = clubRepository;
     }
