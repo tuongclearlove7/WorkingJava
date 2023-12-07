@@ -7,10 +7,10 @@ import lombok.Data;
 public class RegistrationDto {
 
     private Long id;
-    @NotEmpty
+    @NotEmpty(message = "Username should not be empty!")
     private String username;
-    @NotEmpty
+    @NotEmpty(message = "Email should not be empty!")
     private String email;
-    @NotEmpty
+    @NotEmpty(message = "Password should not be empty!")
     private String password;
 }

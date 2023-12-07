@@ -48,14 +48,14 @@ public class AuthController {
         if(existingUserEmail != null && existingUserEmail.getEmail() != null
                 && !existingUserEmail.getEmail().isEmpty()){
 
-//            res.rejectValue("email", "There is alread a user with this email/username");
+            //res.rejectValue("email", "There is alread a user with this email/username");
             return "redirect:/register?fail";
         }
 
         if(existingUserUsername != null && existingUserUsername.getUsername() != null
                 && !existingUserUsername.getUsername().isEmpty()){
 
-//            res.rejectValue("username", "There is alread a user with this email/username");
+            //res.rejectValue("username", "There is alread a user with this email/username");
             return "redirect:/register?fail";
         }
 
