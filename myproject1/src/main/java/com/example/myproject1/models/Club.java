@@ -25,16 +25,21 @@ public class Club {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
     private String title;
     private String photoUrl;
     private String content;
+
     @CreationTimestamp
     private LocalDateTime createdOn;
+
     @UpdateTimestamp
     private LocalDateTime updatedOn;
 
+    @ManyToOne
+    @JoinColumn(name = "createdBy", nullable = false)
+    private UserEntity createdBy;
+
     @OneToMany(mappedBy = "club", cascade = CascadeType.REMOVE)
-    private  List<Event> events = new ArrayList<>();
+    private List<Event> events = new ArrayList<>();
 }

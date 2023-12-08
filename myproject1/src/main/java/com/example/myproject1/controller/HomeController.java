@@ -5,6 +5,8 @@ import com.example.myproject1.dto.EventDto;
 import com.example.myproject1.models.Club;
 import com.example.myproject1.models.Post;
 import com.example.myproject1.models.Reuse;
+import com.example.myproject1.models.UserEntity;
+import com.example.myproject1.security.SecurityUtil;
 import com.example.myproject1.service.ClubService;
 import com.example.myproject1.service.EventService;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
@@ -46,6 +48,7 @@ public class HomeController {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         String formattedTime = currentTime.format(formatter);
         List<Reuse> reuses = new ArrayList<>();
+        String username = SecurityUtil.getSessionUser();
 
         reuses.add(new Reuse(
                 "CLUB","/clubs","List club","",""
@@ -55,6 +58,7 @@ public class HomeController {
         ));
 
         System.out.println("Number of reuses: " + reuses.size());
+        System.out.println(username);
 
         model.addAttribute("clubs", clubs);
         model.addAttribute("events", events);

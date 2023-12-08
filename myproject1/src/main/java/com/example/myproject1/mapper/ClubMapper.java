@@ -11,26 +11,30 @@ public class ClubMapper {
 
     public static Club mapToClub(ClubDto club) {
 
-        Club clubDto = Club
-                .builder()
+        return Club.builder()
                 .id(club.getId())
                 .title(club.getTitle())
                 .photoUrl(club.getPhotoUrl())
                 .content(club.getContent())
+                .createdBy(club.getCreatedBy())
                 .createdOn(club.getCreatedOn())
                 .updatedOn(club.getUpdatedOn())
                 .build();
-
-        return clubDto;
     }
 
-    public static ClubDto mapToClubDto(Club club){
+    public static ClubDto mapToClubDto(Club club) {
 
-        ClubDto clubDto = ClubDto.builder().id(club.getId()).title(club.getTitle()).photoUrl(club.getPhotoUrl())
-                .content(club.getContent()).createdOn(club.getCreatedOn()).updatedOn(club.getUpdatedOn())
-                .events(club.getEvents().stream().map( (event)->mapToEventDto(event) ).collect(Collectors.toList()))
+        return ClubDto.builder()
+                .id(club.getId())
+                .title(club.getTitle())
+                .photoUrl(club.getPhotoUrl())
+                .content(club.getContent())
+                .createdBy(club.getCreatedBy())
+                .createdOn(club.getCreatedOn())
+                .updatedOn(club.getUpdatedOn())
+                .events(club.getEvents().stream()
+                .map(EventMapper::mapToEventDto)
+                .collect(Collectors.toList()))
                 .build();
-
-        return clubDto;
     }
 }
