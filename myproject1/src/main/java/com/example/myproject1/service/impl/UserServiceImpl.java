@@ -19,8 +19,8 @@ import static com.example.myproject1.mapper.ClubMapper.mapToClubDto;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
-    private RoleRepository roleRepository;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
 
     PasswordEncoder passwordEncoder;
 

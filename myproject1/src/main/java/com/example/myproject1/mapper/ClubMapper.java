@@ -33,7 +33,7 @@ public class ClubMapper {
                 .createdOn(club.getCreatedOn())
                 .updatedOn(club.getUpdatedOn())
                 .events(club.getEvents().stream()
-                .map(EventMapper::mapToEventDto)
+                .map((event) -> mapToEventDto(event))
                 .collect(Collectors.toList()))
                 .build();
     }

@@ -9,6 +9,7 @@ import com.example.myproject1.models.UserEntity;
 import com.example.myproject1.security.SecurityUtil;
 import com.example.myproject1.service.ClubService;
 import com.example.myproject1.service.EventService;
+import com.example.myproject1.service.UserService;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,22 +25,25 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class HomeController {
 
     private EventService eventService;
     private ClubService clubService;
+    private UserService userService;
 
     @Autowired
-    public HomeController(EventService eventService, ClubService clubService) {
+    public HomeController(EventService eventService, ClubService clubService, UserService userService) {
+
         this.eventService = eventService;
         this.clubService = clubService;
+        this.userService = userService;
     }
 
     @GetMapping(value = {"/", "home"})
     public String index(Model model, HttpSession session){
-        @SuppressWarnings("unchecked")
 
         long view = 10103234;
         List<EventDto> events = eventService.findAllEvents();
@@ -47,29 +51,28 @@ public class HomeController {
         LocalTime currentTime = LocalTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         String formattedTime = currentTime.format(formatter);
-        List<Reuse> reuses = new ArrayList<>();
-        String username = SecurityUtil.getSessionUser();
+        UserEntity user = new UserEntity();
+        String email = SecurityUtil.getSessionUser();
 
-        reuses.add(new Reuse(
-                "CLUB","/clubs","List club","",""
-        ));
-        reuses.add(new Reuse(
-                "EVENT","/events","List event","",""
-        ));
+        System.out.println("Guest");
 
-        System.out.println("Number of reuses: " + reuses.size());
-        System.out.println(username);
+        if(email != null){
 
-        model.addAttribute("clubs", clubs);
-        model.addAttribute("events", events);
-        model.addAttribute("admin", "ADMIN");
-        model.addAttribute("view", view + " Views");
-        model.addAttribute("formattedTime", formattedTime);
+            user = userService.findByEmail(email);
+            System.out.println(email);
 
-        return "event/index";
+            model.addAttribute("user", user);
+            model.addAttribute("clubs", clubs);
+            model.addAttribute("events", events);
+            model.addAttribute("email", email);
+            model.addAttribute("view", view + " Views");
+            model.addAttribute("formattedTime", formattedTime);
+
+            return "event/index";
+
+        }else{
+
+            return "redirect:/login";
+        }
     }
-
-
-
-
 }

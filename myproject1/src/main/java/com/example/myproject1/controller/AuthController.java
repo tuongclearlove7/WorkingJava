@@ -20,6 +20,7 @@ public class AuthController {
 
     @Autowired
     public AuthController(UserService userService) {
+
         this.userService = userService;
     }
 

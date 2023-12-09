@@ -13,9 +13,16 @@
     <strong th:text="${success}"></strong>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
+
   <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${failed}">
     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
     <strong th:text="${failed}"></strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${notPermission}">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+    <strong th:text="${notPermission}"></strong>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 
@@ -28,7 +35,7 @@
               <div class="tab-pane fade active show" id="profile-post">
 
                 <ul class="timeline">
-                  <li th:each="club :${clubs}"  th:if="${not #lists.isEmpty(club.events)}">
+                  <li th:each="club, I : ${clubs}"  th:if="${not #lists.isEmpty(club.events)}">
                       <div class="timeline-time">
                         <span class="date">today</span>
                         <span class="time" th:text="${formattedTime}"></span>
@@ -41,31 +48,34 @@
                           <span class="userimage">
                               <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt>
                           </span>
-                          <span class="username" th:text="${admin}"></span>
-                          <span class="pull-right text-muted"></span>
+                          <span class="username" th:text="${email}"></span>
+                          <span class="pull-right text-muted" th:text="${'Post ' + (I.index+1)}"></span>
                         </div>
                         <div class="timeline-content">
                           <span class="fs-5" th:text="${club.title}"></span>
                           <div class="timeline-content-img">
                             <img style="margin: 20px" width="30%" th:src="${club.photoUrl}" alt="${club.photoUrl}">
                           </div>
-                          <div th:each="event :${club.events}" th:if="${event.id != null}">
 
+                          <div class="component-content-event" th:each="event :${club.events}" th:if="${event.id != null}">
                             <b class="text-danger fs-6" th:text="${'Tin tức ' + event.type}"></b>
                             <br>
                             <div class="event-name">
                               <span th:text="${event.name}"></span>
                             </div>
-                            <div class="event-name">
-                              <a th:href="@{/events/{id}/edit(id=${event.id})}">edit</a>
+                            <span id="view-event">
                               <a th:href="@{'/events/' + ${event.id}}">view</a>
+                            </span>
+                            <span class="event-name" th:if="${user.id} == ${club.createdBy.id}">
+                              <a th:href="@{/events/{id}/edit(id=${event.id})}">edit</a>
                               <a th:href="@{events/{id}/delete(id=${event.id})}"
                                  th:attr="onclick='alert(\'Delete event item: ' + ${event.id} + '\')'" >
                                 delete
                               </a>
-                            </div>
+                            </span>
                           </div>
                         </div>
+
                         <div class="timeline-footer">
                           <a href="javascript:;" class="m-r-15 text-inverse-lighter">Like</a>
                           <a href="javascript:;" class="m-r-15 text-inverse-lighter">Comment</a>

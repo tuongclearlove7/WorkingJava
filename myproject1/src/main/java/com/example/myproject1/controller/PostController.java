@@ -3,6 +3,7 @@ package com.example.myproject1.controller;
 import com.example.myproject1.dto.ClubDto;
 import com.example.myproject1.dto.EventDto;
 import com.example.myproject1.models.Post;
+import com.example.myproject1.security.SecurityUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,14 +31,15 @@ public class PostController {
         LocalTime currentTime = LocalTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         String formattedTime = currentTime.format(formatter);
+        String email = SecurityUtil.getSessionUser();
+        String guest = "Guest";
 
-        if (posts == null) {
+        if(email != null) guest = email;
 
-            posts = new ArrayList<>();
-        }
+        if (posts == null) posts = new ArrayList<>();
 
         model.addAttribute("posts", posts);
-        model.addAttribute("admin", "ADMIN");
+        model.addAttribute("guest", guest);
         model.addAttribute("view", view + " Views");
         model.addAttribute("formattedTime", formattedTime);
 

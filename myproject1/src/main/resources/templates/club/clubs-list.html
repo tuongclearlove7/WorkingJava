@@ -42,17 +42,23 @@
                             </form>
                         </td>
                         <td>
-                            <a class="btn btn-primary" th:href="@{'/events/create/' + ${club.id}}" >Create event</a>
+                            <div th:if="${user.id} == ${club.createdBy.id}">
+                                <a class="btn btn-primary" th:href="@{'/events/create/' + ${club.id}}" >Create event</a>
+                            </div>
                         </td>
                         <td>
-                            <form method="GET" th:action="@{/clubs/{id}/edit(id=${club.id})}">
-                                <button class="btn btn-primary" type="submit">EDIT</button>
-                            </form>
+                            <div th:if="${user.id} == ${club.createdBy.id}">
+                                <form method="GET" th:action="@{/clubs/{id}/edit(id=${club.id})}">
+                                    <button class="btn btn-primary" type="submit">EDIT</button>
+                                </form>
+                            </div>
                         </td>
                         <td>
-                            <form role="form" method="GET" th:action="@{clubs/{id}/delete(id=${club.id})}" >
-                                <button class="btn btn-danger" type="submit" th:attr="onclick='alert(\'Delete item: ' + ${club.id} + '\')'" >DELETE</button>
-                            </form>
+                            <div th:if="${user.id} == ${club.createdBy.id}">
+                                <form role="form" method="GET" th:action="@{clubs/{id}/delete(id=${club.id})}" >
+                                    <button class="btn btn-danger" type="submit" th:attr="onclick='alert(\'Delete item: ' + ${club.id} + '\')'" >DELETE</button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 </tbody>

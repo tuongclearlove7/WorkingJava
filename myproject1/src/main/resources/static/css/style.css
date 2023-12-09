@@ -149,6 +149,11 @@
 
 }
 
+.component-content-event{
+
+    padding-top: 15px;
+}
+
 @media (max-width: 1000px){
 
     #btn-search{

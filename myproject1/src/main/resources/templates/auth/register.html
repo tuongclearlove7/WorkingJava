@@ -37,7 +37,6 @@
         <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></p>
       </div>
       <div class="modal-footer">
-        <button th:href="@{/login}" type="submit" class="btn btn-primary">Login</button>
         <button th:href="@{/register}" type="submit" class="btn btn-primary">Register</button>
       </div>
 

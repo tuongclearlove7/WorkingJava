@@ -1,6 +1,7 @@
 package com.example.myproject1.service.impl;
 
 import com.example.myproject1.dto.EventDto;
+import com.example.myproject1.mapper.EventMapper;
 import com.example.myproject1.models.Club;
 import com.example.myproject1.models.Event;
 import com.example.myproject1.repository.ClubRepository;
@@ -18,8 +19,8 @@ import static com.example.myproject1.mapper.EventMapper.mapToEventDto;
 @Service
 public class EventServiceImpl implements EventService {
 
-    private EventRepository eventRepository;
-    private ClubRepository clubRepository;
+    private final EventRepository eventRepository;
+    private final ClubRepository clubRepository;
 
 
     @Autowired
@@ -44,7 +45,7 @@ public class EventServiceImpl implements EventService {
 
         List<Event> events = eventRepository.findAll();
 
-        return events.stream().map(event -> mapToEventDto(event)).collect(Collectors.toList());
+        return events.stream().map(EventMapper::mapToEventDto).collect(Collectors.toList());
     }
 
     @Override

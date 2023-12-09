@@ -2,6 +2,10 @@ package com.example.myproject1.controller;
 
 import com.example.myproject1.dto.ClubDto;
 import com.example.myproject1.models.Club;
+import com.example.myproject1.models.Event;
+import com.example.myproject1.models.UserEntity;
+import com.example.myproject1.security.SecurityUtil;
+import com.example.myproject1.service.UserService;
 import org.springframework.ui.Model;
 import com.example.myproject1.service.ClubService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,23 +16,35 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class ClubController {
 
     private ClubService clubService;
+    private UserService userService;
 
     @Autowired
-    public ClubController(ClubService clubService) {
+    public ClubController(ClubService clubService, UserService userService) {
 
         this.clubService = clubService;
+        this.userService = userService;
     }
 
     @GetMapping("/clubs")
     public String index(Model model){
 
+        UserEntity user = new UserEntity();
         List<ClubDto> clubs = clubService.findAllClubs();
+        String email = SecurityUtil.getSessionUser();
 
+        if(email != null){
+
+            user = userService.findByEmail(email);
+            model.addAttribute("user", user);
+        }
+
+        model.addAttribute("user", user);
         model.addAttribute("clubs", clubs);
 
         return "club/clubs-list";
@@ -47,8 +63,17 @@ public class ClubController {
     @GetMapping("/clubs/{id}")
     public String show(@PathVariable("id") Long id, Model model){
 
+        UserEntity user = new UserEntity();
         ClubDto clubDto = clubService.findClubById(id);
+        String email = SecurityUtil.getSessionUser();
 
+        if(email != null){
+
+            user = userService.findByEmail(email);
+            model.addAttribute("user", user);
+        }
+
+        model.addAttribute("user", user);
         model.addAttribute("club", clubDto);
 
         return "club/show";
@@ -57,11 +82,27 @@ public class ClubController {
     @GetMapping("/clubs/create")
     public String create(Model model){
 
-        Club club = new Club();
+        UserEntity user = new UserEntity();
+        List<ClubDto> clubs = clubService.findAllClubs();
+        String email = SecurityUtil.getSessionUser();
 
-        model.addAttribute("club", club);
+        if(email != null){
 
-        return "club/create";
+            user = userService.findByEmail(email);
+
+            for (ClubDto clubItem : clubs) {
+
+                if (Objects.equals(user.getId(), clubItem.getCreatedBy().getId())) {
+
+                    Club club = new Club();
+                    model.addAttribute("club", club);
+
+                    return "club/create";
+                }
+            }
+        }
+
+        return "redirect:/home";
     }
 
     @PostMapping("/clubs/store")
@@ -95,11 +136,27 @@ public class ClubController {
     @GetMapping("/clubs/{id}/edit")
     public String edit(@PathVariable("id") Long id, Model model){
 
-        ClubDto clubDto = clubService.findClubById(id);
+        UserEntity user = new UserEntity();
+        List<ClubDto> clubs = clubService.findAllClubs();
+        String email = SecurityUtil.getSessionUser();
 
-        model.addAttribute("club", clubDto);
+        if(email != null){
 
-        return "/club/edit";
+            user = userService.findByEmail(email);
+
+            for (ClubDto club : clubs) {
+
+                if (Objects.equals(user.getId(), club.getCreatedBy().getId())) {
+
+                    ClubDto clubDto = clubService.findClubById(id);
+                    model.addAttribute("club", clubDto);
+
+                    return "/club/edit";
+                }
+            }
+        }
+
+        return "redirect:/home";
     }
 
     @PostMapping("/clubs/{id}/edit")
@@ -137,14 +194,33 @@ public class ClubController {
     public String delete(@PathVariable("id") Long id, RedirectAttributes flashMessage){
 
         String success = "Delete successfully";
+        UserEntity user = new UserEntity();
+        List<ClubDto> clubs = clubService.findAllClubs();
+        String email = SecurityUtil.getSessionUser();
 
         try{
 
-            clubService.deleteClub(id);
+            if(email != null){
 
-            flashMessage.addFlashAttribute("success", success);
+                user = userService.findByEmail(email);
 
-            return "redirect:/clubs";
+                for (ClubDto club : clubs) {
+
+                    if (Objects.equals(user.getId(), club.getCreatedBy().getId())) {
+
+                        clubService.deleteClub(id);
+                        flashMessage.addFlashAttribute("success", success);
+
+                        return "redirect:/clubs";
+
+                    }else{
+
+                        flashMessage.addFlashAttribute("notPermission", "You are not permission!");
+                    }
+                }
+            }
+
+            return "redirect:/home";
 
         }catch (Exception error){
 

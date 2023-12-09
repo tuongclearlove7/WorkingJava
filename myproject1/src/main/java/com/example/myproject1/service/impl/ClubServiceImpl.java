@@ -1,6 +1,7 @@
 package com.example.myproject1.service.impl;
 
 import com.example.myproject1.dto.ClubDto;
+import com.example.myproject1.mapper.ClubMapper;
 import com.example.myproject1.models.Club;
 import com.example.myproject1.models.UserEntity;
 import com.example.myproject1.repository.ClubRepository;
@@ -21,7 +22,7 @@ import static com.example.myproject1.mapper.ClubMapper.mapToClubDto;
 @Service
 public class ClubServiceImpl implements ClubService {
 
-    private ClubRepository clubRepository;
+    private final ClubRepository clubRepository;
     UserRepository userRepository;
 
     @Autowired
@@ -33,8 +34,9 @@ public class ClubServiceImpl implements ClubService {
 
     @Override
     public List<ClubDto> findAllClubs() {
+
         List<Club> clubs = clubRepository.findAll();
-        return clubs.stream().map((club) -> mapToClubDto(club)).collect(Collectors.toList());
+        return clubs.stream().map(ClubMapper::mapToClubDto).collect(Collectors.toList());
     }
 
     @Override
@@ -63,6 +65,7 @@ public class ClubServiceImpl implements ClubService {
     public ClubDto findClubById(Long clubId) {
 
         Club club = clubRepository.findById(clubId).get();
+
         return mapToClubDto(club);
     }
 
