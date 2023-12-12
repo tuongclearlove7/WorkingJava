@@ -24,7 +24,7 @@ public class ClubMapper {
 
     public static ClubDto mapToClubDto(Club club) {
 
-        return ClubDto.builder()
+        ClubDto clubDto = ClubDto.builder()
                 .id(club.getId())
                 .title(club.getTitle())
                 .photoUrl(club.getPhotoUrl())
@@ -36,5 +36,16 @@ public class ClubMapper {
                 .map((event) -> mapToEventDto(event))
                 .collect(Collectors.toList()))
                 .build();
+
+        if (clubDto != null) {
+
+            return clubDto;
+
+        }else{
+
+            System.out.println("" + null);
+
+            return null;
+        }
     }
 }

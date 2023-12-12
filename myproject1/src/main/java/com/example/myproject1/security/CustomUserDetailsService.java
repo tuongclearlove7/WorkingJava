@@ -24,19 +24,24 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
         UserEntity user = userRepository.findFirstByUsername(username);
+
         if(user != null) {
 
             return new User(
+
                     user.getEmail(),
                     user.getPassword(),
-                    user.getRoles().stream().map((role) -> new SimpleGrantedAuthority(role.getName()))
+                    user.getRoles()
+                    .stream().map((role) -> new SimpleGrantedAuthority(role
+                    .getName()))
                     .collect(Collectors.toList())
             );
 
         } else {
 
-            throw new UsernameNotFoundException("Invalid username or password");
+            throw new UsernameNotFoundException("Invalid username or password!");
         }
     }
 

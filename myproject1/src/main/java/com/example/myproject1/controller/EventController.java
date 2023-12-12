@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -42,7 +43,7 @@ public class EventController {
     }
 
     @GetMapping(value = { "/events"})
-    public String index(Model model){
+    public String index(Model model, Principal principal){
 
         String email = SecurityUtil.getSessionUser();
         List<EventDto> events = eventService.findAllEvents();
@@ -55,23 +56,24 @@ public class EventController {
 
         System.out.println("Guest");
 
-        if(email != null){
+        if(principal != null){
 
-            user = userService.findByEmail(email);
-            model.addAttribute("user", user);
-            model.addAttribute("clubs", clubs);
-            model.addAttribute("events", events);
-            model.addAttribute("admin", "ADMIN");
-            model.addAttribute("view", view + " Views");
-            model.addAttribute("formattedTime", formattedTime);
-            System.out.println("events");
+            if(email != null){
 
-            return "/event/index";
+                user = userService.findByEmail(email);
+                model.addAttribute("user", user);
+                model.addAttribute("clubs", clubs);
+                model.addAttribute("events", events);
+                model.addAttribute("admin", "ADMIN");
+                model.addAttribute("view", view + " Views");
+                model.addAttribute("formattedTime", formattedTime);
+                System.out.println("events");
 
-        }else{
-
-            return "redirect:/login";
+                return "/event/index";
+            }
         }
+
+        return "redirect:/login";
     }
 
     @GetMapping(value = {"/events/{id}"})
@@ -86,25 +88,28 @@ public class EventController {
 
 
     @GetMapping("/events/create/{clubId}")
-    public String create(@PathVariable("clubId") Long clubId, Model model){
+    public String create(@PathVariable("clubId") Long clubId, Model model, Principal principal){
 
         UserEntity user = new UserEntity();
         List<ClubDto> clubs = clubService.findAllClubs();
         String email = SecurityUtil.getSessionUser();
 
-        if(email != null){
+        if(principal != null){
 
-            user = userService.findByEmail(email);
+            if(email != null){
 
-            for (ClubDto club : clubs) {
+                user = userService.findByEmail(email);
 
-                if (Objects.equals(user.getId(), club.getCreatedBy().getId())) {
+                for (ClubDto club : clubs) {
 
-                    Event event = new Event();
-                    model.addAttribute("clubId", clubId);
-                    model.addAttribute("event", event);
+                    if (Objects.equals(user.getId(), club.getCreatedBy().getId())) {
 
-                    return "event/create";
+                        Event event = new Event();
+                        model.addAttribute("clubId", clubId);
+                        model.addAttribute("event", event);
+
+                        return "event/create";
+                    }
                 }
             }
         }
@@ -141,24 +146,27 @@ public class EventController {
     }
 
     @GetMapping("/events/{id}/edit")
-    public String edit(@PathVariable("id") Long id, Model model){
+    public String edit(@PathVariable("id") Long id, Model model, Principal principal){
 
         UserEntity user = new UserEntity();
         List<ClubDto> clubs = clubService.findAllClubs();
         String email = SecurityUtil.getSessionUser();
 
-        if(email != null){
+        if(principal != null){
 
-            user = userService.findByEmail(email);
+            if(email != null){
 
-            for (ClubDto club : clubs) {
+                user = userService.findByEmail(email);
 
-                if (Objects.equals(user.getId(), club.getCreatedBy().getId())) {
+                for (ClubDto club : clubs) {
 
-                    EventDto eventDto = eventService.findByEventId(id);
-                    model.addAttribute("event", eventDto);
+                    if (Objects.equals(user.getId(), club.getCreatedBy().getId())) {
 
-                    return "/event/edit";
+                        EventDto eventDto = eventService.findByEventId(id);
+                        model.addAttribute("event", eventDto);
+
+                        return "/event/edit";
+                    }
                 }
             }
         }
@@ -194,12 +202,11 @@ public class EventController {
 
             return "redirect:/events";
         }
-
     }
 
 
     @GetMapping("events/{id}/delete")
-    public String delete(@PathVariable("id") Long id, RedirectAttributes flashMessage){
+    public String delete(@PathVariable("id") Long id, RedirectAttributes flashMessage, Principal principal){
 
         String success = "Delete successfully";
 
@@ -209,22 +216,25 @@ public class EventController {
             List<ClubDto> clubs = clubService.findAllClubs();
             String email = SecurityUtil.getSessionUser();
 
-            if(email != null){
+            if(principal != null){
 
-                user = userService.findByEmail(email);
+                if(email != null){
 
-                for (ClubDto club : clubs) {
+                    user = userService.findByEmail(email);
 
-                    if (Objects.equals(user.getId(), club.getCreatedBy().getId())) {
+                    for (ClubDto club : clubs) {
 
-                        eventService.deleteEvent(id);
-                        flashMessage.addFlashAttribute("success", success);
+                        if (Objects.equals(user.getId(), club.getCreatedBy().getId())) {
 
-                        return "redirect:/events";
+                            eventService.deleteEvent(id);
+                            flashMessage.addFlashAttribute("success", success);
 
-                    }else{
+                            return "redirect:/events";
 
-                        flashMessage.addFlashAttribute("notPermission", "You are not permission!");
+                        }else{
+
+                            flashMessage.addFlashAttribute("notPermission", "You are not permission!");
+                        }
                     }
                 }
             }

@@ -41,19 +41,19 @@
                                 <button class="btn btn-success" type="submit">VIEW</button>
                             </form>
                         </td>
-                        <td>
+                        <td th:if="${user != null}">
                             <div th:if="${user.id} == ${club.createdBy.id}">
                                 <a class="btn btn-primary" th:href="@{'/events/create/' + ${club.id}}" >Create event</a>
                             </div>
                         </td>
-                        <td>
+                        <td th:if="${user != null}">
                             <div th:if="${user.id} == ${club.createdBy.id}">
                                 <form method="GET" th:action="@{/clubs/{id}/edit(id=${club.id})}">
                                     <button class="btn btn-primary" type="submit">EDIT</button>
                                 </form>
                             </div>
                         </td>
-                        <td>
+                        <td th:if="${user != null}">
                             <div th:if="${user.id} == ${club.createdBy.id}">
                                 <form role="form" method="GET" th:action="@{clubs/{id}/delete(id=${club.id})}" >
                                     <button class="btn btn-danger" type="submit" th:attr="onclick='alert(\'Delete item: ' + ${club.id} + '\')'" >DELETE</button>

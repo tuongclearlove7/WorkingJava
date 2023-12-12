@@ -43,7 +43,7 @@ public class HomeController {
     }
 
     @GetMapping(value = {"/", "home"})
-    public String index(Model model, HttpSession session){
+    public String index(Model model, HttpSession session, Principal principal){
 
         long view = 10103234;
         List<EventDto> events = eventService.findAllEvents();
@@ -56,23 +56,24 @@ public class HomeController {
 
         System.out.println("Guest");
 
-        if(email != null){
+        if(principal != null){
 
-            user = userService.findByEmail(email);
-            System.out.println(email);
+            if(email != null){
 
-            model.addAttribute("user", user);
-            model.addAttribute("clubs", clubs);
-            model.addAttribute("events", events);
-            model.addAttribute("email", email);
-            model.addAttribute("view", view + " Views");
-            model.addAttribute("formattedTime", formattedTime);
+                user = userService.findByEmail(email);
+                System.out.println(email);
 
-            return "event/index";
+                model.addAttribute("user", user);
+                model.addAttribute("clubs", clubs);
+                model.addAttribute("events", events);
+                model.addAttribute("email", email);
+                model.addAttribute("view", view + " Views");
+                model.addAttribute("formattedTime", formattedTime);
 
-        }else{
-
-            return "redirect:/login";
+                return "event/index";
+            }
         }
+
+        return "redirect:/login";
     }
 }
