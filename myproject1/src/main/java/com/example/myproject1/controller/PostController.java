@@ -74,6 +74,7 @@ public class PostController {
 
             Post post = new Post(msg, status, image);
             posts.add(post);
+            System.out.println(posts);
             request.getSession().setAttribute("MY_SESSIONS", posts);
             flashMessage.addFlashAttribute("success", "Create successfully");
 

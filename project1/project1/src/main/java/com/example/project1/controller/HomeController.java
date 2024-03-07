@@ -17,11 +17,10 @@ import java.util.List;
  * @author clearlove7
  */
 @Controller
-@RequestMapping(value = "/home")
 
 public class HomeController {
     
-    @GetMapping("/index.html")
+    @GetMapping("/")
     public String index(Model model){
         
 
