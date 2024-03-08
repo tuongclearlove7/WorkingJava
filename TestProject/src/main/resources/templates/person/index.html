@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h2>List person</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+<!--                <th colspan="3">Action</th>-->
+            </tr>
+            </thead>
+            <tbody th:each="person :${persons}" >
+            <tr>
+                <th scope="row" th:text="${person.id}"></th>
+                <td th:text="${person.name}"></td>
+                <td th:text="${person.age}"></td>
+
+            </tr>
+            </tbody>
+        </table>
+        <div><a th:href="@{'/persons/create'}">Create persons</a></div>
+        <!--/*@thymesVar id="success" type="text"*/-->
+        <div th:if="${success}" >
+            <b th:text="${success}"></b>
+        </div>
+        <!--/*@thymesVar id="failed" type="text"*/-->
+        <div th:if="${failed}" >
+            <b th:text="${failed}"></b>
+        </div>
+    </div>
+</body>
+</html>

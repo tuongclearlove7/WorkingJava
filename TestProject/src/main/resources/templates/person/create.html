@@ -8,6 +8,21 @@
 <body>
     <div>
         <h1>Create persons</h1>
+        <form role="form" method="POST" enctype="multipart/form-data" th:action="@{/upload-persons-data-by-display}">
+        <label for="file" class="col-form-label">File:</label>
+            <input type="file" class="form-control"  name="file" id="file">
+            <br>
+            <button type="submit" class="btn btn-primary">POST</button>
+        </form>
+        <div>
+           <a th:href="@{'/persons/'}">Back to persons</a>
+        </div>
+        <!--/*@thymesVar id="isEmpty" type="text"*/-->
+        <div th:if="${isEmpty}" >
+            <b th:text="${isEmpty}"></b>
+        </div>
+
+
     </div>
 </body>
 </html>

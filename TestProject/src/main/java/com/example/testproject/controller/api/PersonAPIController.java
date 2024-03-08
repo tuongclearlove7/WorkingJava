@@ -1,11 +1,9 @@
-package com.example.TestProject.controller;
+package com.example.TestProject.controller.api;
 
 import com.example.TestProject.dto.PersonDto;
 import com.example.TestProject.service.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,12 +16,12 @@ import java.util.Map;
 @RestController
 @AllArgsConstructor
 
-public class PersonController {
+public class PersonAPIController {
 
     private PersonService personService;
 
-    @GetMapping("/persons")
-    public List<PersonDto> getAllPersons() {
+    @GetMapping("/api-persons")
+    public List<PersonDto> getAllApiPersons() {
 
         return personService.findAllPersons();
     }

@@ -40,6 +40,7 @@ public class PersonServiceImpl implements PersonService {
 
             } catch (IOException e) {
 
+                System.out.println("Error save !");
                 throw new IllegalArgumentException(e);
             }
         }
